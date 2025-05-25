@@ -18,10 +18,26 @@ define('UPM_URL', plugin_dir_url(__FILE__));
 require_once UPM_PATH . 'includes/class-upm-activator.php';
 register_activation_hook(__FILE__, ['UPM_Activator', 'activate']);
 
-// Cargar el loader principal
+// Loader principal
 require_once UPM_PATH . 'includes/class-upm-loader.php';
+
+// Shortcodes públicos
 require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-dashboard.php';
 
+// Reemplazar versión cacheada de CSS usando filemtime()
+add_action('wp_enqueue_scripts', function () {
+    if (is_user_logged_in()) {
+        $css_file = UPM_PATH . 'public/css/dashboard.css';
+        if (file_exists($css_file)) {
+            wp_enqueue_style(
+                'upm-dashboard-css',
+                UPM_URL . 'public/css/dashboard.css',
+                [],
+                filemtime($css_file)
+            );
+        }
+    }
+});
 
 // Ejecutar el plugin
 function run_unreal_project_manager() {
