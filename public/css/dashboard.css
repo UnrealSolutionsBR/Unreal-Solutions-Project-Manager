@@ -1,68 +1,36 @@
-.upm-dashboard {
-    font-family: 'Segoe UI', sans-serif;
-    background: #111827;
-    color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.upm-header {
-    background: linear-gradient(to right, #4f46e5, #3b82f6);
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    color: #fff;
-}
-
-.upm-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.upm-card {
-    flex: 1;
-    min-width: 180px;
-    background: #1f2937;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.upm-card h3 {
-    font-size: 28px;
-    margin-bottom: 5px;
-    color: #3b82f6;
-}
+/* === Estilos generales === */
 .upm-wrapper {
     display: flex;
-    min-height: 80vh;
+    min-height: 100vh;
     background-color: #0f172a;
-    border-radius: 10px;
-    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
 }
 
+/* === Sidebar === */
 .upm-sidebar {
     width: 240px;
     background-color: #1e293b;
-    color: #fff;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    border-right: 1px solid #334155;
 }
 
 .upm-brand {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
     text-transform: uppercase;
     color: #3b82f6;
+    margin-bottom: 10px;
 }
 
 .upm-user-info {
     font-size: 14px;
     line-height: 1.4;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 15px;
 }
 
 .upm-menu {
@@ -72,11 +40,12 @@
 }
 
 .upm-menu li {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 8px 0;
+    padding: 10px 12px;
     cursor: pointer;
     border-radius: 6px;
     color: #cbd5e1;
+    transition: background 0.2s ease;
 }
 
 .upm-menu li.active,
@@ -85,9 +54,62 @@
     color: #fff;
 }
 
+/* === Main content === */
 .upm-main {
     flex-grow: 1;
     padding: 40px;
     background-color: #111827;
+}
+
+.upm-header {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
     color: #fff;
+}
+
+.upm-header h2 {
+    margin: 0 0 8px;
+    font-size: 26px;
+}
+
+.upm-header p {
+    margin: 0;
+    font-size: 16px;
+    color: #e0e7ff;
+}
+
+/* === Metric cards === */
+.upm-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.upm-card {
+    flex: 1;
+    min-width: 200px;
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    border: 1px solid #334155;
+}
+
+.upm-card:hover {
+    transform: scale(1.02);
+}
+
+.upm-card h3 {
+    font-size: 28px;
+    margin-bottom: 6px;
+    color: #3b82f6;
+}
+
+.upm-card p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 15px;
 }
