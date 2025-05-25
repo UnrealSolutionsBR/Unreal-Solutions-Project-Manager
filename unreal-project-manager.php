@@ -20,6 +20,8 @@ register_activation_hook(__FILE__, ['UPM_Activator', 'activate']);
 
 // Cargar el loader principal
 require_once UPM_PATH . 'includes/class-upm-loader.php';
+require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-dashboard.php';
+
 
 // Ejecutar el plugin
 function run_unreal_project_manager() {
