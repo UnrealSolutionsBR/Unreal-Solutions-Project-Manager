@@ -81,30 +81,54 @@ class UPM_Shortcode_Dashboard {
                 </div>
 
                 <div class="upm-cards">
-                    <div class="upm-card">
-                        <img src="<?= esc_url(UPM_URL . 'public/icons/active-projects.svg') ?>" class="upm-icon" alt="Active Projects Icon" />
-                        <h3><?= $active_projects ?></h3>
-                        <p>Proyectos activos</p>
-                    </div>
+    <div class="upm-card">
+        <div class="upm-card-inner">
+            <div class="upm-icon-box active-projects">
+                <?= file_get_contents(UPM_PATH . 'public/icons/active-projects.svg'); ?>
+            </div>
+            <div class="upm-card-text">
+                <h3><?= $active_projects ?></h3>
+                <p>Proyectos activos</p>
+            </div>
+        </div>
+    </div>
 
-                    <div class="upm-card">
-                        <img src="<?= esc_url(UPM_URL . 'public/icons/completed-projects.svg') ?>" class="upm-icon" alt="Completed Projects Icon" />
-                        <h3><?= count($projects->posts) ?></h3>
-                        <p>Total de proyectos</p>
-                    </div>
+    <div class="upm-card">
+        <div class="upm-card-inner">
+            <div class="upm-icon-box completed-projects">
+                <?= file_get_contents(UPM_PATH . 'public/icons/completed-projects.svg'); ?>
+            </div>
+            <div class="upm-card-text">
+                <h3><?= count($projects->posts) ?></h3>
+                <p>Total de proyectos</p>
+            </div>
+        </div>
+    </div>
 
-                    <div class="upm-card">
-                        <img src="<?= esc_url(UPM_URL . 'public/icons/support-tickets.svg') ?>" class="upm-icon" alt="Support Tickets Icon" />
-                        <h3><?= $open_tickets ?></h3>
-                        <p>Tickets de soporte</p>
-                    </div>
+    <div class="upm-card">
+        <div class="upm-card-inner">
+            <div class="upm-icon-box support-tickets">
+                <?= file_get_contents(UPM_PATH . 'public/icons/support-tickets.svg'); ?>
+            </div>
+            <div class="upm-card-text">
+                <h3><?= $open_tickets ?></h3>
+                <p>Tickets de soporte</p>
+            </div>
+        </div>
+    </div>
 
-                    <div class="upm-card">
-                        <img src="<?= esc_url(UPM_URL . 'public/icons/pending-invoices.svg') ?>" class="upm-icon" alt="Pending Invoices Icon" />
-                        <h3><?= $pending_invoices ?></h3>
-                        <p>Facturas pendientes</p>
-                    </div>
-                </div>
+    <div class="upm-card">
+        <div class="upm-card-inner">
+            <div class="upm-icon-box milestone">
+                <?= file_get_contents(UPM_PATH . 'public/icons/milestone.svg'); ?>
+            </div>
+            <div class="upm-card-text">
+                <h3><?= $pending_invoices ?></h3>
+                <p>Facturas pendientes</p>
+            </div>
+        </div>
+    </div>
+</div>
             </main>
         </div>
         <?php
