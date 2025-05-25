@@ -1,11 +1,11 @@
-/* Reset base */
+/* === Reset base === */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-/* Forzar layout del wrapper incluso dentro de editores */
+/* === Wrapper principal === */
 .upm-wrapper {
     display: flex !important;
     flex-direction: row !important;
@@ -17,7 +17,7 @@ html, body {
     overflow: hidden;
 }
 
-/* Sidebar */
+/* === Sidebar === */
 .upm-sidebar {
     width: 240px;
     background-color: #1e293b;
@@ -64,7 +64,7 @@ html, body {
     color: #fff;
 }
 
-/* Main area */
+/* === Main === */
 .upm-main {
     flex-grow: 1;
     padding: 40px;
@@ -72,9 +72,9 @@ html, body {
     min-width: 0;
 }
 
-/* Header */
+/* === Header del Dashboard (actualizado) === */
 .upm-header {
-    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    background: linear-gradient(112deg, #4C7CFE 0%, #9233EA 54%);
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -83,16 +83,18 @@ html, body {
 
 .upm-header h2 {
     margin: 0 0 8px;
-    font-size: 26px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
 }
 
 .upm-header p {
     margin: 0;
     font-size: 16px;
-    color: #e0e7ff;
+    color: #dbeafe;
 }
 
-/* Cards */
+/* === Cards === */
 .upm-cards {
     display: flex;
     flex-wrap: wrap;
@@ -124,4 +126,14 @@ html, body {
     margin: 0;
     color: #cbd5e1;
     font-size: 15px;
+}
+
+/* === Iconos === */
+.upm-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
