@@ -34,3 +34,60 @@
     margin-bottom: 5px;
     color: #3b82f6;
 }
+.upm-wrapper {
+    display: flex;
+    min-height: 80vh;
+    background-color: #0f172a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.upm-sidebar {
+    width: 240px;
+    background-color: #1e293b;
+    color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.upm-brand {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #3b82f6;
+}
+
+.upm-user-info {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.upm-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upm-menu li {
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #cbd5e1;
+}
+
+.upm-menu li.active,
+.upm-menu li:hover {
+    background-color: #3b82f6;
+    color: #fff;
+}
+
+.upm-main {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #111827;
+    color: #fff;
+}
