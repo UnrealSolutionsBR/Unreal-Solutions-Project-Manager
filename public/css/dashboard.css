@@ -20,7 +20,7 @@ html, body {
 /* === Sidebar === */
 .upm-sidebar {
     width: 240px;
-    background-color: #1e293b;
+    background-color: #0d0d2b;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ html, body {
 .upm-main {
     flex-grow: 1;
     padding: 40px;
-    background-color: #111827;
+    background-color: #02071a;
     min-width: 0;
 }
 
@@ -103,13 +103,15 @@ html, body {
 
 .upm-card {
     flex: 1;
-    min-width: 200px;
-    background: #1f2937;
+    min-width: 250px;
+    background: #111827;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
     transition: transform 0.2s ease;
     border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .upm-card:hover {
@@ -151,4 +153,43 @@ html, body {
 
 .milestone svg {
     fill: #C084FC;
+}
+.upm-icon-box {
+    background-color: #1F2937;
+    border-radius: 0.5rem;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+.upm-icon-box svg {
+    width: 26px;
+    height: 26px;
+}
+
+.upm-card-text h3 {
+    font-size: 24px;
+    margin: 0 0 4px;
+    color: #3b82f6;
+}
+
+.upm-card-text p {
+    margin: 0;
+    font-size: 15px;
+    color: #cbd5e1;
+}
+.upm-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-start;
+}
+.upm-card-text small {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #94a3b8;
 }

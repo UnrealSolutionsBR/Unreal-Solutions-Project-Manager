@@ -89,6 +89,7 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-text">
                 <h3><?= $active_projects ?></h3>
                 <p>Proyectos activos</p>
+                <small><?= '+'.$active_projects ?> este mes</small>
             </div>
         </div>
     </div>
@@ -101,6 +102,7 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-text">
                 <h3><?= count($projects->posts) ?></h3>
                 <p>Total de proyectos</p>
+                <small>Todos entregados puntualmente</small>
             </div>
         </div>
     </div>
@@ -113,6 +115,7 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-text">
                 <h3><?= $open_tickets ?></h3>
                 <p>Tickets de soporte</p>
+                <small><?= $open_tickets === 1 ? '1 pendiente' : "$open_tickets pendientes" ?></small>
             </div>
         </div>
     </div>
@@ -125,6 +128,7 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-text">
                 <h3><?= $pending_invoices ?></h3>
                 <p>Facturas pendientes</p>
+                <small>Lanzamiento de e-commerce</small> <!--CAMBIAR DESPUES A UN CONTENIDO DINAMICO-->
             </div>
         </div>
     </div>
