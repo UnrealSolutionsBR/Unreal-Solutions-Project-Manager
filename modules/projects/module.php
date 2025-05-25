@@ -16,7 +16,7 @@ class UPM_Module_Projects {
             'add_new_item'       => 'Agregar nuevo proyecto',
             'edit_item'          => 'Editar proyecto',
             'view_item'          => 'Ver proyecto',
-            'all_items'          => 'Todos los proyectos',
+            'all_items'          => 'Proyectos',
             'search_items'       => 'Buscar proyectos',
             'not_found'          => 'No se encontraron proyectos',
             'not_found_in_trash' => 'No hay proyectos en la papelera',

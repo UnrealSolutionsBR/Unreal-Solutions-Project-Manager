@@ -16,7 +16,7 @@ class UPM_Module_Tickets {
             'add_new_item'       => 'Crear nuevo ticket',
             'edit_item'          => 'Editar ticket',
             'view_item'          => 'Ver ticket',
-            'all_items'          => 'Todos los tickets',
+            'all_items'          => 'Tickets',
             'search_items'       => 'Buscar tickets',
             'not_found'          => 'No hay tickets',
         ];

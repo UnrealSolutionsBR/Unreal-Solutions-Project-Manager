@@ -16,7 +16,7 @@ class UPM_Module_Invoices {
             'add_new_item'       => 'Agregar nueva factura',
             'edit_item'          => 'Editar factura',
             'view_item'          => 'Ver factura',
-            'all_items'          => 'Todas las facturas',
+            'all_items'          => 'Facturas',
             'search_items'       => 'Buscar facturas',
             'not_found'          => 'No se encontraron facturas',
         ];
