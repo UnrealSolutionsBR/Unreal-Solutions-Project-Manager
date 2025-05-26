@@ -159,8 +159,8 @@ class UPM_Shortcode_Dashboard {
 </div>
     </div>
     <div class="upm-next-projects">
-    <h2>Start Your Next Project</h2>
-    <p>Choose from our professional services to grow your business</p>
+    <h2>Inicie su próximo proyecto</h2>
+    <p>Seleccione entre nuestros servicios profesionales para hacer crecer su negocio</p>
 
     <div class="upm-services-grid">
         <div class="upm-service-card">
@@ -173,6 +173,7 @@ class UPM_Shortcode_Dashboard {
                 <small>Desde $100,00</small>
             </div>
         </div>
+
         <div class="upm-service-card">
             <div class="upm-service-icon-box hosting">
                 <?= file_get_contents(UPM_PATH . 'public/icons/hosting.svg'); ?>
@@ -183,6 +184,7 @@ class UPM_Shortcode_Dashboard {
                 <small>Desde $5,00 / mes</small>
             </div>
         </div>
+
         <div class="upm-service-card">
             <div class="upm-service-icon-box social-media">
                 <?= file_get_contents(UPM_PATH . 'public/icons/social-media.svg'); ?>
@@ -193,7 +195,9 @@ class UPM_Shortcode_Dashboard {
                 <small>Desde $80,00 / mes</small>
             </div>
         </div>
-    <div class="upm-consultation-btn">
+    </div>
+
+    <div class="upm-consultation-btn" style="margin-top: 20px;">
         <a href="#" class="upm-btn">Schedule Free Consultation</a>
     </div>
 </div>
