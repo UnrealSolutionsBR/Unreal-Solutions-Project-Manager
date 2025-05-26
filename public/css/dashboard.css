@@ -317,6 +317,15 @@ html, body {
 
 .upm-section-header h2 {
     color: var(--upm-text-white);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+.upm-card-block h2 {
+    color: var(--upm-text-white);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
 }
 
 .upm-card-block {
@@ -335,7 +344,10 @@ html, body {
 }
 
 .upm-project-card strong {
-    font-size: 15px;
+    color: var(--upm-text-white);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
 }
 
 .upm-project-card p {
