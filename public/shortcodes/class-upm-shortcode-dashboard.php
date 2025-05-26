@@ -56,6 +56,20 @@ class UPM_Shortcode_Dashboard {
             'posts_per_page' => 1,
         ]);
         
+        $milestone_days  = '--';
+        $milestone_title = 'Sin hitos programados';
+            
+        if (!empty($milestones)) {
+            $milestone = $milestones[0];
+            $milestone_title = $milestone->post_title;
+        
+            $date_str = get_post_meta($milestone->ID, '_upm_milestone_date', true);
+            $date     = new DateTime($date_str);
+            $now      = new DateTime();
+            $interval = $now->diff($date);
+            $milestone_days = $interval->days;
+        }
+
 
         $open_tickets = 0;
         foreach ($tickets as $t) {

@@ -25,7 +25,7 @@ class UPM_Module_Milestones {
             'labels'       => $labels,
             'public'       => false,
             'show_ui'      => true,
-            'show_in_menu' => 'unreal-project-manager',
+            'show_in_menu' => 'upm_dashboard',
             'supports'     => ['title'],
             'menu_icon'    => 'dashicons-flag',
         ];
