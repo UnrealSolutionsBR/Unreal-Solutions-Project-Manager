@@ -164,51 +164,35 @@ class UPM_Shortcode_Dashboard {
 
     <div class="upm-services-grid">
         <div class="upm-service-card">
-            <div class="upm-service-icon" style="background-color: #3B82F6;">🌐</div>
+            <div class="upm-service-icon-box web-development">
+                <?= file_get_contents(UPM_PATH . 'public/icons/web-design.svg'); ?>
+            </div>
             <div class="upm-service-info">
-                <strong>Web Development</strong>
-                <p>Custom websites and web applications</p>
-                <a href="#">Starting at $2,500</a>
+                <h3>Desarrollo web</h3>
+                <p>Sitios web y aplicaciones personalizadas</p>
+                <small>Desde $100,00</small>
             </div>
         </div>
-
         <div class="upm-service-card">
-            <div class="upm-service-icon" style="background-color: #10B981;">📱</div>
+            <div class="upm-service-icon-box hosting">
+                <?= file_get_contents(UPM_PATH . 'public/icons/hosting.svg'); ?>
+            </div>
             <div class="upm-service-info">
-                <strong>Mobile App</strong>
-                <p>iOS and Android applications</p>
-                <a href="#">Starting at $4,000</a>
+                <h3>Hosting</h3>
+                <p>Hosting web y soporte continuo</p>
+                <small>Desde $5,00 / mes</small>
             </div>
         </div>
-
         <div class="upm-service-card">
-            <div class="upm-service-icon" style="background-color: #EC4899;">🔗</div>
+            <div class="upm-service-icon-box social-media">
+                <?= file_get_contents(UPM_PATH . 'public/icons/social-media.svg'); ?>
+            </div>
             <div class="upm-service-info">
-                <strong>Social Media</strong>
-                <p>Content creation and management</p>
-                <a href="#">Starting at $800/month</a>
+                <h3>Gestión de redes sociales</h3>
+                <p>Creación y gestión de contenido</p>
+                <small>Desde $80,00 / mes</small>
             </div>
         </div>
-
-        <div class="upm-service-card">
-            <div class="upm-service-icon" style="background-color: #F97316;">🎨</div>
-            <div class="upm-service-info">
-                <strong>Brand Design</strong>
-                <p>Logo, branding, and visual identity</p>
-                <a href="#">Starting at $1,200</a>
-            </div>
-        </div>
-
-        <div class="upm-service-card">
-            <div class="upm-service-icon" style="background-color: #8B5CF6;">💾</div>
-            <div class="upm-service-info">
-                <strong>Hosting & Maintenance</strong>
-                <p>Website hosting and ongoing support</p>
-                <a href="#">Starting at $50/month</a>
-            </div>
-        </div>
-    </div>
-
     <div class="upm-consultation-btn">
         <a href="#" class="upm-btn">Schedule Free Consultation</a>
     </div>
