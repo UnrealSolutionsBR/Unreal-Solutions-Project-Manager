@@ -45,9 +45,17 @@ class UPM_Module_Milestones {
     }
 
     public static function render_milestone_meta_box($post) {
-        $client_id = get_post_meta($post->ID, '_upm_milestone_client_id', true);
-        $date      = get_post_meta($post->ID, '_upm_milestone_date', true);
-        $customers = get_users(['role' => 'customer']);
+        $client_id  = get_post_meta($post->ID, '_upm_milestone_client_id', true);
+        $project_id = get_post_meta($post->ID, '_upm_milestone_project_id', true);
+        $date       = get_post_meta($post->ID, '_upm_milestone_date', true);
+        $customers  = get_users(['role' => 'customer']);
+
+        // Detectar si viene desde un proyecto
+        if (!$client_id && isset($_GET['upm_project_id'])) {
+            $project_id = (int) $_GET['upm_project_id'];
+            $client_id = get_post_meta($project_id, '_upm_client_id', true);
+        }
+
         ?>
         <p><label><strong>Cliente:</strong></label><br>
             <select name="upm_milestone_client_id" style="width:100%;">
@@ -60,6 +68,10 @@ class UPM_Module_Milestones {
             </select>
         </p>
 
+        <p><label><strong>Proyecto relacionado:</strong></label><br>
+            <input type="number" name="upm_milestone_project_id" value="<?= esc_attr($project_id) ?>" placeholder="ID del proyecto" />
+        </p>
+
         <p><label><strong>Fecha del hito:</strong></label><br>
             <input type="date" name="upm_milestone_date" value="<?= esc_attr($date) ?>" />
         </p>
@@ -70,8 +82,9 @@ class UPM_Module_Milestones {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
         $fields = [
-            'upm_milestone_client_id' => '_upm_milestone_client_id',
-            'upm_milestone_date'      => '_upm_milestone_date',
+            'upm_milestone_client_id'  => '_upm_milestone_client_id',
+            'upm_milestone_project_id' => '_upm_milestone_project_id',
+            'upm_milestone_date'       => '_upm_milestone_date',
         ];
 
         foreach ($fields as $form_field => $meta_key) {

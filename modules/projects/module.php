@@ -3,6 +3,7 @@ class UPM_Module_Projects {
     public static function init() {
         add_action('init', [__CLASS__, 'register_post_type']);
         add_action('add_meta_boxes', [__CLASS__, 'add_project_meta_boxes']);
+        add_action('add_meta_boxes', [__CLASS__, 'add_milestone_meta_box']);
         add_action('save_post_upm_project', [__CLASS__, 'save_project_meta']);
     }
 
@@ -101,5 +102,43 @@ class UPM_Module_Projects {
             }
         }
     }
+
+    public static function add_milestone_meta_box() {
+        add_meta_box(
+            'upm_project_milestones',
+            'Hitos del proyecto',
+            [__CLASS__, 'render_milestone_box'],
+            'upm_project',
+            'normal',
+            'default'
+        );
+    }
+
+    public static function render_milestone_box($post) {
+        $project_id = $post->ID;
+
+        $milestones = get_posts([
+            'post_type'  => 'upm_milestone',
+            'meta_key'   => '_upm_milestone_project_id',
+            'meta_value' => $project_id,
+            'orderby'    => 'meta_value',
+            'order'      => 'ASC',
+            'posts_per_page' => -1,
+        ]);
+
+        echo '<p><a href="' . admin_url('post-new.php?post_type=upm_milestone') . '&upm_project_id=' . $project_id . '" class="button button-primary">Agregar nuevo hito</a></p>';
+
+        if (empty($milestones)) {
+            echo '<p>No hay hitos para este proyecto.</p>';
+        } else {
+            echo '<ul style="padding-left:20px;">';
+            foreach ($milestones as $milestone) {
+                $date = get_post_meta($milestone->ID, '_upm_milestone_date', true);
+                echo '<li><strong>' . esc_html($milestone->post_title) . '</strong> – ' . esc_html($date) . '</li>';
+            }
+            echo '</ul>';
+        }
+    }
 }
+
 UPM_Module_Projects::init();
