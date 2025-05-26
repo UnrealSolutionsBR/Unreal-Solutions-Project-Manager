@@ -81,7 +81,7 @@ class UPM_Shortcode_Dashboard {
                 </div>
 
                 <div class="upm-cards">
-    <div class="upm-card">
+    <div class="upm-card active-projects">
         <div class="upm-card-inner">
             <div class="upm-icon-box active-projects">
                 <?= file_get_contents(UPM_PATH . 'public/icons/active-projects.svg'); ?>
@@ -89,12 +89,12 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-text">
                 <h3><?= $active_projects ?></h3>
                 <p>Proyectos activos</p>
-                <small><?= '+'.$active_projects ?> este mes</small>
+                <small>+<?= $active_projects ?> este mes</small>
             </div>
         </div>
     </div>
 
-    <div class="upm-card">
+    <div class="upm-card completed-projects">
         <div class="upm-card-inner">
             <div class="upm-icon-box completed-projects">
                 <?= file_get_contents(UPM_PATH . 'public/icons/completed-projects.svg'); ?>
@@ -107,7 +107,7 @@ class UPM_Shortcode_Dashboard {
         </div>
     </div>
 
-    <div class="upm-card">
+    <div class="upm-card support-tickets">
         <div class="upm-card-inner">
             <div class="upm-icon-box support-tickets">
                 <?= file_get_contents(UPM_PATH . 'public/icons/support-tickets.svg'); ?>
@@ -120,19 +120,19 @@ class UPM_Shortcode_Dashboard {
         </div>
     </div>
 
-    <div class="upm-card">
+    <div class="upm-card milestone">
         <div class="upm-card-inner">
             <div class="upm-icon-box milestone">
                 <?= file_get_contents(UPM_PATH . 'public/icons/milestone.svg'); ?>
             </div>
             <div class="upm-card-text">
                 <h3><?= $pending_invoices ?></h3>
-                <p>Facturas pendientes</p>
-                <small>Lanzamiento de e-commerce</small> <!--CAMBIAR DESPUES A UN CONTENIDO DINAMICO-->
+                <p>Para el próximo evento</p>
+                <small>Lanzamiento de e-commerce</small>
             </div>
         </div>
     </div>
-</div>
+    </div>
             </main>
         </div>
         <?php

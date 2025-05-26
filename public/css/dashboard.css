@@ -1,3 +1,11 @@
+/* === Variables === */
+:root {
+    --upm-green:   #4ADE80;
+    --upm-blue:    #60A5FA;
+    --upm-yellow:  #FACC15;
+    --upm-purple:  #C084FC;
+}
+
 /* === Reset base === */
 html, body {
     margin: 0;
@@ -72,7 +80,7 @@ html, body {
     min-width: 0;
 }
 
-/* === Header del Dashboard (actualizado) === */
+/* === Header del Dashboard === */
 .upm-header {
     background: linear-gradient(112deg, #4C7CFE 0%, #9233EA 54%);
     padding: 25px;
@@ -118,42 +126,15 @@ html, body {
     transform: scale(1.02);
 }
 
-.upm-card h3 {
-    font-size: 28px;
-    margin-bottom: 6px;
-    color: #3b82f6;
+/* === Card Inner Layout === */
+.upm-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    justify-content: flex-start;
 }
 
-.upm-card p {
-    margin: 0;
-    color: #cbd5e1;
-    font-size: 15px;
-}
-
-/* === Iconos === */
-.upm-icon {
-    width: 26px;
-    height: 26px;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.active-projects svg {
-    fill: #4ADE80;
-}
-
-.completed-projects svg {
-    fill: #60A5FA;
-}
-
-.support-tickets svg {
-    fill: #FACC15;
-}
-
-.milestone svg {
-    fill: #C084FC;
-}
+/* === Icon box === */
 .upm-icon-box {
     background-color: #1F2937;
     border-radius: 0.5rem;
@@ -170,6 +151,7 @@ html, body {
     height: 26px;
 }
 
+/* === Card text === */
 .upm-card-text h3 {
     font-size: 24px;
     margin: 0 0 4px;
@@ -181,15 +163,37 @@ html, body {
     font-size: 15px;
     color: #cbd5e1;
 }
-.upm-card-inner {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-content: flex-start;
-}
+
 .upm-card-text small {
     display: block;
     margin-top: 4px;
     font-size: 13px;
     color: #94a3b8;
+}
+
+/* === Colorización por tipo de tarjeta === */
+.active-projects svg {
+    fill: var(--upm-green);
+}
+.completed-projects svg {
+    fill: var(--upm-blue);
+}
+.support-tickets svg {
+    fill: var(--upm-yellow);
+}
+.milestone svg {
+    fill: var(--upm-purple);
+}
+
+.active-projects .upm-card-text small {
+    color: var(--upm-green);
+}
+.completed-projects .upm-card-text small {
+    color: var(--upm-blue);
+}
+.support-tickets .upm-card-text small {
+    color: var(--upm-yellow);
+}
+.milestone .upm-card-text small {
+    color: var(--upm-purple);
 }
