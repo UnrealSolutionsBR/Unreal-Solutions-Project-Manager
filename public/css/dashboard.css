@@ -300,12 +300,10 @@ html, body {
 }
 .upm-btn.secondary {
     background-color: var(--upm-btn-bg-muted);
-    color: var(--upm-text-white);
 }
 .upm-btn.secondary:hover,
 .upm-btn.secondary:active {
     background-color: var(--upm-muted-hover);
-    color: var(--upm-text-white);
 }
 
 /* === Overview Section === */
