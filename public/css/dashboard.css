@@ -334,7 +334,7 @@
     text-decoration: none;
 }
 .upm-section-header a:hover {
-    color:var(--upm-text-white);
+    color:var(--upm-blue-hover);
 }
 
 .upm-section-header h2 {
