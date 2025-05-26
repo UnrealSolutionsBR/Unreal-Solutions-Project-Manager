@@ -278,6 +278,11 @@
     display: inline-block;
 }
 
+.upm-wrapper a.upm-btn:hover,
+.upm-actions-grid a.upm-btn:hover {
+    color: var(--upm-text-white);
+}
+
 .upm-btn:hover {
     background-color: #2563eb;
 }
