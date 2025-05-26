@@ -156,21 +156,23 @@ html, body {
 }
 
 .upm-card-text h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 700;
     margin: 0 0 4px;
     color: var(--upm-text-white);
 }
 
 .upm-card-text p {
     margin: 0;
-    font-size: 15px;
+    font-size: 1rem;
     color: var(--upm-text-light);
 }
 
 .upm-card-text small {
     display: block;
     margin-top: 4px;
-    font-size: 13px;
+    font-size: 0.875rem;
     color: var(--upm-text-muted);
 }
 
@@ -195,7 +197,9 @@ html, body {
 
 .upm-next-projects h2 {
     margin-top: 0;
-    font-size: 20px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
     margin-bottom: 5px;
     color: var(--upm-text-white);
 }
