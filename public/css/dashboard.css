@@ -259,6 +259,8 @@ html, body {
     color: var(--upm-text-muted);
     display: block;
     margin-top: 4px;
+    font-weight: 500;
+    color: var(--upm-blue);
 }
 
 .upm-consultation-btn {

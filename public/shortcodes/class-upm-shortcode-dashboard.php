@@ -198,7 +198,7 @@ class UPM_Shortcode_Dashboard {
     </div>
 
     <div class="upm-consultation-btn" style="margin-top: 20px;">
-        <a href="#" class="upm-btn">Schedule Free Consultation</a>
+        <a href="#" class="upm-btn">Agendar consultoria</a>
     </div>
 </div>
             </main>
