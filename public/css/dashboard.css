@@ -305,6 +305,9 @@ html, body {
     color: var(--upm-blue);
     text-decoration: none;
 }
+.upm-section-header h2 {
+    color: var(--upm-text-white);
+}
 
 .upm-card-block {
     background: #111827;

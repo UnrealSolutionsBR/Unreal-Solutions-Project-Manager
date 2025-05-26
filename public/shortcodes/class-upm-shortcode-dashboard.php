@@ -260,7 +260,9 @@ class UPM_Shortcode_Dashboard {
                 <a class="upm-btn">Enviar feedback</a>
                 <a class="upm-btn">Ver portafolio</a>
             </div>
+        </div>
 
+        <div class="upm-card-block">
             <h2>Salud del servicio</h2>
             <ul class="upm-service-health">
                 <li><span class="dot online"></span> Entrega de proyectos</li>
