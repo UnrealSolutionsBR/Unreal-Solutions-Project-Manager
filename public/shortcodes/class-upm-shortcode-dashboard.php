@@ -248,10 +248,10 @@ class UPM_Shortcode_Dashboard {
             <div class="upm-card-block">
                 <h2>Acciones rápidas</h2>
                 <div class="upm-actions-grid">
-                    <a class="upm-btn primary">Nuevo ticket de soporte</a>
-                    <a class="upm-btn secondary">Descargar factura</a>
-                    <a class="upm-btn secondary">Enviar feedback</a>
-                    <a class="upm-btn secondary">Ver portafolio</a>
+                    <a class="upm-btn primary" href ="#">Nuevo ticket de soporte</a>
+                    <a class="upm-btn secondary" href ="#">Descargar factura</a>
+                    <a class="upm-btn secondary" href ="#">Enviar feedback</a>
+                    <a class="upm-btn secondary" href ="#">Ver portafolio</a>
                 </div>
             </div>
 
