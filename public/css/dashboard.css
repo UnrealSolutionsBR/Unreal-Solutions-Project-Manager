@@ -11,6 +11,8 @@
     --upm-text-muted: #94a3b8;
     --upm-text-light: #cbd5e1;
     --upm-brand: #3b82f6;
+    --upm-btn-bg-muted: #1f2937;
+    --upm-btn-text-muted: #374151;
 }
 
 /* === Base Reset === */
@@ -287,6 +289,11 @@ html, body {
 
 .upm-btn.primary {
     background-color: var(--upm-blue);
+    color: var(--upm-text-white);
+}
+.upm-btn.secondary {
+    background-color: var(--upm-btn-bg-muted);
+    color: var(--upm-btn-text-muted);
 }
 
 /* === Overview Section === */
@@ -438,6 +445,15 @@ html, body {
     align-items: center;
     justify-content: space-between;
     color: var(--upm-text-light);
+}
+.status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.status-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .dot.online {

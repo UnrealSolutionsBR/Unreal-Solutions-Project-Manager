@@ -249,18 +249,36 @@ class UPM_Shortcode_Dashboard {
                 <h2>Acciones rápidas</h2>
                 <div class="upm-actions-grid">
                     <a class="upm-btn primary">Nuevo ticket de soporte</a>
-                    <a class="upm-btn">Descargar factura</a>
-                    <a class="upm-btn">Enviar feedback</a>
-                    <a class="upm-btn">Ver portafolio</a>
+                    <a class="upm-btn secondary">Descargar factura</a>
+                    <a class="upm-btn secondary">Enviar feedback</a>
+                    <a class="upm-btn secondary">Ver portafolio</a>
                 </div>
             </div>
 
             <div class="upm-card-block">
                 <h2>Salud del servicio</h2>
                 <ul class="upm-service-health">
-                    <li><span class="dot online"></span> Entrega de proyectos</li>
-                    <li><span class="dot online"></span> Respuesta de soporte</li>
-                    <li><span class="dot online"></span> Comunicación</li>
+                    <li>
+                        <span class="status-info">
+                            <span class="dot online"></span>
+                            Entrega de proyectos
+                        </span>
+                        <img src="<?= UPM_URL . 'public/icons/pulse.svg' ?>" alt="Pulse" class="status-icon" />
+                    </li>
+                    <li>
+                        <span class="status-info">
+                            <span class="dot online"></span>
+                            Respuesta de soporte
+                        </span>
+                        <img src="<?= UPM_URL . 'public/icons/pulse.svg' ?>" alt="Pulse" class="status-icon" />
+                    </li>
+                    <li>
+                        <span class="status-info">
+                            <span class="dot online"></span>
+                            Comunicación
+                        </span>
+                        <img src="<?= UPM_URL . 'public/icons/pulse.svg' ?>" alt="Pulse" class="status-icon" />
+                    </li>
                 </ul>
             </div>
         </div>
