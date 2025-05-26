@@ -17,18 +17,11 @@
     --upm-muted-hover: #374151;
 }
 
-/* === Base Reset === */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--upm-bg-dark);
-    color: #fff;
-}
-
 /* === Layout === */
 .upm-wrapper {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--upm-bg-dark);
+    color: var(--upm-text-white);
     display: flex;
     flex-direction: row;
     min-height: 100vh;
