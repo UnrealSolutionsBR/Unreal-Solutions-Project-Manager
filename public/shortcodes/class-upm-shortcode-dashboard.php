@@ -78,6 +78,15 @@ class UPM_Shortcode_Dashboard {
             }
         }
 
+        $recent_projects = get_posts([
+            'post_type'      => 'upm_project',
+            'meta_key'       => '_upm_client_id',
+            'meta_value'     => $user_id,
+            'numberposts'    => 4,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+        ]);
+
         // Estilos
         wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
 
@@ -211,46 +220,28 @@ class UPM_Shortcode_Dashboard {
                 <a href="#">Ver todos</a>
             </div>
 
-            <div class="upm-project-card">
-                <div>
-                    <strong>E-commerce Website</strong>
-                    <p>Web Development</p>
-                </div>
-                <span class="upm-badge in-progress">En progreso</span>
-                <div class="upm-progress-bar"><div style="width: 75%"></div></div>
-                <small>75%</small>
-            </div>
-
-            <div class="upm-project-card">
-                <div>
-                    <strong>Social Media Campaign</strong>
-                    <p>Social Media</p>
-                </div>
-                <span class="upm-badge delivered">Entregado</span>
-                <div class="upm-progress-bar"><div style="width: 100%"></div></div>
-                <small>100%</small>
-            </div>
-
-            <div class="upm-project-card">
-                <div>
-                    <strong>WordPress Hosting</strong>
-                    <p>Hosting</p>
-                </div>
-                <span class="upm-badge active">Activo</span>
-                <div class="upm-progress-bar"><div style="width: 100%"></div></div>
-                <small>100%</small>
-            </div>
-
-            <div class="upm-project-card">
-                <div>
-                    <strong>Brand Logo Design</strong>
-                    <p>Design</p>
-                </div>
-                <span class="upm-badge waiting">Esperando feedback</span>
-                <div class="upm-progress-bar"><div style="width: 90%"></div></div>
-                <small>90%</small>
-            </div>
-        </div>
+            <?php if (!empty($recent_projects)) : ?>
+                                <?php foreach ($recent_projects as $project):
+                                    $status = get_post_meta($project->ID, '_upm_status', true);
+                                    $progress = get_post_meta($project->ID, '_upm_progress', true) ?: 0;
+                                    $area = get_post_meta($project->ID, '_upm_area', true) ?: 'General';
+                                ?>
+                                <div class="upm-project-card">
+                                    <div>
+                                        <strong><?= esc_html($project->post_title) ?></strong>
+                                        <p><?= esc_html($area) ?></p>
+                                    </div>
+                                    <span class="upm-badge <?= esc_attr(strtolower(str_replace(' ', '-', $status))) ?>">
+                                        <?= ucfirst($status) ?>
+                                    </span>
+                                    <div class="upm-progress-bar"><div style="width: <?= $progress ?>%"></div></div>
+                                    <small><?= $progress ?>%</small>
+                                </div>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <p>No hay proyectos recientes.</p>
+                            <?php endif; ?>
+                        </div>
 
         <!-- Columna derecha con acciones y salud -->
         <div class="upm-right-column">
