@@ -51,6 +51,8 @@ class UPM_Module_Projects {
         $start_date = get_post_meta($post->ID, '_upm_start_date', true);
         $due_date = get_post_meta($post->ID, '_upm_due_date', true);
         $status = get_post_meta($post->ID, '_upm_status', true);
+        $area = get_post_meta($post->ID, '_upm_area', true);
+        $progress = get_post_meta($post->ID, '_upm_progress', true);
         $status_options = ['activo' => 'Activo', 'pausado' => 'Pausado', 'finalizado' => 'Finalizado'];
 
         $customers = get_users(['role' => 'customer']);
@@ -83,6 +85,14 @@ class UPM_Module_Projects {
                 <?php endforeach; ?>
             </select>
         </p>
+
+        <p><label><strong>Área del proyecto:</strong></label><br>
+            <input type="text" name="upm_area" value="<?= esc_attr($area) ?>" style="width:100%;" placeholder="Ej. Web Development" />
+        </p>
+
+        <p><label><strong>Progreso (%):</strong></label><br>
+            <input type="number" name="upm_progress" value="<?= esc_attr($progress) ?>" min="0" max="100" />
+        </p>
         <?php
     }
 
@@ -94,6 +104,8 @@ class UPM_Module_Projects {
             'upm_start_date' => '_upm_start_date',
             'upm_due_date'   => '_upm_due_date',
             'upm_status'     => '_upm_status',
+            'upm_area'       => '_upm_area',
+            'upm_progress'   => '_upm_progress',
         ];
 
         foreach ($fields as $form_field => $meta_key) {
