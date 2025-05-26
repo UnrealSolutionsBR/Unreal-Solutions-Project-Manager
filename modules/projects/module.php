@@ -53,7 +53,7 @@ class UPM_Module_Projects {
         $status = get_post_meta($post->ID, '_upm_status', true);
         $area = get_post_meta($post->ID, '_upm_area', true);
         $progress = get_post_meta($post->ID, '_upm_progress', true);
-        $status_options = ['activo' => 'Activo', 'pausado' => 'Pausado', 'finalizado' => 'Finalizado'];
+        $status_options = ['activo' => 'Activo', 'en-curso' => 'En curso', 'completado' => 'Completado', 'esperando-revision' => 'Esperando revisión'];
 
         $customers = get_users(['role' => 'customer']);
         ?>

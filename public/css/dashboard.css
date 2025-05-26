@@ -372,14 +372,28 @@ html, body {
     border-radius: 12px;
     font-size: 11px;
     font-weight: bold;
-    color: #fff;
 }
 
-.upm-badge.in-progress { background-color: #facc15; color: #000; }
-.upm-badge.delivered    { background-color: #10b981; }
-.upm-badge.active       { background-color: #60a5fa; }
-.upm-badge.waiting      { background-color: #f97316; }
+/* Estados personalizados */
+.badge-en-curso {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: rgb(250, 204, 21);
+}
 
+.badge-completado {
+    background-color: rgba(74, 222, 108, 0.1);
+    color: rgb(74, 222, 108);
+}
+
+.badge-activo {
+    background-color: rgba(96, 165, 250, 0.1);
+    color: rgb(96, 165, 250);
+}
+
+.badge-esperando-revision {
+    background-color: rgba(251, 146, 60, 0.1);
+    color: rgb(251, 146, 60);
+}
 /* Quick Actions */
 .upm-actions-grid {
     display: grid;
