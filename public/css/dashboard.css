@@ -375,8 +375,12 @@ html, body {
 }
 
 .upm-project-card small {
-    font-size: 12px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    padding-top:0.2rem;
     color: var(--upm-text-light);
+    text-align: right;
+    display: block;
 }
 
 /* Badges */
