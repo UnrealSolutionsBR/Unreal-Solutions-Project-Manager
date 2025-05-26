@@ -39,12 +39,23 @@ class UPM_Shortcode_Dashboard {
             if ($status === 'activo') $active_projects++;
         }
 
-        $pending_invoices = 0;
-        foreach ($invoices as $i) {
-            if (get_post_meta($i->ID, '_upm_invoice_status', true) === 'pendiente') {
-                $pending_invoices++;
-            }
-        }
+        $milestones = get_posts([
+            'post_type'  => 'upm_milestone',
+            'meta_key'   => '_upm_milestone_client_id',
+            'meta_value' => $user_id,
+            'meta_query' => [
+                [
+                    'key'     => '_upm_milestone_date',
+                    'value'   => date('Y-m-d'),
+                    'compare' => '>=',
+                    'type'    => 'DATE',
+                ]
+            ],
+            'orderby'    => 'meta_value',
+            'order'      => 'ASC',
+            'posts_per_page' => 1,
+        ]);
+        
 
         $open_tickets = 0;
         foreach ($tickets as $t) {
