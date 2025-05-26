@@ -121,17 +121,17 @@ class UPM_Shortcode_Dashboard {
     </div>
 
     <div class="upm-card milestone">
-        <div class="upm-card-inner">
-            <div class="upm-icon-box milestone">
-                <?= file_get_contents(UPM_PATH . 'public/icons/milestone.svg'); ?>
-            </div>
-            <div class="upm-card-text">
-                <h3><?= $pending_invoices ?></h3>
-                <p>Para el próximo evento</p>
-                <small>Lanzamiento de e-commerce</small>
-            </div>
+    <div class="upm-card-inner">
+        <div class="upm-icon-box milestone">
+            <?= file_get_contents(UPM_PATH . 'public/icons/milestone.svg'); ?>
+        </div>
+        <div class="upm-card-text">
+            <h3><?= $milestone_days ?> días</h3>
+            <p>Para el próximo hito</p>
+            <small><?= esc_html($milestone_title ?: 'Lanzamiento de e-commerce') ?></small> <!--CREAR VARIABLES PARA UPM_MILESTONE-->
         </div>
     </div>
+</div>
     </div>
             </main>
         </div>
