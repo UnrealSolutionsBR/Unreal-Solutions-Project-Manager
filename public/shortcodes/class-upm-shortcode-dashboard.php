@@ -203,6 +203,7 @@ class UPM_Shortcode_Dashboard {
 </div>
 <div class="upm-overview-section">
     <div class="upm-overview-grid">
+        
         <!-- Columna izquierda -->
         <div class="upm-card-block">
             <div class="upm-section-header">
@@ -251,25 +252,28 @@ class UPM_Shortcode_Dashboard {
             </div>
         </div>
 
-        <!-- Columna derecha -->
-        <div class="upm-card-block">
-            <h2>Acciones rápidas</h2>
-            <div class="upm-actions-grid">
-                <a class="upm-btn primary">Nuevo ticket de soporte</a>
-                <a class="upm-btn">Descargar factura</a>
-                <a class="upm-btn">Enviar feedback</a>
-                <a class="upm-btn">Ver portafolio</a>
+        <!-- Columna derecha con acciones y salud -->
+        <div class="upm-right-column">
+            <div class="upm-card-block">
+                <h2>Acciones rápidas</h2>
+                <div class="upm-actions-grid">
+                    <a class="upm-btn primary">Nuevo ticket de soporte</a>
+                    <a class="upm-btn">Descargar factura</a>
+                    <a class="upm-btn">Enviar feedback</a>
+                    <a class="upm-btn">Ver portafolio</a>
+                </div>
+            </div>
+
+            <div class="upm-card-block">
+                <h2>Salud del servicio</h2>
+                <ul class="upm-service-health">
+                    <li><span class="dot online"></span> Entrega de proyectos</li>
+                    <li><span class="dot online"></span> Respuesta de soporte</li>
+                    <li><span class="dot online"></span> Comunicación</li>
+                </ul>
             </div>
         </div>
 
-        <div class="upm-card-block">
-            <h2>Salud del servicio</h2>
-            <ul class="upm-service-health">
-                <li><span class="dot online"></span> Entrega de proyectos</li>
-                <li><span class="dot online"></span> Respuesta de soporte</li>
-                <li><span class="dot online"></span> Comunicación</li>
-            </ul>
-        </div>
     </div>
 </div>
             </main>
