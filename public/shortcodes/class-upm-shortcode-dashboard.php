@@ -201,6 +201,75 @@ class UPM_Shortcode_Dashboard {
         <a href="#" class="upm-btn">Agendar consultoria</a>
     </div>
 </div>
+<div class="upm-overview-section">
+    <div class="upm-overview-grid">
+        <!-- Columna izquierda -->
+        <div class="upm-card-block">
+            <div class="upm-section-header">
+                <h2>Proyectos recientes</h2>
+                <a href="#">Ver todos</a>
+            </div>
+
+            <div class="upm-project-card">
+                <div>
+                    <strong>E-commerce Website</strong>
+                    <p>Web Development</p>
+                </div>
+                <span class="upm-badge in-progress">En progreso</span>
+                <div class="upm-progress-bar"><div style="width: 75%"></div></div>
+                <small>75%</small>
+            </div>
+
+            <div class="upm-project-card">
+                <div>
+                    <strong>Social Media Campaign</strong>
+                    <p>Social Media</p>
+                </div>
+                <span class="upm-badge delivered">Entregado</span>
+                <div class="upm-progress-bar"><div style="width: 100%"></div></div>
+                <small>100%</small>
+            </div>
+
+            <div class="upm-project-card">
+                <div>
+                    <strong>WordPress Hosting</strong>
+                    <p>Hosting</p>
+                </div>
+                <span class="upm-badge active">Activo</span>
+                <div class="upm-progress-bar"><div style="width: 100%"></div></div>
+                <small>100%</small>
+            </div>
+
+            <div class="upm-project-card">
+                <div>
+                    <strong>Brand Logo Design</strong>
+                    <p>Design</p>
+                </div>
+                <span class="upm-badge waiting">Esperando feedback</span>
+                <div class="upm-progress-bar"><div style="width: 90%"></div></div>
+                <small>90%</small>
+            </div>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="upm-card-block">
+            <h2>Acciones rápidas</h2>
+            <div class="upm-actions-grid">
+                <a class="upm-btn primary">Nuevo ticket de soporte</a>
+                <a class="upm-btn">Descargar factura</a>
+                <a class="upm-btn">Enviar feedback</a>
+                <a class="upm-btn">Ver portafolio</a>
+            </div>
+
+            <h2>Salud del servicio</h2>
+            <ul class="upm-service-health">
+                <li><span class="dot online"></span> Entrega de proyectos</li>
+                <li><span class="dot online"></span> Respuesta de soporte</li>
+                <li><span class="dot online"></span> Comunicación</li>
+            </ul>
+        </div>
+    </div>
+</div>
             </main>
         </div>
         <?php

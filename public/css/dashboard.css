@@ -281,3 +281,123 @@ html, body {
 .upm-btn:hover {
     background-color: #2563eb;
 }
+
+/* === Overview Section (New) === */
+.upm-overview-section {
+    margin-top: 30px;
+}
+
+.upm-overview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.upm-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.upm-section-header a {
+    font-size: 14px;
+    color: var(--upm-blue);
+    text-decoration: none;
+}
+
+.upm-card-block {
+    background: #111827;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--upm-border);
+}
+
+.upm-project-card {
+    background-color: #1f2937;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.upm-project-card strong {
+    font-size: 15px;
+}
+
+.upm-project-card p {
+    font-size: 13px;
+    color: var(--upm-text-muted);
+    margin: 3px 0 10px;
+}
+
+.upm-progress-bar {
+    background: #334155;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.upm-progress-bar div {
+    height: 100%;
+    background-color: var(--upm-blue);
+}
+
+.upm-project-card small {
+    font-size: 12px;
+    color: var(--upm-text-light);
+}
+
+/* Badges */
+.upm-badge {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.upm-badge.in-progress { background-color: #facc15; color: #000; }
+.upm-badge.delivered    { background-color: #10b981; }
+.upm-badge.active       { background-color: #60a5fa; }
+.upm-badge.waiting      { background-color: #f97316; }
+
+/* Quick Actions */
+.upm-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.upm-service-health {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upm-service-health li {
+    background-color: #1f2937;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--upm-text-light);
+}
+
+.dot.online {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    margin-right: 8px;
+}
