@@ -232,7 +232,7 @@ class UPM_Shortcode_Dashboard {
                                         <p><?= esc_html($area) ?></p>
                                     </div>
                                     <span class="upm-badge <?= esc_attr('badge-' . sanitize_title($status)) ?>">
-                                        <?= ucfirst($status) ?>
+                                        <?= esc_html(ucwords(str_replace('-', ' ', $status))) ?>
                                     </span>
                                     <div class="upm-progress-bar"><div style="width: <?= $progress ?>%"></div></div>
                                     <small><?= $progress ?>%</small>
