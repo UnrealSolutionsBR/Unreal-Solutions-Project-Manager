@@ -113,9 +113,16 @@
     cursor: pointer;
 }
 
-.upm-bell-icon {
-    font-size: 20px;
-    color: var(--upm-text-white);
+.upm-bell-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #e5e7eb;
+    transition: fill 0.2s ease;
+}
+
+.upm-notification-icon:hover .upm-bell-icon svg,
+.upm-notification-icon:active .upm-bell-icon svg {
+    fill: #ffffff;
 }
 
 .upm-notification-dot {
