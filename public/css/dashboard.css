@@ -55,11 +55,29 @@
 }
 
 .upm-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 14px;
     line-height: 1.4;
     border-bottom: 1px solid var(--upm-border);
     padding-bottom: 15px;
     color: var(--upm-text-white);
+}
+.upm-user-avatar img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+.upm-user-details strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--upm-text-white);
+}
+
+.upm-user-details small {
+    font-size: 0.8rem;
+    color: var(--upm-text-muted);
 }
 
 .upm-menu {

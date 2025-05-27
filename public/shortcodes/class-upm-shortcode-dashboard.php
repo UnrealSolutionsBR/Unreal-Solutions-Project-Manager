@@ -98,8 +98,13 @@ class UPM_Shortcode_Dashboard {
             <aside class="upm-sidebar">
                 <div class="upm-brand">Unreal Solutions</div>
                 <div class="upm-user-info">
-                    <strong><?= esc_html($user->display_name) ?></strong><br>
-                    <small><?= esc_html($user->user_email) ?></small>
+                    <div class="upm-user-avatar">
+                        <?= get_avatar($user->ID, 48) ?>
+                    </div>
+                    <div class="upm-user-details">
+                        <strong><?= esc_html($user->display_name) ?></strong><br>
+                        <small><?= esc_html($user->user_email) ?></small>
+                    </div>
                 </div>
                 <ul class="upm-menu">
                     <li class="active">Dashboard</li>
