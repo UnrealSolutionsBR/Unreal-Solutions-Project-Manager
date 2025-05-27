@@ -34,10 +34,12 @@ class UPM_Shortcode_Dashboard {
         ]);
 
         $active_projects = 0;
-        foreach ($projects->posts as $p) {
-            $status = get_post_meta($p, '_upm_status', true);
-            if ($status === 'activo') $active_projects++;
-        }
+            foreach ($projects->posts as $p) {
+                $status = strtolower(get_post_meta($p, '_upm_status', true));
+                if ($status !== 'completado') {
+                    $active_projects++;
+                }
+            }
 
         $milestones = get_posts([
             'post_type'  => 'upm_milestone',
