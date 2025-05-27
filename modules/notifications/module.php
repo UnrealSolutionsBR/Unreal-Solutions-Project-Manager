@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 class UPM_Notifications_Module {
     public static function register() {
         add_action('init', [__CLASS__, 'register_cpt']);
+        self::load_functions(); // ✅ Esto activa las funciones dinámicas
     }
 
     public static function register_cpt() {
@@ -39,7 +40,7 @@ class UPM_Notifications_Module {
     private static function load_functions() {
         require_once __DIR__ . '/functions.php';
     }
-    
+
 }
 
 UPM_Notifications_Module::register();
