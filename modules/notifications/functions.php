@@ -42,23 +42,46 @@ function upm_notify_on_new_project($post_id, $post, $update) {
         return;
     }
 
+    $project_title = $post->post_title;
+
+    // Si es creación (nuevo proyecto)
     if (!$update) {
-        $message = 'Nuevo proyecto creado: ' . $post->post_title;
+        $message = "Nuevo proyecto: $project_title";
         upm_add_notification($user_id, $message, '🆕');
+        update_post_meta($post_id, '_upm_last_status', get_post_meta($post_id, '_upm_status', true));
         error_log("✅ Notificación por creación enviada al usuario $user_id");
         return;
     }
 
-    $old_status = get_post_meta($post_id, '_upm_status', true);
-    if (isset($_POST['upm_status'])) {
-        $new_status = sanitize_text_field($_POST['upm_status']);
-        error_log("🔄 Estado antiguo: $old_status / Nuevo: $new_status");
+    // Si es actualización
+    $previous_status = get_post_meta($post_id, '_upm_last_status', true);
+    $current_status  = get_post_meta($post_id, '_upm_status', true);
 
-        if ($new_status !== $old_status) {
-            $message = "El estado del proyecto {$post->post_title} ha cambiado a: $new_status.";
-            upm_add_notification($user_id, strip_tags($message), '⚙️');
-            error_log("✅ Notificación por cambio de estado enviada al usuario $user_id");
+    error_log("🔄 Estado antiguo: $previous_status / Nuevo: $current_status");
+
+    if ($current_status && $current_status !== $previous_status) {
+        switch ($current_status) {
+            case 'en-curso':
+                $message = "Hemos iniciado el desarrollo de $project_title";
+                $icon = '🛠️';
+                break;
+            case 'esperando-revision':
+                $message = "$project_title requiere revisión";
+                $icon = '🧐';
+                break;
+            case 'completado':
+                $message = "$project_title ha sido completado";
+                $icon = '✅';
+                break;
+            default:
+                $message = "El estado del proyecto $project_title ha cambiado a: $current_status.";
+                $icon = '⚙️';
         }
+
+        upm_add_notification($user_id, $message, $icon);
+        update_post_meta($post_id, '_upm_last_status', $current_status);
+        error_log("✅ Notificación por cambio de estado enviada al usuario $user_id");
     }
 }
+
 
