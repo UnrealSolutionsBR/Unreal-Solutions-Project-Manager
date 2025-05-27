@@ -114,6 +114,21 @@ class UPM_Shortcode_Dashboard {
             </aside>
 
             <main class="upm-main">
+            <div class="upm-notification-bar">
+                <div class="upm-notification-icon">
+                    <span class="upm-bell-icon">🔔</span>
+                    <span class="upm-notification-dot"></span>
+                    <div class="upm-notification-dropdown">
+                        <strong>Notificaciones</strong>
+                        <ul>
+                            <li><span>🧾</span> Nueva factura disponible <small>hace 2 minutos</small></li>
+                            <li><span>🚀</span> Actualización: sitio web desplegado <small>hace 1 hora</small></li>
+                            <li><span>📩</span> Ticket de soporte respondido <small>hace 3 horas</small></li>
+                        </ul>
+                        <a href="#">Ver todas las notificaciones</a>
+                    </div>
+                </div>
+            </div>
                 <div class="upm-header">
                     <h2>¡Bienvenido, <?= esc_html($user->first_name ?: $user->display_name) ?>!</h2>
                     <p>Esto es lo que está sucediendo con sus proyectos hoy.</p>
