@@ -92,6 +92,9 @@ class UPM_Shortcode_Dashboard {
         // Estilos
         wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
 
+        // JavaScript
+        wp_enqueue_script('upm-notifications-js', UPM_URL . 'public/js/notifications.js', [], UPM_VERSION, true);
+        
         ob_start();
         ?>
         <div class="upm-wrapper">
@@ -115,12 +118,12 @@ class UPM_Shortcode_Dashboard {
 
             <main class="upm-main">
             <div class="upm-notification-bar">
-                <div class="upm-notification-icon">
+                <div class="upm-notification-icon" id="upm-notification-toggle">
                     <div class="upm-bell-icon">
                         <?= file_get_contents(UPM_PATH . 'public/icons/bell.svg'); ?>
                     </div>
                     <span class="upm-notification-dot"></span>
-                    <div class="upm-notification-dropdown">
+                    <div class="upm-notification-dropdown" id="upm-notification-dropdown">
                         <strong>Notificaciones</strong>
                         <ul>
                             <li><span>🧾</span> Nueva factura disponible <small>hace 2 minutos</small></li>

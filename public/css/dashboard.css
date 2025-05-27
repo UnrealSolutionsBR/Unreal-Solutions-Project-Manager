@@ -149,10 +149,6 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-.upm-notification-icon:hover .upm-notification-dropdown {
-    display: block;
-}
-
 .upm-notification-dropdown strong {
     color: var(--upm-text-white);
     font-size: 14px;
@@ -190,6 +186,9 @@
     color: var(--upm-blue-hover);
 }
 
+.upm-notification-dropdown.visible {
+    display: block;
+}
 
 /* === Header === */
 .upm-header {
