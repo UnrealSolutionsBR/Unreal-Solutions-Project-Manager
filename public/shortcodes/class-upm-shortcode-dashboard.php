@@ -116,7 +116,7 @@ class UPM_Shortcode_Dashboard {
             <main class="upm-main">
             <div class="upm-notification-bar">
                 <div class="upm-notification-icon">
-                    <span class="upm-bell-icon">🔔</span>
+                    <span class="upm-bell-icon"><?= file_get_contents(UPM_PATH . 'public/icons/bell.svg'); ?></span>
                     <span class="upm-notification-dot"></span>
                     <div class="upm-notification-dropdown">
                         <strong>Notificaciones</strong>
