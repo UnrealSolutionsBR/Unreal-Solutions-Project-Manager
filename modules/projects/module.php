@@ -98,7 +98,11 @@ class UPM_Module_Projects {
 
     public static function save_project_meta($post_id) {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-
+    
+        // Detectar valores antiguos antes de guardar
+        $old_status = get_post_meta($post_id, '_upm_status', true);
+        $was_new = empty($old_status);
+    
         $fields = [
             'upm_client_id'  => '_upm_client_id',
             'upm_start_date' => '_upm_start_date',
@@ -107,13 +111,29 @@ class UPM_Module_Projects {
             'upm_area'       => '_upm_area',
             'upm_progress'   => '_upm_progress',
         ];
-
+    
+        // Guardar nuevos valores
         foreach ($fields as $form_field => $meta_key) {
             if (isset($_POST[$form_field])) {
                 update_post_meta($post_id, $meta_key, sanitize_text_field($_POST[$form_field]));
             }
         }
+    
+        // Leer datos actualizados
+        $client_id  = get_post_meta($post_id, '_upm_client_id', true);
+        $new_status = get_post_meta($post_id, '_upm_status', true);
+    
+        // Verificar y crear notificación
+        if ($client_id) {
+            if ($was_new) {
+                upm_add_notification($client_id, 'Nuevo proyecto creado: ' . get_the_title($post_id), '🆕');
+            } elseif ($new_status && $new_status !== $old_status) {
+                $label = ucwords(str_replace('-', ' ', $new_status));
+                upm_add_notification($client_id, 'El estado del proyecto "' . get_the_title($post_id) . '" ha cambiado a: ' . $label . '.', '⚙️');
+            }
+        }
     }
+    
 
     public static function add_milestone_meta_box() {
         add_meta_box(
