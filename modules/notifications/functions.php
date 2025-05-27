@@ -34,32 +34,31 @@ if (!function_exists('upm_add_notification')) {
 add_action('save_post_upm_project', 'upm_notify_on_new_project', 20, 3);
 
 function upm_notify_on_new_project($post_id, $post, $update) {
-    $user_id = get_post_meta($post_id, '_upm_client_id', true);
-    if (!$user_id) return;
+    error_log("🔔 Hook ejecutado: save_post_upm_project. Post ID: $post_id");
 
-    if (!$update) {
-        // Notificación por creación del proyecto
-        $message = 'Nuevo proyecto creado: ' . $post->post_title;
-        upm_add_notification($user_id, $message, '🆕');
+    $user_id = get_post_meta($post_id, '_upm_client_id', true);
+    if (!$user_id) {
+        error_log("⛔ No se encontró _upm_client_id para el proyecto $post_id");
         return;
     }
 
-    // Notificación si el estado cambia en una actualización
+    if (!$update) {
+        $message = 'Nuevo proyecto creado: ' . $post->post_title;
+        upm_add_notification($user_id, $message, '🆕');
+        error_log("✅ Notificación por creación enviada al usuario $user_id");
+        return;
+    }
+
     $old_status = get_post_meta($post_id, '_upm_status', true);
     if (isset($_POST['upm_status'])) {
         $new_status = sanitize_text_field($_POST['upm_status']);
+        error_log("🔄 Estado antiguo: $old_status / Nuevo: $new_status");
 
         if ($new_status !== $old_status) {
-            $status_labels = [
-                'activo' => 'Activo',
-                'en-curso' => 'En curso',
-                'completado' => 'Completado',
-                'esperando-revision' => 'Esperando revisión',
-            ];
-
-            $label = isset($status_labels[$new_status]) ? $status_labels[$new_status] : $new_status;
-            $message = "El estado del proyecto <strong>{$post->post_title}</strong> ha cambiado a: <em>$label</em>.";
+            $message = "El estado del proyecto {$post->post_title} ha cambiado a: $new_status.";
             upm_add_notification($user_id, strip_tags($message), '⚙️');
+            error_log("✅ Notificación por cambio de estado enviada al usuario $user_id");
         }
     }
 }
+
