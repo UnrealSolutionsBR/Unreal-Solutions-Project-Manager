@@ -94,7 +94,7 @@ class UPM_Shortcode_Dashboard {
 
         // JavaScript
         wp_enqueue_script('upm-notifications-js', UPM_URL . 'public/js/notifications.js', [], UPM_VERSION, true);
-        
+
         ob_start();
         ?>
         <div class="upm-wrapper">
@@ -126,9 +126,27 @@ class UPM_Shortcode_Dashboard {
                     <div class="upm-notification-dropdown" id="upm-notification-dropdown">
                         <strong>Notificaciones</strong>
                         <ul>
-                            <li><span>🧾</span> Nueva factura disponible <small>hace 2 minutos</small></li>
-                            <li><span>🚀</span> Actualización: sitio web desplegado <small>hace 1 hora</small></li>
-                            <li><span>📩</span> Ticket de soporte respondido <small>hace 3 horas</small></li>
+                            <li>
+                                <span>🧾</span>
+                                <div>
+                                    <strong>Nueva factura disponible</strong>
+                                    <small>Hace 2 minutos</small>
+                                </div>
+                            </li>
+                            <li>
+                                <span>🚀</span>
+                                <div>
+                                    <strong>Actualización: sitio web desplegado</strong>
+                                    <small>Hace 1 hora</small>
+                                </div>
+                            </li>
+                            <li>
+                                <span>📩</span>
+                                <div>
+                                    <strong>Ticket de soporte respondido</strong>
+                                    <small>Hace 3 horas</small>
+                                </div>
+                            </li>
                         </ul>
                         <a href="#">Ver todas las notificaciones</a>
                     </div>

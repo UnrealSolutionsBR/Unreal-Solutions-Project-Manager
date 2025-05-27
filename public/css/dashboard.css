@@ -165,16 +165,25 @@
 .upm-notification-dropdown li {
     font-size: 13px;
     color: var(--upm-text-light);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
+}
+.upm-notification-dropdown li div {
+    display: flex;
+    flex-direction: column;
 }
 
 .upm-notification-dropdown li small {
     color: var(--upm-text-muted);
     font-size: 11px;
-    margin-left: auto;
+    line-height: 1.2;
+}
+.upm-notification-dropdown li strong {
+    font-weight: 500;
+    color: var(--upm-text-white);
+    margin-bottom: 2px;
 }
 
 .upm-notification-dropdown a {
