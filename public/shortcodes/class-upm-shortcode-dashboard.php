@@ -89,6 +89,16 @@ class UPM_Shortcode_Dashboard {
             'order'          => 'DESC',
         ]);
 
+        $notifications = get_posts([
+            'post_type'      => 'upm_notification',
+            'meta_key'       => '_upm_user_id',
+            'meta_value'     => $user_id,
+            'post_status'    => 'publish',
+            'numberposts'    => 5,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+        ]);
+
         // Estilos
         wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
 
@@ -126,27 +136,23 @@ class UPM_Shortcode_Dashboard {
                     <div class="upm-notification-dropdown" id="upm-notification-dropdown">
                         <strong>Notificaciones</strong>
                         <ul>
-                            <li>
-                                <span>🧾</span>
-                                <div>
-                                    <strong>Nueva factura disponible</strong>
-                                    <small>Hace 2 minutos</small>
-                                </div>
-                            </li>
-                            <li>
-                                <span>🚀</span>
-                                <div>
-                                    <strong>Actualización: sitio web desplegado</strong>
-                                    <small>Hace 1 hora</small>
-                                </div>
-                            </li>
-                            <li>
-                                <span>📩</span>
-                                <div>
-                                    <strong>Ticket de soporte respondido</strong>
-                                    <small>Hace 3 horas</small>
-                                </div>
-                            </li>
+                            <?php if (!empty($notifications)) :
+                                foreach ($notifications as $note) :
+                                    $icon  = get_post_meta($note->ID, '_upm_icon', true) ?: '🔔';
+                                    $date  = get_the_date('U', $note->ID);
+                                    $diff  = human_time_diff($date, current_time('timestamp')) . ' atrás';
+                                    ?>
+                                    <li>
+                                        <span><?= esc_html($icon) ?></span>
+                                        <div>
+                                            <strong><?= esc_html($note->post_title) ?></strong>
+                                            <small><?= esc_html($diff) ?></small>
+                                        </div>
+                                    </li>
+                                <?php endforeach;
+                            else : ?>
+                                <li><div><strong>No hay notificaciones</strong></div></li>
+                            <?php endif; ?>
                         </ul>
                         <a href="#">Ver todas las notificaciones</a>
                     </div>
