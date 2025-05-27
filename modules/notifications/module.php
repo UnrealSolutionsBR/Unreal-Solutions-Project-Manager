@@ -29,13 +29,8 @@ class UPM_Notifications_Module {
             'labels'             => $labels,
             'public'             => false,
             'show_ui'            => true,
-            'show_in_menu'       => true,
-            'menu_position'      => 30,
-            'menu_icon'          => 'dashicons-megaphone',
-            'supports'           => ['title'],
-            'capability_type'    => 'post',
-            'has_archive'        => false,
-            'hierarchical'       => false,
+            'show_in_menu'       => 'upm_dashboard',
+            'supports'           => ['title', 'editor', 'comments'],
         ];
 
         register_post_type('upm_notification', $args);
