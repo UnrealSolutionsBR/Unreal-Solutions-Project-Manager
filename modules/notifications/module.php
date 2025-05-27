@@ -35,6 +35,11 @@ class UPM_Notifications_Module {
 
         register_post_type('upm_notification', $args);
     }
+
+    private static function load_functions() {
+        require_once __DIR__ . '/functions.php';
+    }
+    
 }
 
 UPM_Notifications_Module::register();
