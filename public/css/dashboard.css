@@ -64,20 +64,18 @@
     padding-bottom: 15px;
     color: var(--upm-text-white);
 }
-.upm-user-avatar img {
+
+.upm-user-info img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
-}
-.upm-user-details strong {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--upm-text-white);
+    object-fit: cover;
 }
 
-.upm-user-details small {
-    font-size: 0.8rem;
-    color: var(--upm-text-muted);
+.upm-user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .upm-menu {

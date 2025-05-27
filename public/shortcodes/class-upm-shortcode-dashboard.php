@@ -98,11 +98,9 @@ class UPM_Shortcode_Dashboard {
             <aside class="upm-sidebar">
                 <div class="upm-brand">Unreal Solutions</div>
                 <div class="upm-user-info">
-                    <div class="upm-user-avatar">
-                        <?= get_avatar($user->ID, 48) ?>
-                    </div>
+                    <img src="<?= esc_url(get_avatar_url($user->ID)) ?>" alt="Foto de perfil">
                     <div class="upm-user-details">
-                        <strong><?= esc_html($user->display_name) ?></strong><br>
+                        <strong><?= esc_html($user->display_name) ?></strong>
                         <small><?= esc_html($user->user_email) ?></small>
                     </div>
                 </div>
