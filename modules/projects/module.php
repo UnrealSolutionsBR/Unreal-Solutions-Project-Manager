@@ -146,7 +146,7 @@ class UPM_Module_Projects {
         });
         </script>
         <?php
-    }    
+    }
 
     public static function save_project_meta($post_id) {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
@@ -166,22 +166,54 @@ class UPM_Module_Projects {
             'upm_billing_installments'  => '_upm_billing_installments',
             'upm_billing_frequency'     => '_upm_billing_frequency',
         ];
-    
-        // Guardar nuevos valores
+
         foreach ($fields as $form_field => $meta_key) {
             if (isset($_POST[$form_field])) {
                 update_post_meta($post_id, $meta_key, sanitize_text_field($_POST[$form_field]));
             }
         }
-    
-        // Leer datos actualizados
+
         $client_id  = get_post_meta($post_id, '_upm_client_id', true);
         $new_status = get_post_meta($post_id, '_upm_status', true);
-    
-        // Verificar y crear notificación
+
         if ($client_id) {
             if ($was_new) {
                 upm_add_notification($client_id, 'Nuevo proyecto: ' . get_the_title($post_id));
+
+                $billing_type = get_post_meta($post_id, '_upm_billing_type', true);
+                $installments = (int) get_post_meta($post_id, '_upm_billing_installments', true) ?: 2;
+                $amount = (float) get_post_meta($post_id, '_upm_project_amount', true) ?: 0;
+
+                if ($billing_type === 'pago-unico') {
+                    $split_amount = round($amount / $installments, 2);
+                    for ($i = 1; $i <= $installments; $i++) {
+                        wp_insert_post([
+                            'post_type'    => 'upm_invoice',
+                            'post_title'   => "Cuota {$i}/{$installments} - " . get_the_title($post_id),
+                            'post_status'  => 'publish',
+                            'meta_input'   => [
+                                '_upm_invoice_client_id'   => $client_id,
+                                '_upm_invoice_project_id'  => $post_id,
+                                '_upm_invoice_amount'      => $split_amount,
+                                '_upm_invoice_status'      => 'pendiente',
+                            ]
+                        ]);
+                    }
+                }
+
+                if ($billing_type === 'suscripcion') {
+                    wp_insert_post([
+                        'post_type'    => 'upm_invoice',
+                        'post_title'   => 'Primera factura de suscripción - ' . get_the_title($post_id),
+                        'post_status'  => 'publish',
+                        'meta_input'   => [
+                            '_upm_invoice_client_id'   => $client_id,
+                            '_upm_invoice_project_id'  => $post_id,
+                            '_upm_invoice_amount'      => $amount,
+                            '_upm_invoice_status'      => 'pendiente',
+                        ]
+                    ]);
+                }
             } elseif ($new_status && $new_status !== $old_status) {
                 switch ($new_status) {
                     case 'en-curso':
@@ -201,7 +233,6 @@ class UPM_Module_Projects {
             }
         }
     }
-    
 
     public static function add_milestone_meta_box() {
         add_meta_box(
@@ -240,5 +271,4 @@ class UPM_Module_Projects {
         }
     }
 }
-
 UPM_Module_Projects::init();
