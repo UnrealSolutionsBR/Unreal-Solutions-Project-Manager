@@ -44,11 +44,12 @@ class UPM_Module_Invoices {
     }
 
     public static function render_invoice_meta_box($post) {
-        $client_id = get_post_meta($post->ID, '_upm_invoice_client_id', true);
-        $amount = get_post_meta($post->ID, '_upm_invoice_amount', true);
-        $status = get_post_meta($post->ID, '_upm_invoice_status', true);
-        $status_options = ['pendiente' => 'Pendiente', 'pagada' => 'Pagada'];
+        $client_id  = get_post_meta($post->ID, '_upm_invoice_client_id', true);
+        $amount     = get_post_meta($post->ID, '_upm_invoice_amount', true);
+        $status     = get_post_meta($post->ID, '_upm_invoice_status', true);
+        $project_id = get_post_meta($post->ID, '_upm_invoice_project_id', true);
 
+        $status_options = ['pendiente' => 'Pendiente', 'pagada' => 'Pagada'];
         $customers = get_users(['role' => 'customer']);
         ?>
         <p><label><strong>Cliente:</strong></label><br>
@@ -75,6 +76,10 @@ class UPM_Module_Invoices {
                 <?php endforeach; ?>
             </select>
         </p>
+
+        <p><label><strong>Proyecto asociado:</strong></label><br>
+            <input type="number" name="upm_invoice_project_id" value="<?= esc_attr($project_id) ?>" placeholder="ID del proyecto (opcional)" />
+        </p>
         <?php
     }
 
@@ -82,9 +87,10 @@ class UPM_Module_Invoices {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
         $fields = [
-            'upm_invoice_client_id' => '_upm_invoice_client_id',
-            'upm_invoice_amount'    => '_upm_invoice_amount',
-            'upm_invoice_status'    => '_upm_invoice_status',
+            'upm_invoice_client_id'   => '_upm_invoice_client_id',
+            'upm_invoice_amount'      => '_upm_invoice_amount',
+            'upm_invoice_status'      => '_upm_invoice_status',
+            'upm_invoice_project_id'  => '_upm_invoice_project_id', // nuevo
         ];
 
         foreach ($fields as $form_field => $meta_key) {
