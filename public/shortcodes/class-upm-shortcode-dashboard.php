@@ -138,12 +138,12 @@ class UPM_Shortcode_Dashboard {
                         <ul>
                             <?php if (!empty($notifications)) :
                                 foreach ($notifications as $note) :
-                                    $icon  = get_post_meta($note->ID, '_upm_icon', true);
+//                                    $icon  = get_post_meta($note->ID, '_upm_icon', true);
                                     $date  = get_the_date('U', $note->ID);
                                     $diff  = human_time_diff($date, current_time('timestamp')) . ' atrás';
                                     ?>
                                     <li>
-                                        <span><?= esc_html($icon) ?></span>
+<!--                                        <span><?= esc_html($icon) ?></span>-->
                                         <div>
                                             <strong><?= esc_html($note->post_title) ?></strong>
                                             <small><?= esc_html($diff) ?></small>
