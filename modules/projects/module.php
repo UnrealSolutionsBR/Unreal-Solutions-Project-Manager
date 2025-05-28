@@ -119,19 +119,19 @@ class UPM_Module_Projects {
             }
         }
     
-        // Leer datos actualizados
-        $client_id  = get_post_meta($post_id, '_upm_client_id', true);
-        $new_status = get_post_meta($post_id, '_upm_status', true);
-    
-        // Verificar y crear notificación
-        if ($client_id) {
-            if ($was_new) {
-                upm_add_notification($client_id, 'Nuevo proyecto creado: ' . get_the_title($post_id), '🆕');
-            } elseif ($new_status && $new_status !== $old_status) {
-                $label = ucwords(str_replace('-', ' ', $new_status));
-                upm_add_notification($client_id, 'El estado del proyecto "' . get_the_title($post_id) . '" ha cambiado a: ' . $label . '.', '⚙️');
-            }
-        }
+    //    // Leer datos actualizados
+    //    $client_id  = get_post_meta($post_id, '_upm_client_id', true);
+    //    $new_status = get_post_meta($post_id, '_upm_status', true);
+    //
+    //    // Verificar y crear notificación
+    //    if ($client_id) {
+    //        if ($was_new) {
+    //            upm_add_notification($client_id, 'Nuevo proyecto creado: ' . get_the_title($post_id), '🆕');
+    //        } elseif ($new_status && $new_status !== $old_status) {
+    //            $label = ucwords(str_replace('-', ' ', $new_status));
+    //            upm_add_notification($client_id, 'El estado del proyecto "' . get_the_title($post_id) . '" ha cambiado a: ' . $label . '.', '⚙️');
+    //        }
+    //    }
     }
     
 
