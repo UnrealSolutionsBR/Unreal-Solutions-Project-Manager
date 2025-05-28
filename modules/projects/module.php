@@ -94,11 +94,12 @@ class UPM_Module_Projects {
             <input type="number" name="upm_progress" value="<?= esc_attr($progress) ?>" min="0" max="100" />
         </p>
         <?php
-    }
+    }    
 
     public static function save_project_meta($post_id) {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     
+        // Detectar valores antiguos antes de guardar
         $old_status = get_post_meta($post_id, '_upm_status', true);
         $was_new = empty($old_status);
     
@@ -111,48 +112,40 @@ class UPM_Module_Projects {
             'upm_progress'   => '_upm_progress',
         ];
     
+        // Guardar nuevos valores
         foreach ($fields as $form_field => $meta_key) {
             if (isset($_POST[$form_field])) {
                 update_post_meta($post_id, $meta_key, sanitize_text_field($_POST[$form_field]));
             }
         }
     
-        // 🔔 Lógica de notificación
-        $client_id     = get_post_meta($post_id, '_upm_client_id', true);
-        $current_status = get_post_meta($post_id, '_upm_status', true);
-        $last_status    = get_post_meta($post_id, '_upm_last_status', true);
-        $project_title  = get_the_title($post_id);
+        // Leer datos actualizados
+        $client_id  = get_post_meta($post_id, '_upm_client_id', true);
+        $new_status = get_post_meta($post_id, '_upm_status', true);
     
-        if (!$client_id) return;
-    
-        if ($was_new) {
-            // Nuevo proyecto
-            upm_add_notification($client_id, "Nuevo proyecto: $project_title", '🆕');
-            update_post_meta($post_id, '_upm_last_status', $current_status);
-        } elseif ($current_status && $current_status !== $last_status) {
-            // Cambio de estado
-            switch ($current_status) {
-                case 'en-curso':
-                    $message = "Hemos iniciado el desarrollo de $project_title";
-                    $icon = '🛠️';
-                    break;
-                case 'esperando-revision':
-                    $message = "$project_title requiere revisión";
-                    $icon = '🧐';
-                    break;
-                case 'completado':
-                    $message = "$project_title ha sido completado";
-                    $icon = '✅';
-                    break;
-                default:
-                    $message = "El estado del proyecto $project_title ha cambiado a: $current_status.";
-                    $icon = '⚙️';
+        // Verificar y crear notificación
+        if ($client_id) {
+            if ($was_new) {
+                upm_add_notification($client_id, 'Nuevo proyecto: ' . get_the_title($post_id));
+            } elseif ($new_status && $new_status !== $old_status) {
+                switch ($new_status) {
+                    case 'en-curso':
+                        $message = 'Hemos iniciado el desarrollo de ' . get_the_title($post_id);
+                        break;
+                    case 'esperando-revision':
+                        $message = get_the_title($post_id) . ' requiere revisión';
+                        break;
+                    case 'completado':
+                        $message = get_the_title($post_id) . ' ha sido completado';
+                        break;
+                    default:
+                        $label = ucwords(str_replace('-', ' ', $new_status));
+                        $message = 'El estado del proyecto "' . get_the_title($post_id) . '" ha cambiado a: ' . $label . '.';
+                }
+                upm_add_notification($client_id, $message);
             }
-    
-            upm_add_notification($client_id, $message, $icon);
-            update_post_meta($post_id, '_upm_last_status', $current_status);
         }
-    }    
+    }
     
 
     public static function add_milestone_meta_box() {
