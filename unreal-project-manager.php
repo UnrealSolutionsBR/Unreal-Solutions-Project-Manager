@@ -23,6 +23,7 @@ require_once UPM_PATH . 'includes/class-upm-loader.php';
 
 // Shortcodes públicos
 require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-dashboard.php';
+require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-invoices.php';
 
 // Reemplazar versión cacheada de CSS usando filemtime()
 add_action('wp_enqueue_scripts', function () {
