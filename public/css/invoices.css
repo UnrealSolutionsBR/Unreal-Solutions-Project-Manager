@@ -83,6 +83,12 @@
     align-items: center;
     gap: 16px;
   }
+
+  .state-wrapper {
+    min-width: 130px; /* ajustable según tu diseño */
+    display: flex;
+    justify-content: flex-start;
+  }
   
 
 .invoice-entry .state {
