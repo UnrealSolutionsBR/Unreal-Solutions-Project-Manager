@@ -43,12 +43,6 @@
   vertical-align: middle;
 }
 
-.upm-project-header .meta {
-  font-size: 13px;
-  color: var(--upm-text-muted);
-  margin-top: 2px;
-}
-
 .progress {
   background-color: var(--upm-border);
   height: 8px;
@@ -126,4 +120,51 @@
 .badge-esperando-revision {
   background-color: rgba(251, 146, 60, 0.1);
   color: rgb(251, 146, 60);
+}
+
+/* === META DATA SEPARADA === */
+
+.upm-project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.meta-area {
+  background-color: #1F2937;
+  color: #9CA3AF;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.meta-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--upm-text-light);
+  font-size: 13px;
+}
+
+.meta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.meta-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--upm-text-light);
+  opacity: 0.8;
+}
+
+.meta-amount {
+  font-weight: 500;
+  color: #fff;
+  font-size: 14px;
 }

@@ -147,8 +147,15 @@ class UPM_Shortcode_Invoices {
                         <span class="badge badge-<?= sanitize_title($project['status']) ?>">
                             <?= esc_html(ucwords(str_replace('-', ' ', $project['status']))) ?>
                         </span>
-                        <div class="meta">
-                            <?= esc_html($project['area']) ?> – Ordenado: <?= esc_html($project['date']) ?> – Total: $<?= number_format($project['amount'], 2) ?>
+                        <div class="upm-project-meta">
+                            <span class="meta-area"><?= esc_html($project['area']) ?></span>                                    
+                            <span class="meta-date">
+                                <span class="meta-icon"><?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?></span>
+                                <?= esc_html($project['date']) ?>
+                            </span>
+                            <span class="meta-amount">
+                                $<?= number_format($project['amount'], 2) ?>
+                            </span>
                         </div>
                     </div>
 
