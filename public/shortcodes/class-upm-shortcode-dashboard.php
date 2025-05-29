@@ -100,10 +100,10 @@ class UPM_Shortcode_Dashboard {
         ]);
 
         // Estilos
-        wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
+//        wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
 
         // JavaScript
-        wp_enqueue_script('upm-notifications-js', UPM_URL . 'public/js/notifications.js', [], UPM_VERSION, true);
+//        wp_enqueue_script('upm-notifications-js', UPM_URL . 'public/js/notifications.js', [], UPM_VERSION, true);
 
         ob_start();
         ?>

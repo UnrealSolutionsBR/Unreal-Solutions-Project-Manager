@@ -80,9 +80,9 @@ class UPM_Shortcode_Invoices {
             ];
         }
 
-        wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
-        wp_enqueue_style('upm-invoices-css', UPM_URL . 'public/css/invoices.css', [], UPM_VERSION);
-        wp_enqueue_script('upm-invoices-js', UPM_URL . 'public/js/invoices.js', [], UPM_VERSION, true);
+//        wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
+//        wp_enqueue_style('upm-invoices-css', UPM_URL . 'public/css/invoices.css', [], UPM_VERSION);
+//        wp_enqueue_script('upm-invoices-js', UPM_URL . 'public/js/invoices.js', [], UPM_VERSION, true);
 
         ob_start();
         ?>
