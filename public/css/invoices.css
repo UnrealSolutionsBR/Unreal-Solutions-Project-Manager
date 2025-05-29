@@ -85,7 +85,7 @@
   }
 
   .state-wrapper {
-    min-width: 130px; /* ajustable según tu diseño */
+    min-width: 6.67rem;
     display: flex;
     justify-content: flex-start;
   }
