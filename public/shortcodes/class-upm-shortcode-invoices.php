@@ -166,9 +166,18 @@ class UPM_Shortcode_Invoices {
                     <div class="invoices">
                         <?php foreach ($project['invoices'] as $inv): ?>
                             <div class="invoice-entry">
-                                <span class="state <?= $inv['state'] ?>">
-                                    <?= ucfirst($inv['state']) ?>
+                            <span class="state <?= $inv['state'] ?>">
+                                <span class="state-icon">
+                                    <?php
+                                    if ($inv['state'] === 'pendiente') {
+                                        echo file_get_contents(UPM_PATH . 'public/icons/clock.svg');
+                                    } elseif ($inv['state'] === 'pagada') {
+                                        echo file_get_contents(UPM_PATH . 'public/icons/completed-projects.svg');
+                                    }
+                                    ?>
                                 </span>
+                                <?= ucfirst($inv['state']) ?>
+                            </span>
                                 <span>$<?= number_format($inv['amount'], 2) ?></span>
                                 <span><?= esc_html($inv['date']) ?></span>
                                 <span class="code">#<?= esc_html($inv['code']) ?></span>

@@ -82,16 +82,41 @@
   border-radius: 8px;
   font-size: 12px;
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.invoice-entry .state.pendiente {
+.state-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}
+
+.state-icon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.state.pendiente {
   background-color: rgba(251, 191, 36, 0.1);
   color: #fbbf24;
 }
 
-.invoice-entry .state.pagada {
+.state.pendiente .state-icon svg {
+  fill: #FACC15;
+}
+
+.state.pagada {
   background-color: rgba(34, 197, 94, 0.1);
   color: #22c55e;
+}
+
+.state.pagada .state-icon svg {
+  fill: #4ADE80;
 }
 
 .invoice-entry .code {
