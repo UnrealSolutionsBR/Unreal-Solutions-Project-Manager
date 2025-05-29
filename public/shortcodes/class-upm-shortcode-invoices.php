@@ -50,10 +50,6 @@ class UPM_Shortcode_Invoices {
                 }
 
                 $invoice_code = get_post_meta($invoice->ID, '_upm_invoice_code', true);
-                if (!$invoice_code) {
-                    $invoice_code = 'u_' . str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
-                    update_post_meta($invoice->ID, '_upm_invoice_code', $invoice_code);
-                }
 
                 $entries[] = [
                     'amount' => $amount,

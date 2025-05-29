@@ -98,6 +98,11 @@ class UPM_Module_Invoices {
                 update_post_meta($post_id, $meta_key, sanitize_text_field($_POST[$form_field]));
             }
         }
+
+        if (!metadata_exists('post', $post_id, '_upm_invoice_code')) {
+            $code = 'u_' . str_pad(rand(0, 99999), 5, '0', STR_PAD_LEFT);
+            update_post_meta($post_id, '_upm_invoice_code', $code);
+        }
     }
 }
 UPM_Module_Invoices::init();
