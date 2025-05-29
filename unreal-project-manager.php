@@ -27,14 +27,35 @@ require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-invoices.php';
 
 // Reemplazar versión cacheada de CSS usando filemtime()
 add_action('wp_enqueue_scripts', function () {
-    if (is_user_logged_in()) {
-        $css_file = UPM_PATH . 'public/css/dashboard.css';
-        if (file_exists($css_file)) {
-            wp_enqueue_style(
-                'upm-dashboard-css',
-                UPM_URL . 'public/css/dashboard.css',
+    if (!is_user_logged_in()) return;
+
+    $base_dirs = [
+        'css' => [
+            'dir' => UPM_PATH . 'public/css/',
+            'url' => UPM_URL . 'public/css/',
+            'ext' => '*.css',
+            'fn'  => 'wp_enqueue_style',
+        ],
+        'js' => [
+            'dir' => UPM_PATH . 'public/js/',
+            'url' => UPM_URL . 'public/js/',
+            'ext' => '*.js',
+            'fn'  => 'wp_enqueue_script',
+        ],
+    ];
+
+    foreach ($base_dirs as $type => $data) {
+        foreach (glob($data['dir'] . $data['ext']) as $file_path) {
+            $file_name = basename($file_path);
+            $handle = 'upm-' . str_replace('.' . $type, '', $file_name);
+
+            call_user_func(
+                $data['fn'],
+                $handle,
+                $data['url'] . $file_name,
                 [],
-                filemtime($css_file)
+                filemtime($file_path),
+                $type === 'js' // true = cargar en footer
             );
         }
     }
