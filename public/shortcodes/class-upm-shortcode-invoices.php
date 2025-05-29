@@ -166,24 +166,26 @@ class UPM_Shortcode_Invoices {
                     <div class="invoices">
                         <?php foreach ($project['invoices'] as $inv): ?>
                             <div class="invoice-entry">
-                                <span class="state <?= esc_attr($inv['state']) ?>">
-                                    <span class="state-icon">
-                                        <?php
-                                        if ($inv['state'] === 'pendiente') {
-                                            echo file_get_contents(UPM_PATH . 'public/icons/clock.svg');
-                                        } elseif ($inv['state'] === 'pagada') {
-                                            echo file_get_contents(UPM_PATH . 'public/icons/completed-projects.svg');
-                                        }
-                                        ?>
+                                <div class="invoice-main">
+                                    <span class="state <?= esc_attr($inv['state']) ?>">
+                                        <span class="state-icon">
+                                            <?php
+                                            if ($inv['state'] === 'pendiente') {
+                                                echo file_get_contents(UPM_PATH . 'public/icons/clock.svg');
+                                            } elseif ($inv['state'] === 'pagada') {
+                                                echo file_get_contents(UPM_PATH . 'public/icons/completed-projects.svg');
+                                            }
+                                            ?>
+                                        </span>
+                                        <?= ucfirst($inv['state']) ?>
                                     </span>
-                                    <?= ucfirst($inv['state']) ?>
-                                </span>
-                                    
-                                <div class="info-block">
-                                    <div class="meta-amount">$<?= number_format($inv['amount'], 2) ?></div>
-                                    <div class="meta-date"><?= esc_html($inv['date']) ?></div>
+                                        
+                                    <div class="info-block">
+                                        <div class="meta-amount">$<?= number_format($inv['amount'], 2) ?></div>
+                                        <div class="meta-date"><?= esc_html($inv['date']) ?></div>
+                                    </div>
                                 </div>
-                                    
+                                        
                                 <div class="code">#<?= esc_html($inv['code']) ?></div>
                             </div>
                         <?php endforeach; ?>

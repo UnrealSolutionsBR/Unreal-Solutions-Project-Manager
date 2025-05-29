@@ -78,6 +78,13 @@
   flex-wrap: wrap;
 }
 
+.invoice-entry .invoice-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+
 .invoice-entry .state {
   font-weight: bold;
   padding: 4px 10px;
