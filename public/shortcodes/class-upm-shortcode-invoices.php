@@ -155,8 +155,17 @@ class UPM_Shortcode_Invoices {
                         </div>
                     </div>
 
+                    <div class="progress-header">
+                        <span class="progress-title">Progreso de pagos</span>
+                        <span class="progress-amount"><?= $paid_amount ?>/<?= $total_amount ?></span>
+                    </div>
+                                
                     <div class="progress">
-                        <div class="bar" style="width: <?= $project['progress'] ?>%"></div>
+                        <div class="bar" style="width: <?= $progress ?>%"></div>
+                    </div>
+                                
+                    <div class="progress-footer">
+                        <span class="progress-percent"><?= $progress ?>% completado</span>
                     </div>
 
                     <div class="invoices">
