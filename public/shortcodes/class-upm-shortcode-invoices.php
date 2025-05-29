@@ -76,10 +76,6 @@ class UPM_Shortcode_Invoices {
             ];
         }
 
-//        wp_enqueue_style('upm-dashboard-css', UPM_URL . 'public/css/dashboard.css', [], UPM_VERSION);
-//        wp_enqueue_style('upm-invoices-css', UPM_URL . 'public/css/invoices.css', [], UPM_VERSION);
-//        wp_enqueue_script('upm-invoices-js', UPM_URL . 'public/js/invoices.js', [], UPM_VERSION, true);
-
         ob_start();
         ?>
         <div class="upm-main">
@@ -157,15 +153,17 @@ class UPM_Shortcode_Invoices {
 
                     <div class="progress-header">
                         <span class="progress-title">Progreso de pagos</span>
-                        <span class="progress-amount"><?= $paid_amount ?>/<?= $total_amount ?></span>
+                        <span class="progress-amount">
+                            $<?= number_format($project['paid'], 2) ?> / $<?= number_format($project['amount'], 2) ?>
+                        </span>
                     </div>
-                                
+
                     <div class="progress">
-                        <div class="bar" style="width: <?= $progress ?>%"></div>
+                        <div class="bar" style="width: <?= $project['progress'] ?>%"></div>
                     </div>
-                                
+
                     <div class="progress-footer">
-                        <span class="progress-percent"><?= $progress ?>% completado</span>
+                        <span class="progress-percent"><?= $project['progress'] ?>% completado</span>
                     </div>
 
                     <div class="invoices">
@@ -191,7 +189,7 @@ class UPM_Shortcode_Invoices {
                                         <div class="meta-date"><?= esc_html($inv['date']) ?></div>
                                     </div>
                                 </div>
-                                        
+
                                 <div class="code">#<?= esc_html($inv['code']) ?></div>
                             </div>
                         <?php endforeach; ?>
