@@ -118,11 +118,11 @@ class UPM_Shortcode_Dashboard {
                     </div>
                 </div>
                 <ul class="upm-menu">
-                    <li class="active">Dashboard</li>
-                    <li>Proyectos</li>
-                    <li>Facturas</li>
-                    <li>Soporte</li>
-                    <li>Mi cuenta</li>
+                    <li class="active"><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/dashboard/projects">Proyectos</a></li>
+                    <li><a href="/dashboard/invoices">Facturas</a></li>
+                    <li><a href="/dashboard/support">Soporte</a></li>
+                    <li><a href="/dashboard/my-account">Mi cuenta</a></li>
                 </ul>
             </aside>
 
