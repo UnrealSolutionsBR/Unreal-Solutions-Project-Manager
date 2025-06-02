@@ -67,6 +67,23 @@ class UPM_Shortcode_Projects {
         ob_start();
         ?>
         <div class="upm-wrapper">
+        <aside class="upm-sidebar">
+            <div class="upm-brand">Unreal Solutions</div>
+            <div class="upm-user-info">
+                <img src="<?= esc_url(get_avatar_url($user->ID)) ?>" alt="Foto de perfil">
+                <div class="upm-user-details">
+                    <strong><?= esc_html($user->display_name) ?></strong>
+                    <small><?= esc_html($user->user_email) ?></small>
+                </div>
+            </div>
+            <ul class="upm-menu">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li class="active"><a href="/dashboard/projects">Proyectos</a></li>
+                <li><a href="/dashboard/invoices">Facturas</a></li>
+                <li><a href="/dashboard/support">Soporte</a></li>
+                <li><a href="/dashboard/my-account">Mi cuenta</a></li>
+            </ul>
+        </aside>
             <main class="upm-main">
                 <div class="upm-projects-header">
                     <h2>Projects</h2>
