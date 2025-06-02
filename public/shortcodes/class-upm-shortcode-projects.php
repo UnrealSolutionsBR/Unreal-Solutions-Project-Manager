@@ -77,7 +77,7 @@ class UPM_Shortcode_Projects {
                              data-status="<?= esc_attr($status) ?>">
                             <div class="upm-project-header">
                                 <strong><?= esc_html($project->post_title) ?></strong>
-                                <span class="badge badge-<?= esc_attr($status) ?>">
+                                <span class="upm-badge badge-<?= esc_attr($status) ?>">
                                     <?= ucwords(str_replace('-', ' ', $status)) ?>
                                 </span>
                                 <div class="upm-project-meta">
