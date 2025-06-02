@@ -75,18 +75,25 @@ class UPM_Shortcode_Projects {
                         <div class="upm-project-invoice-block"
                              data-service="<?= esc_attr($area) ?>"
                              data-status="<?= esc_attr($status) ?>">
-                            <div class="upm-project-header">
-                                <strong><?= esc_html($project->post_title) ?></strong>
-                                <span class="badge badge-<?= esc_attr($status) ?>">
-                                    <?= ucwords(str_replace('-', ' ', $status)) ?>
-                                </span>
-                                <div class="upm-project-meta">
-                                    <span class="meta-area"><?= esc_html($area) ?></span>
-                                    <span class="meta-date">
-                                        <span class="meta-icon"><?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?></span>
-                                        <?= $due_date ?: 'Sin fecha' ?>
+                            <div class="upm-project-header upm-project-header-flex">
+                                <div>
+                                    <strong><?= esc_html($project->post_title) ?></strong>
+                                    <div class="upm-project-meta">
+                                        <span class="meta-area"><?= esc_html($area) ?></span>
+                                        <span class="meta-date">
+                                            <span class="meta-icon">
+                                                <?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?>
+                                            </span>
+                                            <?= $due_date ?: 'Sin fecha' ?>
+                                        </span>
+                                        <span class="meta-date">Actualizado <?= esc_html($updated) ?></span>
+                                    </div>
+                                </div>
+                                <div class="upm-project-right">
+                                    <span class="upm-badge badge-<?= esc_attr($status) ?>">
+                                        <?= ucwords(str_replace('-', ' ', $status)) ?>
                                     </span>
-                                    <span class="meta-date">Actualizado <?= esc_html($updated) ?></span>
+                                    <a href="#" class="upm-btn primary">Gestionar</a>
                                 </div>
                             </div>
                             <div class="progress">
@@ -94,9 +101,6 @@ class UPM_Shortcode_Projects {
                             </div>
                             <div class="progress-footer">
                                 <span class="progress-percent"><?= intval($progress) ?>% completado</span>
-                            </div>
-                            <div style="text-align:right;">
-                                <a href="#" class="upm-btn primary">Gestionar</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
