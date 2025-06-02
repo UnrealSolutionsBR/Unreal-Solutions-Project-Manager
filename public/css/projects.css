@@ -35,10 +35,16 @@
 }
 .upm-project-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 8px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.upm-project-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 .upm-project-card h3 {
     color: #fafafa;
@@ -74,6 +80,9 @@
     background-color: #3b82f6;
     height: 100%;
     transition: width 0.3s ease;
+}
+.upm-project-header .upm-btn {
+    white-space: nowrap;
 }
 .upm-btn {
     background-color: #3b82f6;

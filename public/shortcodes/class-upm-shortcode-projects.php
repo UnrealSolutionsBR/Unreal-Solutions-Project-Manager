@@ -106,13 +106,15 @@ class UPM_Shortcode_Projects {
                             $updated    = human_time_diff(strtotime($project->post_modified), current_time('timestamp')) . ' ago';
                         ?>
                         <div class="upm-project-card">
-                            <div class="upm-project-header">
+                        <div class="upm-project-header">
+                            <div class="upm-project-title-group">
                                 <h3><?= esc_html($project->post_title) ?></h3>
                                 <span class="upm-badge badge-<?= esc_attr($status) ?>">
                                     <?= ucwords(str_replace('-', ' ', $status)) ?>
                                 </span>
-                                <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
                             </div>
+                            <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
+                        </div>
                             <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
                             <div class="upm-project-meta">
                                 <span class="upm-project-service"><?= esc_html($area) ?></span>
