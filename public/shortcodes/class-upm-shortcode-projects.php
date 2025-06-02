@@ -126,8 +126,8 @@ class UPM_Shortcode_Projects {
                         <div class="upm-project-header">
                         <h3><?= esc_html($project->post_title) ?></h3>
                         <div class="upm-project-actions">
-                            <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
                             <span class="project-badge badge-<?= esc_attr($status) ?>">
+                            <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
                                 <?= ucwords(str_replace('-', ' ', $status)) ?>
                             </span>
                         </div>
