@@ -50,17 +50,14 @@
     color: #fafafa;
     margin: 0;
 }
-.upm-badge {
+.project-badge {
     font-size: 12px;
     padding: 4px 10px;
     border-radius: 12px;
     font-weight: 600;
+    display: inline-block;
+    text-transform: capitalize;
 }
-.badge-activo { background: rgba(96,165,250,0.1); color: rgb(96,165,250); }
-.badge-en-curso { background: rgba(250,204,21,0.1); color: rgb(250,204,21); }
-.badge-completado { background: rgba(74,222,128,0.1); color: rgb(74,222,128); }
-.badge-esperando-revision { background: rgba(251,146,60,0.1); color: rgb(251,146,60); }
-
 .upm-project-description {
     color: #94a3b8;
     font-size: 14px;

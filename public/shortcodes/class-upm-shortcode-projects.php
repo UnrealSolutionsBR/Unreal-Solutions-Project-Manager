@@ -109,7 +109,7 @@ class UPM_Shortcode_Projects {
                         <div class="upm-project-header">
                             <div class="upm-project-title-group">
                                 <h3><?= esc_html($project->post_title) ?></h3>
-                                <span class="upm-badge badge-<?= esc_attr($status) ?>">
+                                <span class="project-badge badge-<?= esc_attr($status) ?>">
                                     <?= ucwords(str_replace('-', ' ', $status)) ?>
                                 </span>
                             </div>
