@@ -125,12 +125,12 @@ class UPM_Shortcode_Projects {
                         <div class="upm-project-card">
                         <div class="upm-project-header">
                         <h3><?= esc_html($project->post_title) ?></h3>
-                        <div class="upm-project-actions">
-                            <span class="project-badge badge-<?= esc_attr($status) ?>">
-                            <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
-                                <?= ucwords(str_replace('-', ' ', $status)) ?>
-                            </span>
-                        </div>
+                            <div class="upm-project-actions">
+                                <span class="project-badge badge-<?= esc_attr($status) ?>">
+                                    <?= ucwords(str_replace('-', ' ', $status)) ?>
+                                </span>
+                                <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
+                            </div>
                         </div>
                             <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
                             <div class="upm-project-meta">
