@@ -61,9 +61,6 @@ class UPM_Shortcode_Projects {
         $services = array_unique(array_filter($services));
         $statuses = array_unique(array_filter($statuses));
 
-        // Estilos
-        wp_enqueue_style('upm-projects-css', UPM_URL . 'public/css/projects.css', [], UPM_VERSION);
-
         ob_start();
         ?>
         <div class="upm-wrapper">

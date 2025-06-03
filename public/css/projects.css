@@ -2,8 +2,10 @@
     margin-bottom: 30px;
 }
 .upm-projects-header h2 {
-    font-size: 24px;
-    color: #fff;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
 }
 .upm-projects-header p {
     color: #94a3b8;
