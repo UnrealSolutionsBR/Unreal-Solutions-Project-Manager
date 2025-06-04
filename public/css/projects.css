@@ -1,9 +1,14 @@
-.upm-project-service {
+.meta-area {
     background-color: #1F2937;
     color: #9CA3AF;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.812rem; 
+}
+.meta-icon svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    fill: var(--upm-text-light);
 }
 .upm-projects-header {
     display: flex;
@@ -91,9 +96,13 @@
     font-size: 14px;
 }
 .upm-project-meta {
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: #cbd5e1;
-    margin: 8px 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
 }
 .upm-progress-bar {
     background-color: #334155;
