@@ -82,31 +82,33 @@ class UPM_Shortcode_Projects {
             </ul>
         </aside>
             <main class="upm-main">
-                <div class="upm-projects-header">
+            <div class="upm-projects-header">
+                <div>
                     <h2>Projects</h2>
                     <p>Manage and track all your active projects</p>
-                    <div class="upm-filters">
-                        <form method="get">
-                            <select name="service" onchange="this.form.submit()">
-                                <option value="">All Services</option>
-                                <?php foreach ($services as $s): ?>
-                                    <option value="<?= esc_attr($s) ?>" <?= selected($current_service, $s, false) ?>>
-                                        <?= esc_html($s) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-
-                            <select name="status" onchange="this.form.submit()">
-                                <option value="">All Status</option>
-                                <?php foreach ($statuses as $s): ?>
-                                    <option value="<?= esc_attr($s) ?>" <?= selected($current_status, $s, false) ?>>
-                                        <?= ucwords(str_replace('-', ' ', $s)) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </form>
-                    </div>
                 </div>
+                <div class="upm-filters">
+                    <form method="get">
+                        <select name="service" onchange="this.form.submit()">
+                            <option value="">All Services</option>
+                            <?php foreach ($services as $s): ?>
+                                <option value="<?= esc_attr($s) ?>" <?= selected($current_service, $s, false) ?>>
+                                    <?= esc_html($s) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                            
+                        <select name="status" onchange="this.form.submit()">
+                            <option value="">All Status</option>
+                            <?php foreach ($statuses as $s): ?>
+                                <option value="<?= esc_attr($s) ?>" <?= selected($current_status, $s, false) ?>>
+                                    <?= ucwords(str_replace('-', ' ', $s)) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </form>
+                </div>
+            </div>
 
                 <div class="upm-project-list">
                     <?php if (empty($projects)): ?>
