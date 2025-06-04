@@ -149,11 +149,12 @@ class UPM_Shortcode_Projects {
                 </div>
                 <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
                 <div class="upm-project-meta">
-                    <span class="upm-project-service"><?= esc_html($area) ?></span>
-                    <span class="upm-project-dates">
-                        <?= $due_date ? 'Due: ' . esc_html($due_date) : 'Due: Ongoing' ?> &nbsp; • &nbsp;
-                        Updated <?= esc_html($updated) ?>
+                    <span class="meta-area"><?= esc_html($area) ?></span>
+                    <span class="meta-date">
+                        <span class="meta-icon"><?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?></span>
+                        <?= esc_html($project['date']) ?>
                     </span>
+                    <span class="meta-updated"></span>
                 </div>
                 <div class="upm-progress-bar">
                     <div style="width: <?= intval($progress) ?>%"></div>
