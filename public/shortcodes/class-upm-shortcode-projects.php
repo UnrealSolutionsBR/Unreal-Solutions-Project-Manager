@@ -152,9 +152,9 @@ class UPM_Shortcode_Projects {
                     <span class="meta-area"><?= esc_html($area) ?></span>
                     <span class="meta-date">
                         <span class="meta-icon"><?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?></span>
-                        <?= esc_html($project['date']) ?>
+                        <?= $due_date ? 'Due: ' . esc_html($due_date) : 'Due: Ongoing' ?>
                     </span>
-                    <span class="meta-updated"></span>
+                    <span class="meta-updated"> Updated <?= esc_html($updated) ?></span>
                 </div>
                 <div class="upm-progress-bar">
                     <div style="width: <?= intval($progress) ?>%"></div>
