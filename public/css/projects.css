@@ -1,3 +1,10 @@
+.upm-project-service {
+    background-color: #1F2937;
+    color: #9CA3AF;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.812rem; 
+}
 .upm-projects-header {
     display: flex;
     justify-content: space-between;
@@ -65,8 +72,11 @@
     flex-wrap: wrap;
 }
 .upm-project-card h3 {
-    color: #fafafa;
+    color: var(--upm-text-white);
     margin: 0;
+    font-size: 1.125rem;
+    line-height: 2rem;
+    font-weight: 700;
 }
 .project-badge {
     font-size: 12px;
