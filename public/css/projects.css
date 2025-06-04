@@ -17,8 +17,10 @@
 }
 .upm-filters {
     display: flex;
+    flex-direction: row;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
 }
 .upm-filters select {
     background: #1f2937;
@@ -26,6 +28,8 @@
     border: 1px solid #334155;
     padding: 8px 12px;
     border-radius: 6px;
+    min-width: 160px;
+    white-space: nowrap;
 }
 .upm-project-list {
     display: flex;
