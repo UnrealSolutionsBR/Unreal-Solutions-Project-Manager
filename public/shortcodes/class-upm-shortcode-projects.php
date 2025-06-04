@@ -2,6 +2,7 @@
 class UPM_Shortcode_Projects {
     public static function register() {
         add_shortcode('upm_projects', [__CLASS__, 'render']);
+        add_action('wp_ajax_upm_filter_projects', [__CLASS__, 'ajax_filter']);
     }
 
     public static function render() {
@@ -9,40 +10,15 @@ class UPM_Shortcode_Projects {
             return '<p>Debe iniciar sesión para acceder a sus proyectos.</p>';
         }
 
+        wp_enqueue_script('upm-projects-filters', UPM_URL . 'public/js/projects-filters.js', [], UPM_VERSION, true);
+        wp_localize_script('upm-projects-filters', 'upm_ajax', [
+            'url' => admin_url('admin-ajax.php'),
+        ]);
+
         $user = wp_get_current_user();
         $user_id = $user->ID;
 
-        // Obtener filtros de URL
-        $current_service = sanitize_text_field($_GET['service'] ?? '');
-        $current_status  = sanitize_text_field($_GET['status'] ?? '');
-
-        // Obtener proyectos del cliente
-        $args = [
-            'post_type'      => 'upm_project',
-            'meta_key'       => '_upm_client_id',
-            'meta_value'     => $user_id,
-            'posts_per_page' => -1,
-        ];
-
-        if ($current_service) {
-            $args['meta_query'][] = [
-                'key'     => '_upm_area',
-                'value'   => $current_service,
-                'compare' => '='
-            ];
-        }
-
-        if ($current_status) {
-            $args['meta_query'][] = [
-                'key'     => '_upm_status',
-                'value'   => $current_status,
-                'compare' => '='
-            ];
-        }
-
-        $projects = get_posts($args);
-
-        // Obtener todos los servicios y estados
+        // Obtener todos los proyectos para armar filtros
         $all_projects = get_posts([
             'post_type'      => 'upm_project',
             'meta_key'       => '_upm_client_id',
@@ -88,20 +64,20 @@ class UPM_Shortcode_Projects {
                     <p>Manage and track all your active projects</p>
                 </div>
                 <div class="upm-filters">
-                    <form method="get">
-                        <select name="service" onchange="this.form.submit()">
+                    <form id="upm-project-filter-form">
+                        <select name="service">
                             <option value="">All Services</option>
                             <?php foreach ($services as $s): ?>
-                                <option value="<?= esc_attr($s) ?>" <?= selected($current_service, $s, false) ?>>
+                                <option value="<?= esc_attr($s) ?>">
                                     <?= esc_html($s) ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                            
-                        <select name="status" onchange="this.form.submit()">
+
+                        <select name="status">
                             <option value="">All Status</option>
                             <?php foreach ($statuses as $s): ?>
-                                <option value="<?= esc_attr($s) ?>" <?= selected($current_status, $s, false) ?>>
+                                <option value="<?= esc_attr($s) ?>">
                                     <?= ucwords(str_replace('-', ' ', $s)) ?>
                                 </option>
                             <?php endforeach; ?>
@@ -110,46 +86,86 @@ class UPM_Shortcode_Projects {
                 </div>
             </div>
 
-                <div class="upm-project-list">
-                    <?php if (empty($projects)): ?>
-                        <p>No hay proyectos que coincidan con los filtros.</p>
-                    <?php else: ?>
-                        <?php foreach ($projects as $project): 
-                            $status     = get_post_meta($project->ID, '_upm_status', true);
-                            $area       = get_post_meta($project->ID, '_upm_area', true);
-                            $due_date   = get_post_meta($project->ID, '_upm_due_date', true);
-                            $progress   = get_post_meta($project->ID, '_upm_progress', true) ?: 0;
-                            $updated    = human_time_diff(strtotime($project->post_modified), current_time('timestamp')) . ' ago';
-                        ?>
-                        <div class="upm-project-card">
-                        <div class="upm-project-header">
-                        <h3><?= esc_html($project->post_title) ?></h3>
-                            <div class="upm-project-actions">
-                                <span class="project-badge badge-<?= esc_attr($status) ?>">
-                                    <?= ucwords(str_replace('-', ' ', $status)) ?>
-                                </span>
-                                <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
-                            </div>
-                        </div>
-                            <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
-                            <div class="upm-project-meta">
-                                <span class="upm-project-service"><?= esc_html($area) ?></span>
-                                <span class="upm-project-dates">
-                                    <?= $due_date ? 'Due: ' . esc_html($due_date) : 'Due: Ongoing' ?> &nbsp; • &nbsp;
-                                    Updated <?= esc_html($updated) ?>
-                                </span>
-                            </div>
-                            <div class="upm-progress-bar">
-                                <div style="width: <?= intval($progress) ?>%"></div>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
+            <div class="upm-project-list" id="upm-project-cards">
+                <?php self::render_cards(); ?>
+            </div>
             </main>
         </div>
         <?php
         return ob_get_clean();
+    }
+
+    public static function render_cards() {
+        $user_id = get_current_user_id();
+        $current_service = sanitize_text_field($_REQUEST['service'] ?? '');
+        $current_status  = sanitize_text_field($_REQUEST['status'] ?? '');
+
+        $args = [
+            'post_type'      => 'upm_project',
+            'meta_key'       => '_upm_client_id',
+            'meta_value'     => $user_id,
+            'posts_per_page' => -1,
+        ];
+
+        if ($current_service) {
+            $args['meta_query'][] = [
+                'key'     => '_upm_area',
+                'value'   => $current_service,
+                'compare' => '='
+            ];
+        }
+
+        if ($current_status) {
+            $args['meta_query'][] = [
+                'key'     => '_upm_status',
+                'value'   => $current_status,
+                'compare' => '='
+            ];
+        }
+
+        $projects = get_posts($args);
+
+        if (empty($projects)) {
+            echo '<p>No hay proyectos que coincidan con los filtros.</p>';
+            return;
+        }
+
+        foreach ($projects as $project) {
+            $status     = get_post_meta($project->ID, '_upm_status', true);
+            $area       = get_post_meta($project->ID, '_upm_area', true);
+            $due_date   = get_post_meta($project->ID, '_upm_due_date', true);
+            $progress   = get_post_meta($project->ID, '_upm_progress', true) ?: 0;
+            $updated    = human_time_diff(strtotime($project->post_modified), current_time('timestamp')) . ' ago';
+            ?>
+            <div class="upm-project-card">
+                <div class="upm-project-header">
+                    <h3><?= esc_html($project->post_title) ?></h3>
+                    <div class="upm-project-actions">
+                        <span class="project-badge badge-<?= esc_attr($status) ?>">
+                            <?= ucwords(str_replace('-', ' ', $status)) ?>
+                        </span>
+                        <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
+                    </div>
+                </div>
+                <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
+                <div class="upm-project-meta">
+                    <span class="upm-project-service"><?= esc_html($area) ?></span>
+                    <span class="upm-project-dates">
+                        <?= $due_date ? 'Due: ' . esc_html($due_date) : 'Due: Ongoing' ?> &nbsp; • &nbsp;
+                        Updated <?= esc_html($updated) ?>
+                    </span>
+                </div>
+                <div class="upm-progress-bar">
+                    <div style="width: <?= intval($progress) ?>%"></div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+
+    public static function ajax_filter() {
+        self::render_cards();
+        wp_die();
     }
 }
 UPM_Shortcode_Projects::register();
