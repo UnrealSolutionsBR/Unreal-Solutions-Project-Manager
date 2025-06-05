@@ -144,7 +144,10 @@ class UPM_Shortcode_Projects {
                         <span class="project-badge badge-<?= esc_attr($status) ?>">
                             <?= ucwords(str_replace('-', ' ', $status)) ?>
                         </span>
-                        <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">Manage</a>
+                        <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">
+                        <?= file_get_contents(UPM_PATH . 'public/icons/settings.svg'); ?>
+                        Gestionar
+                        </a>
                     </div>
                 </div>
                 <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
