@@ -54,6 +54,7 @@ class UPM_Module_Projects {
         $area = get_post_meta($post->ID, '_upm_area', true);
         $progress = get_post_meta($post->ID, '_upm_progress', true);
         $amount = get_post_meta($post->ID, '_upm_project_amount', true);
+        $short_description = get_post_meta($post->ID, '_upm_short_description', true);
 
         $billing_type = get_post_meta($post->ID, '_upm_billing_type', true) ?: 'pago-unico';
         $billing_installments = get_post_meta($post->ID, '_upm_billing_installments', true) ?: 2;
@@ -109,6 +110,10 @@ class UPM_Module_Projects {
             <input type="number" name="upm_project_amount" value="<?= esc_attr($amount) ?>" step="0.01" />
         </p>
 
+        <p><label><strong>Descripción breve:</strong></label><br>
+            <textarea name="upm_short_description" rows="3" style="width:100%;"><?= esc_textarea($short_description) ?></textarea>
+        </p>
+
         <p><label><strong>Tipo de facturación:</strong></label><br>
             <select name="upm_billing_type" id="upm_billing_type">
                 <option value="pago-unico" <?= selected($billing_type, 'pago-unico') ?>>Pago único</option>
@@ -162,6 +167,7 @@ class UPM_Module_Projects {
             'upm_area'                  => '_upm_area',
             'upm_progress'              => '_upm_progress',
             'upm_project_amount'        => '_upm_project_amount',
+            'upm_short_description'     => '_upm_short_description',
             'upm_billing_type'          => '_upm_billing_type',
             'upm_billing_installments'  => '_upm_billing_installments',
             'upm_billing_frequency'     => '_upm_billing_frequency',
