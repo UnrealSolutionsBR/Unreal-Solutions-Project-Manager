@@ -43,7 +43,7 @@
     border-right: 1px solid var(--upm-border);
 }
 .upm-brand {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     text-transform: uppercase;
     color: var(--upm-brand);
@@ -53,7 +53,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.4;
     border-bottom: 1px solid var(--upm-border);
     padding-bottom: 15px;
@@ -150,7 +150,7 @@
 
 .upm-notification-dropdown strong {
     color: var(--upm-text-white);
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-bottom: 10px;
     display: block;
 }
@@ -162,7 +162,7 @@
 }
 
 .upm-notification-dropdown li {
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--upm-text-light);
     margin-bottom: 12px;
     display: flex;
@@ -176,7 +176,7 @@
 
 .upm-notification-dropdown li small {
     color: var(--upm-text-muted);
-    font-size: 11px;
+    font-size: 0.6875rem;
     line-height: 1.2;
 }
 .upm-notification-dropdown li strong {
@@ -186,7 +186,7 @@
 }
 
 .upm-notification-dropdown a {
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--upm-blue);
     text-decoration: none;
 }
@@ -200,16 +200,22 @@
 /* ==== BOTONES ===*/
 .upm-btn {
     background-color: var(--upm-brand);
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 14px;
+    color: var(--upm-text-white);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
     border-radius: 8px;
     text-decoration: none;
     transition: background 0.2s ease;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 .upm-btn:hover {
     background-color: #2563eb;
+}
+.upm-btn svg {
+    width: 1rem;
+    height: 1rem;
 }
 /* === PROGRESS BAR ===*/
 .upm-progress-bar {
@@ -232,7 +238,7 @@
     top: 15px;
     padding: 3px 8px;
     border-radius: 12px;
-    font-size: 11px;
+    font-size: 0.6875rem;
     font-weight: bold;
 }
 .badge-en-curso {
