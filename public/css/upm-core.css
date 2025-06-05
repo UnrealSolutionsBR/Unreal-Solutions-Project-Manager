@@ -216,6 +216,7 @@
 .upm-btn svg {
     width: 1rem;
     height: 1rem;
+    fill: var(--upm-text-white);
 }
 /* === PROGRESS BAR ===*/
 .upm-progress-bar {
