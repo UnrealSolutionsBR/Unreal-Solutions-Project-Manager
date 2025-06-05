@@ -136,6 +136,7 @@ class UPM_Shortcode_Projects {
             $due_date   = get_post_meta($project->ID, '_upm_due_date', true);
             $progress   = get_post_meta($project->ID, '_upm_progress', true) ?: 0;
             $updated    = human_time_diff(strtotime($project->post_modified), current_time('timestamp')) . ' ago';
+            $short_description = get_post_meta($project->ID, '_upm_short_description', true);
             ?>
             <div class="upm-project-card">
                 <div class="upm-project-header">
@@ -150,7 +151,9 @@ class UPM_Shortcode_Projects {
                         </a>
                     </div>
                 </div>
-                <p class="upm-project-description"><?= esc_html(wp_trim_words($project->post_content, 20)) ?></p>
+                <?php if (!empty($short_description)) : ?>
+                    <p class="upm-project-description"><?= esc_html($short_description) ?></p>
+                <?php endif; ?>
                 <div class="upm-project-meta">
                     <span class="meta-area"><?= esc_html($area) ?></span>
                     <span class="meta-date">
