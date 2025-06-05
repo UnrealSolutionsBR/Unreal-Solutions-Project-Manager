@@ -8,7 +8,7 @@
 .meta-icon svg {
     width: 0.875rem;
     height: 0.875rem;
-    fill: var(--upm-text-light);
+    fill: var(--upm-text-muted);
 }
 .upm-projects-header {
     display: flex;
@@ -96,9 +96,9 @@
     font-size: 0.875rem;
 }
 .upm-project-meta {
-    font-size: 0.8125rem;
-    color: #cbd5e1;
-    margin: 1rem 0;
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+    margin: 0.875rem 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
