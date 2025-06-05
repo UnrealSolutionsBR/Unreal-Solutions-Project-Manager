@@ -162,6 +162,10 @@ class UPM_Shortcode_Projects {
                     </span>
                     <span class="meta-updated"> Updated <?= esc_html($updated) ?></span>
                 </div>
+                <div class="progress-header">
+                    <span class="progress-title">Progreso</span>
+                    <span class="progress-amount"><?= intval($progress) ?>%</span>
+                </div>
                 <div class="upm-progress-bar">
                     <div style="width: <?= intval($progress) ?>%"></div>
                 </div>
