@@ -27,7 +27,7 @@
 .upm-card {
     flex: 1;
     min-width: 250px;
-    background: #111827;
+    background: var(--upm-bg-dark);
     padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--upm-border);
@@ -217,7 +217,7 @@
     font-weight: 700;
 }
 .upm-card-block {
-    background: #111827;
+    background: var(--upm-bg-dark);
     padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--upm-border);
