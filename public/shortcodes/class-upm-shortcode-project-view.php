@@ -114,10 +114,10 @@ class UPM_Shortcode_Project_View {
                         <!-- Columna izquierda -->
                         <div class="upm-left-column">
                             <div class="upm-card-block">
-                                <h3>Project Overview</h3>
+                                <h3>Resumen del Proyecto</h3>
                                 <p><?= esc_html($project->post_content) ?></p>
-                                <p><strong>Inicio:</strong> <?= esc_html($start) ?></p>
-                                <p><strong>Entrega:</strong> <?= esc_html($due) ?></p>
+                                <p><strong>Fecha de inicio:</strong> <?= esc_html($start) ?></p>
+                                <p><strong>Fecha de entrega:</strong> <?= esc_html($due) ?></p>
                                 <div class="progress-header">
                                     <span class="progress-title">Progreso</span>
                                     <span class="progress-amount"><?= intval($progress) ?>%</span>
@@ -132,7 +132,7 @@ class UPM_Shortcode_Project_View {
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Deliverables</h3>
+                                <h3>Entregas Programadas</h3>
                                 <ul>
                                     <?php foreach ($milestones as $m): 
                                         $label = get_post_meta($m->ID, '_upm_milestone_date', true);
@@ -142,7 +142,7 @@ class UPM_Shortcode_Project_View {
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Project Files</h3>
+                                <h3>Archivos adjuntos</h3>
                                 <?php foreach ($files as $section => $items): ?>
                                     <h4><?= esc_html($section) ?></h4>
                                     <ul>
@@ -157,20 +157,20 @@ class UPM_Shortcode_Project_View {
                         <!-- Columna derecha -->
                         <div class="upm-right-column">
                             <div class="upm-card-block">
-                                <h3>Quick Actions</h3>
+                                <h3>Acciones rápidas</h3>
                                 <a href="#" class="upm-btn primary">Solicitar actualización</a><br><br>
                                 <a href="#" class="upm-btn secondary">Ver brief</a>
                             </div>
 
                             <div class="upm-card-block">
                                 <h3>Budget</h3>
-                                <p><strong>Total:</strong> $<?= number_format($amount, 2) ?></p>
-                                <p><strong>Pagado:</strong> $<?= number_format($paid, 2) ?></p>
-                                <p><strong>Pendiente:</strong> $<?= number_format($amount - $paid, 2) ?></p>
+                                <p><strong>Presupuesto Total:</strong> $<?= number_format($amount, 2) ?></p>
+                                <p><strong>Total Cancelado:</strong> $<?= number_format($paid, 2) ?></p>
+                                <p><strong>Saldo Pendiente:</strong> $<?= number_format($amount - $paid, 2) ?></p>
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Recent Activity</h3>
+                                <h3>Actividad reciente</h3>
                                 <ul>
                                     <?php foreach ($milestones as $m): ?>
                                         <li><strong><?= esc_html($m->post_title) ?></strong><br>
