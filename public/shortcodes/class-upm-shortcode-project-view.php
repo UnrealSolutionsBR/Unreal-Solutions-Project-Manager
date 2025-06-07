@@ -115,9 +115,11 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-left-column">
                             <div class="upm-card-block">
                                 <h3>Resumen del Proyecto</h3>
-                                <p><?= esc_html($project->post_content) ?></p>
-                                <p><strong>Fecha de inicio:</strong> <?= esc_html($start) ?></p>
-                                <p><strong>Fecha de entrega:</strong> <?= esc_html($due) ?></p>
+                                <p class="upm-project-description"><?= esc_html($short_description) ?></p>
+                                <div class="upm-project-dates">
+                                    <p>Fecha de inicio: <?= esc_html($start) ?></p>
+                                    <p>Fecha de entrega: <?= esc_html($due) ?></p>
+                                </div>
                                 <div class="progress-header">
                                     <span class="progress-title">Progreso</span>
                                     <span class="progress-amount"><?= intval($progress) ?>%</span>

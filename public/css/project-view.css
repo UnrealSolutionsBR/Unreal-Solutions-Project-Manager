@@ -49,3 +49,13 @@
     font-weight: 700;
     color: var(--upm-text-white);
 }
+.upm-project-dates {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.upm-project-dates p {
+    margin: 0;
+    font-size: 0.875rem;
+}
