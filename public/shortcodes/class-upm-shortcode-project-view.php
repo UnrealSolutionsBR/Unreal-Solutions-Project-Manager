@@ -10,7 +10,7 @@ class UPM_Shortcode_Project_View {
         }
 
         $atts = shortcode_atts(['id' => 0], $atts);
-        $project_id = absint($atts['id']);
+        $project_id = absint($atts['id'] ?: ($_GET['id'] ?? 0));
         $user_id = get_current_user_id();
         $user = wp_get_current_user();
 

@@ -145,7 +145,7 @@ class UPM_Shortcode_Projects {
                         <span class="project-badge badge-<?= esc_attr($status) ?>">
                             <?= ucwords(str_replace('-', ' ', $status)) ?>
                         </span>
-                        <a class="upm-btn" href="/dashboard/projects?pid=<?= $project->ID ?>">
+                        <a class="upm-btn" href="/dashboard/project?id=<?= $project->ID ?>">
                         <?= file_get_contents(UPM_PATH . 'public/icons/settings.svg'); ?>
                         Gestionar
                         </a>
