@@ -62,11 +62,31 @@
 }
 .upm-date-item small {
     color: var(--upm-text-muted);
-    font-size: 13px;
+    font-size: 0.875rem;
 }
 
 .upm-date-item p {
     margin: 0;
-    font-size: 15px;
+    font-size: 1rem;
     color: var(--upm-text-white);
+}
+.client-notes {
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: .5rem;
+    background-color: var(--upm-btn-bg-muted);
+}
+
+.client-notes h4 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.client-notes p {
+    color: var(--upm-text-light);
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    margin: 0;
 }

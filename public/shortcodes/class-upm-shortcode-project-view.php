@@ -135,7 +135,7 @@ class UPM_Shortcode_Project_View {
                                     <div style="width: <?= intval($progress) ?>%"></div>
                                 </div>
                                 <div class="client-notes">
-                                    <strong>Notas del cliente:</strong>
+                                    <h4>Notas del cliente:</h4>
                                     <p><?= esc_html($last_note) ?></p>
                                 </div>
                             </div>
