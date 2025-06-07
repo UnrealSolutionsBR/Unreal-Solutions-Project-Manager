@@ -55,7 +55,18 @@
     flex-wrap: wrap;
     margin-bottom: 10px;
 }
-.upm-project-dates p {
+.upm-date-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.upm-date-item small {
+    color: var(--upm-text-muted);
+    font-size: 13px;
+}
+
+.upm-date-item p {
     margin: 0;
-    font-size: 0.875rem;
+    font-size: 15px;
+    color: var(--upm-text-white);
 }

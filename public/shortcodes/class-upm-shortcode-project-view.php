@@ -30,6 +30,7 @@ class UPM_Shortcode_Project_View {
         $due = get_post_meta($project_id, '_upm_due_date', true);
         $start = get_post_meta($project_id, '_upm_start_date', true);
         $amount = get_post_meta($project_id, '_upm_project_amount', true);
+        $short_description = get_post_meta($project->ID, '_upm_short_description', true);
 
         $notes = get_posts([
             'post_type' => 'upm_note',
@@ -117,8 +118,14 @@ class UPM_Shortcode_Project_View {
                                 <h3>Resumen del Proyecto</h3>
                                 <p class="upm-project-description"><?= esc_html($short_description) ?></p>
                                 <div class="upm-project-dates">
-                                    <p>Fecha de inicio: <?= esc_html($start) ?></p>
-                                    <p>Fecha de entrega: <?= esc_html($due) ?></p>
+                                    <div class="upm-date-item">
+                                        <small>Fecha de inicio:</small>
+                                        <p><?= esc_html($start) ?></p>
+                                    </div>
+                                    <div class="upm-date-item">
+                                        <small>Fecha de entrega:</small>
+                                        <p><?= esc_html($due) ?></p>
+                                    </div>
                                 </div>
                                 <div class="progress-header">
                                     <span class="progress-title">Progreso</span>
