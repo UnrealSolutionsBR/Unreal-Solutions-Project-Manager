@@ -26,14 +26,16 @@
 .upm-back-btn:hover svg {
     fill: var(--upm-text-white);
 }
+.upm-back-btn:hover {
+    background-color: var(--upm-blue-hover);
+    border: 1px solid var(--upm-blue);
+}
 .upm-project-title-group h2 {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--upm-text-white);
 }
-.upm-project-area {
-    margin: 0;
-    font-size: 0.875rem;
+.upm-project-title-group p {
     color: var(--upm-text-muted);
 }

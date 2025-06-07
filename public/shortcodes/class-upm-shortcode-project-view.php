@@ -102,7 +102,7 @@ class UPM_Shortcode_Project_View {
                     </a>
                         <div>
                         <h2><?= esc_html($project->post_title) ?></h2>
-                        <p><strong><?= esc_html($area) ?></strong></p>
+                        <p><?= esc_html($area) ?></p>
                         </div>
                     </div>
                 </div>
