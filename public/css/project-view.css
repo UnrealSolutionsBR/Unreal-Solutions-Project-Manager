@@ -1,0 +1,39 @@
+.upm-project-view-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.upm-project-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.upm-back-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+}
+.upm-back-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--upm-text-light);
+    transition: fill 0.2s ease;
+}
+.upm-back-btn:hover svg {
+    fill: var(--upm-text-white);
+}
+.upm-project-title-group h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
+.upm-project-area {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+}

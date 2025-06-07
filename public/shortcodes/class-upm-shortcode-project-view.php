@@ -95,10 +95,17 @@ class UPM_Shortcode_Project_View {
             </aside>
 
             <main class="upm-main">
-                <a href="/dashboard/projects" class="upm-btn" style="margin-bottom:20px;"><?= file_get_contents(UPM_PATH . 'public/icons/arrow.svg'); ?></a>
-                <h2><?= esc_html($project->post_title) ?></h2>
-                <p><strong><?= esc_html($area) ?></strong></p>
-
+                <div class="upm-project-view-header">
+                    <div class="upm-project-title-group">
+                    <a href="/dashboard/projects" class="upm-back-btn">
+                        <?= file_get_contents(UPM_PATH . 'public/icons/arrow.svg'); ?>
+                    </a>
+                        <div>
+                        <h2><?= esc_html($project->post_title) ?></h2>
+                        <p><strong><?= esc_html($area) ?></strong></p>
+                        </div>
+                    </div>
+                </div>
                 <div class="upm-overview-section">
                     <div class="upm-overview-grid">
                         <!-- Columna izquierda -->
