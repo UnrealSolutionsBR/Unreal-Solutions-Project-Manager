@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Unreal Solutions Project Manager
  * Description: Panel modular para clientes de Unreal Solutions para gestionar proyectos, facturas, tickets y más.
- * Version: 1.4.2
+ * Version: 1.5.0
  * Author: Unreal Solutions
  * Plugin URI: https://unrealsolutions.com.br/
  */
@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 // Definiciones globales
-define('UPM_VERSION', '1.4.2');
+define('UPM_VERSION', '1.5.0');
 define('UPM_PATH', plugin_dir_path(__FILE__));
 define('UPM_URL', plugin_dir_url(__FILE__));
 
@@ -24,6 +24,7 @@ require_once UPM_PATH . 'includes/class-upm-loader.php';
 // Shortcodes públicos
 require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-dashboard.php';
 require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-projects.php';
+require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-project-view.php';
 //require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-invoices.php';
 
 // Reemplazar versión cacheada de CSS usando filemtime()
