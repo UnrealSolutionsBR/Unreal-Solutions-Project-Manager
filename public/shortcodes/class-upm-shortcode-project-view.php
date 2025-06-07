@@ -38,10 +38,8 @@ class UPM_Shortcode_Project_View {
             'meta_value' => $project_id,
             'orderby' => 'date',
             'order' => 'DESC',
-            'posts_per_page' => 1
+            'posts_per_page' => 3,
         ]);
-
-        $last_note = $notes[0]->post_content ?? 'Sin notas disponibles.';
 
         $milestones = get_posts([
             'post_type' => 'upm_milestone',
@@ -136,7 +134,13 @@ class UPM_Shortcode_Project_View {
                                 </div>
                                 <div class="client-notes">
                                     <h4>Notas del cliente:</h4>
-                                    <p><?= esc_html($last_note) ?></p>
+                                    <?php if (!empty($notes)) : ?>
+                                        <?php foreach ($notes as $note) : ?>
+                                            <div class="client-note-item"><?= esc_html($note->post_content) ?></div>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <div class="client-note-item">Sin notas disponibles.</div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
