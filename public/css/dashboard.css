@@ -177,19 +177,6 @@
     background-color: var(--upm-muted-hover);
 }
 /* === Overview Section === */
-.upm-overview-section {
-    margin-top: 30px;
-}
-.upm-overview-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-}
-.upm-right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 .upm-section-header {
     display: flex;
     justify-content: space-between;
