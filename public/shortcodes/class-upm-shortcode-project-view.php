@@ -105,6 +105,9 @@ class UPM_Shortcode_Project_View {
                         <p><?= esc_html($area) ?></p>
                         </div>
                     </div>
+                    <span class="project-badge badge-<?= esc_attr($status) ?>">
+                        <?= ucwords(str_replace('-', ' ', $status)) ?>
+                    </span>
                 </div>
                 <div class="upm-overview-section">
                     <div class="upm-overview-grid">

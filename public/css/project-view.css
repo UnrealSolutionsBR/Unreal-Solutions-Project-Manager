@@ -1,7 +1,9 @@
 .upm-project-view-header {
     display: flex;
+    justify-content: space-between;    
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 .upm-project-title-group {
     display: flex;
