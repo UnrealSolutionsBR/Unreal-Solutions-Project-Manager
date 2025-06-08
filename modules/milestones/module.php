@@ -48,14 +48,13 @@ class UPM_Module_Milestones {
         $client_id  = get_post_meta($post->ID, '_upm_milestone_client_id', true);
         $project_id = get_post_meta($post->ID, '_upm_milestone_project_id', true);
         $date       = get_post_meta($post->ID, '_upm_milestone_date', true);
+        $status     = get_post_meta($post->ID, '_upm_milestone_status', true) ?: 'pending';
         $customers  = get_users(['role' => 'customer']);
 
-        // Detectar si viene desde un proyecto
         if (!$client_id && isset($_GET['upm_project_id'])) {
             $project_id = (int) $_GET['upm_project_id'];
             $client_id = get_post_meta($project_id, '_upm_client_id', true);
         }
-
         ?>
         <p><label><strong>Cliente:</strong></label><br>
             <select name="upm_milestone_client_id" style="width:100%;">
@@ -75,6 +74,14 @@ class UPM_Module_Milestones {
         <p><label><strong>Fecha del hito:</strong></label><br>
             <input type="date" name="upm_milestone_date" value="<?= esc_attr($date) ?>" />
         </p>
+
+        <p><label><strong>Estado del hito:</strong></label><br>
+            <select name="upm_milestone_status">
+                <option value="pending" <?= selected($status, 'pending') ?>>Pendiente</option>
+                <option value="in_progress" <?= selected($status, 'in_progress') ?>>En progreso</option>
+                <option value="completed" <?= selected($status, 'completed') ?>>Completado</option>
+            </select>
+        </p>
         <?php
     }
 
@@ -82,9 +89,10 @@ class UPM_Module_Milestones {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
         $fields = [
-            'upm_milestone_client_id'  => '_upm_milestone_client_id',
-            'upm_milestone_project_id' => '_upm_milestone_project_id',
-            'upm_milestone_date'       => '_upm_milestone_date',
+            'upm_milestone_client_id'     => '_upm_milestone_client_id',
+            'upm_milestone_project_id'    => '_upm_milestone_project_id',
+            'upm_milestone_date'          => '_upm_milestone_date',
+            'upm_milestone_status'        => '_upm_milestone_status',
         ];
 
         foreach ($fields as $form_field => $meta_key) {
