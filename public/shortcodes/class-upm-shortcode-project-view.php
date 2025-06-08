@@ -134,7 +134,7 @@ class UPM_Shortcode_Project_View {
                                 </div>
                                 <div class="client-notes">
                                     <h4>Notas del cliente:</h4>
-                                    <?php if (!empty($notes)) : ?>
+                                    <?php if ($notes) : ?>
                                         <?php foreach ($notes as $note) : ?>
                                             <div class="client-note-item"><?= esc_html($note->post_content) ?></div>
                                         <?php endforeach; ?>
