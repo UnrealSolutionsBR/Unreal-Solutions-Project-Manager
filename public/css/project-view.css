@@ -89,7 +89,7 @@
 }
 .client-note-meta {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
     font-size: 0.875rem;
     color: var(--upm-text-muted);
     margin-bottom: 6px;
@@ -106,4 +106,6 @@
 }
 .client-note-meta svg {
     fill: var(--upm-text-muted);
+    width: 1rem;
+    height: 1rem;
 }
