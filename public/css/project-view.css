@@ -85,7 +85,25 @@
 }
 
 .client-note-item {
-    margin-bottom: 8px;
+    padding: 10px 0;
+}
+.client-note-meta {
+    display: flex;
+    justify-content: space-between;
     font-size: 0.875rem;
+    color: var(--upm-text-muted);
+    margin-bottom: 6px;
+}
+.client-note-item p {
     color: var(--upm-text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.client-notes hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin: 10px 0;
+}
+.client-note-meta svg {
+    fill: var(--upm-text-muted);
 }

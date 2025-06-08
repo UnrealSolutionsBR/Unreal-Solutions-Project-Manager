@@ -135,8 +135,27 @@ class UPM_Shortcode_Project_View {
                                 <div class="client-notes">
                                     <h4>Notas del cliente:</h4>
                                     <?php if ($notes) : ?>
-                                        <?php foreach ($notes as $note) : ?>
-                                            <div class="client-note-item"><?= esc_html($note->post_content) ?></div>
+                                        <?php foreach ($notes as $index => $note) : 
+                                            $author_id = $note->post_author;
+                                            $author_name = get_the_author_meta('display_name', $author_id);
+                                            $date = get_the_date('M d, Y', $note);
+                                        ?>
+                                            <div class="client-note-item">
+                                                <div class="client-note-meta">
+                                                    <span>
+                                                        <?= file_get_contents(UPM_PATH . 'public/icons/support-tickets.svg'); ?>
+                                                        <?= esc_html($author_name) ?>
+                                                    </span>
+                                                    <span>
+                                                        <?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?>    
+                                                        <?= esc_html($date) ?>
+                                                    </span>
+                                                </div>
+                                                <p><?= esc_html($note->post_content) ?></p>
+                                            </div>
+                                            <?php if ($index < count($notes) - 1) : ?>
+                                                <hr>
+                                            <?php endif; ?>
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <div class="client-note-item">Sin notas disponibles.</div>
