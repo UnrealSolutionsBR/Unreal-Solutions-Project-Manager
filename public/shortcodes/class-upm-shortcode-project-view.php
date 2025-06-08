@@ -42,13 +42,18 @@ class UPM_Shortcode_Project_View {
         ]);
 
         $milestones = get_posts([
-            'post_type' => 'upm_milestone',
-            'meta_key' => '_upm_milestone_project_id',
-            'meta_value' => $project_id,
-            'orderby' => 'meta_value',
-            'meta_key' => '_upm_milestone_date',
-            'order' => 'ASC',
-            'posts_per_page' => -1
+            'post_type'      => 'upm_milestone',
+            'meta_key'       => '_upm_milestone_date',
+            'orderby'        => 'meta_value',
+            'meta_value'     => $project_id,
+            'meta_query'     => [
+                [
+                    'key'   => '_upm_milestone_project_id',
+                    'value' => $project_id,
+                ]
+            ],
+            'order'          => 'ASC',
+            'posts_per_page' => -1,
         ]);
 
         $files = [
@@ -165,14 +170,38 @@ class UPM_Shortcode_Project_View {
 
                             <div class="upm-card-block">
                                 <h3>Entregas Programadas</h3>
-                                <ul>
+                                <ul class="upm-deliverables-list">
                                     <?php foreach ($milestones as $m): 
-                                        $label = get_post_meta($m->ID, '_upm_milestone_date', true);
-                                        echo '<li>' . esc_html($m->post_title) . ' <small>Due: ' . esc_html($label) . '</small></li>';
-                                    endforeach; ?>
+                                        $title  = $m->post_title;
+                                        $date   = get_post_meta($m->ID, '_upm_milestone_date', true);
+                                        $status = get_post_meta($m->ID, '_upm_milestone_status', true) ?: 'pending';
+                                    
+                                        $icon_file = match ($status) {
+                                            'completed'   => 'check.svg',
+                                            'in_progress' => 'hourglass.svg',
+                                            default       => 'clock.svg',
+                                        };
+                                        $icon_svg = file_get_contents(UPM_PATH . 'public/icons/' . $icon_file);
+                                    
+                                        $badge_class = match ($status) {
+                                            'completed'   => 'badge-success',
+                                            'in_progress' => 'badge-warning',
+                                            default       => 'badge-muted',
+                                        };
+                                    ?>
+                                    <li class="upm-deliverable-item">
+                                        <span class="upm-deliverable-icon"><?= $icon_svg ?></span>
+                                        <div class="upm-deliverable-content">
+                                            <strong><?= esc_html($title) ?></strong>
+                                            <div class="upm-deliverable-date">Due: <?= esc_html($date) ?></div>
+                                        </div>
+                                        <span class="upm-badge <?= esc_attr($badge_class) ?>">
+                                            <?= esc_html(ucwords(str_replace('_', ' ', $status))) ?>
+                                        </span>
+                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
-
                             <div class="upm-card-block">
                                 <h3>Archivos adjuntos</h3>
                                 <?php foreach ($files as $section => $items): ?>
