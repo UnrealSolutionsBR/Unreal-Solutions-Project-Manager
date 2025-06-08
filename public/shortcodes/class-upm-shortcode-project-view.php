@@ -6,7 +6,7 @@ class UPM_Shortcode_Project_View {
 
     public static function render($atts) {
         if (!is_user_logged_in()) {
-            return '<p>Debe iniciar sesión para ver este proyecto.</p>';
+            return '<p>' . esc_html__('Debe iniciar sesión para ver este proyecto.', 'upm') . '</p>';
         }
 
         $atts = shortcode_atts(['id' => 0], $atts);
@@ -16,14 +16,15 @@ class UPM_Shortcode_Project_View {
 
         $project = get_post($project_id);
         if (!$project || $project->post_type !== 'upm_project') {
-            return '<p>Proyecto no encontrado.</p>';
+            return '<p>' . esc_html__('Proyecto no encontrado.', 'upm') . '</p>';
         }
 
         $client_id = (int) get_post_meta($project_id, '_upm_client_id', true);
         if ($client_id !== $user_id) {
-            return '<p>No tienes permiso para ver este proyecto.</p>';
+            return '<p>' . esc_html__('No tienes permiso para ver este proyecto.', 'upm') . '</p>';
         }
 
+        // Metadatos del proyecto
         $area = get_post_meta($project_id, '_upm_area', true);
         $status = get_post_meta($project_id, '_upm_status', true);
         $progress = get_post_meta($project_id, '_upm_progress', true);
@@ -32,6 +33,7 @@ class UPM_Shortcode_Project_View {
         $amount = get_post_meta($project_id, '_upm_project_amount', true);
         $short_description = get_post_meta($project->ID, '_upm_short_description', true);
 
+        //Notas
         $notes = get_posts([
             'post_type' => 'upm_note',
             'meta_key' => '_upm_note_project_id',
@@ -41,11 +43,11 @@ class UPM_Shortcode_Project_View {
             'posts_per_page' => 3,
         ]);
 
+        //Hitos del proyecto
         $milestones = get_posts([
             'post_type'      => 'upm_milestone',
             'meta_key'       => '_upm_milestone_date',
             'orderby'        => 'meta_value',
-            'meta_value'     => $project_id,
             'meta_query'     => [
                 [
                     'key'   => '_upm_milestone_project_id',
@@ -56,6 +58,7 @@ class UPM_Shortcode_Project_View {
             'posts_per_page' => -1,
         ]);
 
+        //Archivos del proyecto
         $files = [
             'Legal' => [['Contrato de Servicios', 'PDF - 1.2 MB - 2024-01-01']],
             'Facturación' => [['Factura #001 - Anticipo 50%', 'PDF - 0.8 MB - 2024-01-01'], ['Factura #002 - Saldo Final 50%', 'PDF - 0.8 MB - 2024-02-15']],
@@ -63,6 +66,7 @@ class UPM_Shortcode_Project_View {
             'Documentación' => [['Project Brief', 'DOC - 1.1 MB - 2024-01-01']]
         ];
 
+        //Facturas y calculos de pagos
         $invoices = get_posts([
             'post_type' => 'upm_invoice',
             'meta_key' => '_upm_invoice_project_id',
@@ -110,7 +114,7 @@ class UPM_Shortcode_Project_View {
                         </div>
                     </div>
                     <span class="project-badge badge-<?= esc_attr($status) ?>">
-                        <?= ucwords(str_replace('-', ' ', $status)) ?>
+                        <?= esc_html(ucwords(str_replace('-', ' ', $status))) ?>
                     </span>
                 </div>
                 <div class="upm-overview-section">
@@ -118,31 +122,30 @@ class UPM_Shortcode_Project_View {
                         <!-- Columna izquierda -->
                         <div class="upm-left-column">
                             <div class="upm-card-block">
-                                <h3>Resumen del Proyecto</h3>
+                                <h3><?= esc_html__('Resumen del Proyecto', 'upm') ?></h3>
                                 <p class="upm-project-description"><?= esc_html($short_description) ?></p>
                                 <div class="upm-project-dates">
                                     <div class="upm-date-item">
-                                        <small>Fecha de inicio:</small>
+                                        <small><?= esc_html__('Fecha de inicio:', 'upm') ?></small>
                                         <p><?= esc_html($start) ?></p>
                                     </div>
                                     <div class="upm-date-item">
-                                        <small>Fecha de entrega:</small>
+                                        <small><?= esc_html__('Fecha de entrega:', 'upm') ?></small>
                                         <p><?= esc_html($due) ?></p>
                                     </div>
                                 </div>
                                 <div class="progress-header">
-                                    <span class="progress-title">Progreso</span>
+                                    <span class="progress-title"><?= esc_html__('Progreso', 'upm') ?></span>
                                     <span class="progress-amount"><?= intval($progress) ?>%</span>
                                 </div>
                                 <div class="upm-progress-bar">
                                     <div style="width: <?= intval($progress) ?>%"></div>
                                 </div>
                                 <div class="client-notes">
-                                    <h4>Notas del cliente:</h4>
+                                    <h4><?= esc_html__('Notas del cliente:', 'upm') ?></h4>
                                     <?php if ($notes) : ?>
                                         <?php foreach ($notes as $index => $note) : 
-                                            $author_id = $note->post_author;
-                                            $author_name = get_the_author_meta('display_name', $author_id);
+                                            $author_name = get_the_author_meta('display_name', $note->post_author);
                                             $date = get_the_date('M d, Y', $note);
                                         ?>
                                             <div class="client-note-item">
@@ -163,13 +166,13 @@ class UPM_Shortcode_Project_View {
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     <?php else : ?>
-                                        <div class="client-note-item">Sin notas disponibles.</div>
+                                        <div class="client-note-item"><?= esc_html__('Sin notas disponibles.', 'upm') ?></div>
                                     <?php endif; ?>
                                 </div>
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Entregas Programadas</h3>
+                                <h3><?= esc_html__('Entregas Programadas', 'upm') ?></h3>
                                 <ul class="upm-deliverables-list">
                                     <?php foreach ($milestones as $m): 
                                         $title  = $m->post_title;
@@ -193,7 +196,7 @@ class UPM_Shortcode_Project_View {
                                         <span class="upm-deliverable-icon"><?= $icon_svg ?></span>
                                         <div class="upm-deliverable-content">
                                             <strong><?= esc_html($title) ?></strong>
-                                            <div class="upm-deliverable-date">Due: <?= esc_html($date) ?></div>
+                                            <div class="upm-deliverable-date"><?= esc_html__('Entrega:', 'upm') ?> <?= esc_html($date) ?></div>
                                         </div>
                                         <span class="upm-badge <?= esc_attr($badge_class) ?>">
                                             <?= esc_html(ucwords(str_replace('_', ' ', $status))) ?>
@@ -203,12 +206,12 @@ class UPM_Shortcode_Project_View {
                                 </ul>
                             </div>
                             <div class="upm-card-block">
-                                <h3>Archivos adjuntos</h3>
+                                <h3><?= esc_html__('Archivos adjuntos', 'upm') ?></h3>
                                 <?php foreach ($files as $section => $items): ?>
                                     <h4><?= esc_html($section) ?></h4>
                                     <ul>
                                         <?php foreach ($items as $f): ?>
-                                            <li><?= esc_html($f[0]) ?> <small><?= esc_html($f[1]) ?></small> <button>Descargar</button></li>
+                                            <a href="#" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
                                         <?php endforeach; ?>
                                     </ul>
                                 <?php endforeach; ?>
@@ -218,20 +221,20 @@ class UPM_Shortcode_Project_View {
                         <!-- Columna derecha -->
                         <div class="upm-right-column">
                             <div class="upm-card-block">
-                                <h3>Acciones rápidas</h3>
-                                <a href="#" class="upm-btn primary">Solicitar actualización</a><br><br>
-                                <a href="#" class="upm-btn secondary">Ver brief</a>
+                                <h3><?= esc_html__('Acciones rápidas', 'upm') ?></h3>
+                                <a href="#" class="upm-btn primary"><?= esc_html__('Solicitar actualización', 'upm') ?></a><br><br>
+                                <a href="#" class="upm-btn secondary"><?= esc_html__('Ver brief', 'upm') ?></a>
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Budget</h3>
-                                <p><strong>Presupuesto Total:</strong> $<?= number_format($amount, 2) ?></p>
-                                <p><strong>Total Cancelado:</strong> $<?= number_format($paid, 2) ?></p>
-                                <p><strong>Saldo Pendiente:</strong> $<?= number_format($amount - $paid, 2) ?></p>
+                                <h3><?= esc_html__('Presupuesto', 'upm') ?></h3>
+                                <p><strong><?= esc_html__('Presupuesto Total:', 'upm') ?></strong> $<?= number_format($amount, 2) ?></p>
+                                <p><strong><?= esc_html__('Total Cancelado:', 'upm') ?></strong> $<?= number_format($paid, 2) ?></p>
+                                <p><strong><?= esc_html__('Saldo Pendiente:', 'upm') ?></strong> $<?= number_format($amount - $paid, 2) ?></p>
                             </div>
 
                             <div class="upm-card-block">
-                                <h3>Actividad reciente</h3>
+                            <h3><?= esc_html__('Actividad reciente', 'upm') ?></h3>
                                 <ul>
                                     <?php foreach ($milestones as $m): ?>
                                         <li><strong><?= esc_html($m->post_title) ?></strong><br>
