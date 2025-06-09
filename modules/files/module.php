@@ -114,4 +114,7 @@ class UPM_Module_Files {
         }
     }
 }
+add_action('post_edit_form_tag', function () {
+    echo ' enctype="multipart/form-data"';
+});
 UPM_Module_Files::init();
