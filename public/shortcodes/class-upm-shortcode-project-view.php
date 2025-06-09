@@ -180,16 +180,24 @@ class UPM_Shortcode_Project_View {
                                         $status = get_post_meta($m->ID, '_upm_milestone_status', true) ?: 'pending';
                                     
                                         $icon_file = match ($status) {
-                                            'completed'   => 'check.svg',
-                                            'in_progress' => 'hourglass.svg',
+                                            'completed'   => 'completed-projects.svg',
+                                            'in_progress' => 'clock.svg',
                                             default       => 'clock.svg',
                                         };
                                         $icon_svg = file_get_contents(UPM_PATH . 'public/icons/' . $icon_file);
                                     
                                         $badge_class = match ($status) {
-                                            'completed'   => 'badge-success',
-                                            'in_progress' => 'badge-warning',
-                                            default       => 'badge-muted',
+                                            'completed'   => 'badge-completado',
+                                            'in_progress' => 'badge-esperando-revision',
+                                            'pending'     => 'badge-pendiente',
+                                            default       => 'badge-pendiente',
+                                        };
+                                        // Traducción del estado
+                                        $translated_status = match ($status) {
+                                            'completed'   => 'Completado',
+                                            'in_progress' => 'En revisión',
+                                            'pending'     => 'Pendiente',
+                                            default       => ucfirst($status),
                                         };
                                     ?>
                                     <li class="upm-deliverable-item">
@@ -199,7 +207,7 @@ class UPM_Shortcode_Project_View {
                                             <div class="upm-deliverable-date"><?= esc_html__('Entrega:', 'upm') ?> <?= esc_html($date) ?></div>
                                         </div>
                                         <span class="project-badge <?= esc_attr($badge_class) ?>">
-                                            <?= esc_html(ucwords(str_replace('_', ' ', $status))) ?>
+                                            <?= esc_html($translated_status) ?>
                                         </span>
                                     </li>
                                     <?php endforeach; ?>
