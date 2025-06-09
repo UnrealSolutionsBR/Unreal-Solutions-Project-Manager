@@ -198,7 +198,7 @@ class UPM_Shortcode_Project_View {
                                             <p><?= esc_html($title) ?></p>
                                             <div class="upm-deliverable-date"><?= esc_html__('Entrega:', 'upm') ?> <?= esc_html($date) ?></div>
                                         </div>
-                                        <span class="upm-badge <?= esc_attr($badge_class) ?>">
+                                        <span class="project-badge <?= esc_attr($badge_class) ?>">
                                             <?= esc_html(ucwords(str_replace('_', ' ', $status))) ?>
                                         </span>
                                     </li>
