@@ -267,7 +267,7 @@
     color: rgb(251, 146, 60);
 }
 .badge-pendiente {
-    background-color: rgba(51, 65, 85, 0.1);
+    background-color: rgba(51, 65, 85, 1);
     color: var(--upm-text-white);
 }
 

@@ -195,7 +195,7 @@ class UPM_Shortcode_Project_View {
                                         // Traducción del estado
                                         $translated_status = match ($status) {
                                             'completed'   => 'Completado',
-                                            'in_progress' => 'En revisión',
+                                            'in_progress' => 'En progreso',
                                             'pending'     => 'Pendiente',
                                             default       => ucfirst($status),
                                         };
