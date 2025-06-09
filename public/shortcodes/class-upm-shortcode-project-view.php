@@ -195,7 +195,7 @@ class UPM_Shortcode_Project_View {
                                     <li class="upm-deliverable-item">
                                         <span class="upm-deliverable-icon"><?= $icon_svg ?></span>
                                         <div class="upm-deliverable-content">
-                                            <strong><?= esc_html($title) ?></strong>
+                                            <p><?= esc_html($title) ?></p>
                                             <div class="upm-deliverable-date"><?= esc_html__('Entrega:', 'upm') ?> <?= esc_html($date) ?></div>
                                         </div>
                                         <span class="upm-badge <?= esc_attr($badge_class) ?>">
