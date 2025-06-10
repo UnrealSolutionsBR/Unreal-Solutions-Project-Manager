@@ -47,6 +47,9 @@ class UPM_Module_Files {
         $project_id     = get_post_meta($post->ID, '_upm_file_project_id', true);
         $category       = get_post_meta($post->ID, '_upm_file_category', true);
         $auto_generated = get_post_meta($post->ID, '_upm_auto_generated', true);
+        $file_url       = get_post_meta($post->ID, '_upm_file_url', true);
+        $file_type      = get_post_meta($post->ID, '_upm_file_type', true);
+        $file_size      = get_post_meta($post->ID, '_upm_file_size', true);
 
         wp_nonce_field('upm_file_upload_nonce', 'upm_file_upload_nonce_field');
         ?>
@@ -57,6 +60,13 @@ class UPM_Module_Files {
         <p><label><strong>Archivo:</strong></label><br>
             <input type="file" name="upm_file_upload" accept="*/*" />
         </p>
+
+        <?php if ($file_url): ?>
+            <p><strong>Archivo actual:</strong><br>
+                <a href="<?= esc_url($file_url) ?>" target="_blank"><?= basename($file_url) ?></a><br>
+                <small><?= esc_html($file_type) ?> – <?= esc_html($file_size) ?></small>
+            </p>
+        <?php endif; ?>
 
         <p><label><strong>Categoría:</strong></label><br>
             <select name="upm_file_category">
