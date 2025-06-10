@@ -3,7 +3,7 @@ class UPM_Module_Files {
     public static function init() {
         add_action('init', [__CLASS__, 'register_post_type']);
         add_action('add_meta_boxes', [__CLASS__, 'add_file_meta_boxes']);
-        add_action('save_post_upm_file', [__CLASS__, 'save_file_meta']);
+        add_action('save_post', [__CLASS__, 'save_file_meta']);
     }
 
     public static function register_post_type() {
@@ -78,6 +78,7 @@ class UPM_Module_Files {
 
     public static function save_file_meta($post_id) {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+        if (get_post_type($post_id) !== 'upm_file') return;
 
         if (!isset($_POST['upm_file_upload_nonce_field']) || !wp_verify_nonce($_POST['upm_file_upload_nonce_field'], 'upm_file_upload_nonce')) {
             return;
@@ -114,7 +115,9 @@ class UPM_Module_Files {
         }
     }
 }
+
 add_action('post_edit_form_tag', function () {
     echo ' enctype="multipart/form-data"';
 });
+
 UPM_Module_Files::init();
