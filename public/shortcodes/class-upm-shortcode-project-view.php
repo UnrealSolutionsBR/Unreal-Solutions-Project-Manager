@@ -58,13 +58,36 @@ class UPM_Shortcode_Project_View {
             'posts_per_page' => -1,
         ]);
 
-        //Archivos del proyecto
-        $files = [
-            'Legal' => [['Contrato de Servicios', 'PDF - 1.2 MB - 2024-01-01']],
-            'Facturación' => [['Factura #001 - Anticipo 50%', 'PDF - 0.8 MB - 2024-01-01'], ['Factura #002 - Saldo Final 50%', 'PDF - 0.8 MB - 2024-02-15']],
-            'Diseño' => [['Design Mockups v1.0', 'PDF - 2.4 MB - 2024-01-20']],
-            'Documentación' => [['Project Brief', 'DOC - 1.1 MB - 2024-01-01']]
+        // Obtener archivos del proyecto actual
+        $args = [
+            'post_type'      => 'upm_file',
+            'posts_per_page' => -1,
+            'meta_query'     => [
+                [
+                    'key'   => '_upm_file_project_id',
+                    'value' => $project_id,
+                    'compare' => '='
+                ]
+            ]
         ];
+
+        $file_query = new WP_Query($args);
+        $files = [];
+
+        if ($file_query->have_posts()) {
+            foreach ($file_query->posts as $file_post) {
+                $category   = get_post_meta($file_post->ID, '_upm_file_category', true) ?: 'Sin categoría';
+                $title      = get_the_title($file_post);
+                $url        = get_post_meta($file_post->ID, '_upm_file_url', true);
+                $type       = get_post_meta($file_post->ID, '_upm_file_type', true);
+                $size       = get_post_meta($file_post->ID, '_upm_file_size', true);
+                $uploaded   = get_the_date('Y-m-d', $file_post->ID);
+            
+                $description = strtoupper(pathinfo($type, PATHINFO_EXTENSION)) . " - {$size} - {$uploaded}";
+            
+                $files[$category][] = [$title, $description, $url];
+            }
+        }
 
         //Facturas y calculos de pagos
         $invoices = get_posts([
@@ -219,7 +242,12 @@ class UPM_Shortcode_Project_View {
                                     <h4><?= esc_html($section) ?></h4>
                                     <ul>
                                         <?php foreach ($items as $f): ?>
-                                            <a href="#" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
+                                            <?php [$name, $meta, $url] = $f; ?>
+                                            <li>
+                                                <strong><?= esc_html($name) ?></strong><br>
+                                                <small><?= esc_html($meta) ?></small><br>
+                                                <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
+                                            </li>
                                         <?php endforeach; ?>
                                     </ul>
                                 <?php endforeach; ?>
