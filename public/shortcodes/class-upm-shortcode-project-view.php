@@ -247,20 +247,27 @@ class UPM_Shortcode_Project_View {
                                             'Documentación' => 'upm-file-doc'
                                         ];
                                         $class = $category_class_map[$section] ?? 'upm-file-default';
-                                        ?>
-                                        <div class="upm-file-category <?= esc_attr($class) ?>">
-                                            <h4><?= esc_html($section) ?></h4>
-                                        </div>
+                                    ?>
+                                    <div class="upm-file-category <?= esc_attr($class) ?>">
+                                        <h4><?= esc_html($section) ?></h4>
+                                    </div>
                                     <ul class="upm-list">
                                         <?php foreach ($items as $f): ?>
-                                            <?php [$name, $meta, $url] = $f; ?>
+                                            <?php [$name, $meta, $url, $autogen] = $f; ?>
                                             <li class="upm-item">
-                                                <span class="upm-file-icon"><?= file_get_contents(UPM_PATH . 'public/icons/docs.svg') ?></span>
-                                                <div class="upm-file-content">
-                                                    <strong><?= esc_html($name) ?></strong><br>
-                                                    <small><?= esc_html($meta) ?></small><br>
-                                                    <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
+                                                <span class="upm-deliverable-icon"><?= file_get_contents(UPM_PATH . 'public/icons/docs.svg') ?></span>
+                                                <div class="upm-deliverable-content">
+                                                    <p>
+                                                        <?= esc_html($name) ?>
+                                                        <?php if ($autogen): ?>
+                                                            <span class="project-badge badge-muted"><?= esc_html__('Auto-generado', 'upm') ?></span>
+                                                        <?php endif; ?>
+                                                    </p>
+                                                    <div class="upm-deliverable-date"><?= esc_html($meta) ?></div>
                                                 </div>
+                                                <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny" download>
+                                                    <?= esc_html__('Descargar', 'upm') ?>
+                                                </a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
