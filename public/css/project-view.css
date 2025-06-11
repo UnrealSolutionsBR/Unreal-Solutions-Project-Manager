@@ -151,31 +151,23 @@
     background-color: #334155;
     color: #fff;
 }
-
-.upm-file-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-    background-color: var(--upm-btn-bg-muted);
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
 .upm-file-icon {
     flex-shrink: 0;
     display: flex;
     align-items: center;
 }
 .upm-file-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+    opacity: 0.7;
     fill: var(--upm-text-white);
 }
 .upm-file-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-grow: 1;
+    margin-left: 12px;
+    margin: 0;
 }
 .upm-file-content strong {
     font-size: 1rem;
@@ -183,10 +175,15 @@
 .upm-file-content small {
     font-size: 0.875rem;
     color: var(--upm-text-muted);
+    margin-top: 2px;
 }
 .upm-file-content a.upm-btn.tiny {
-    align-self: flex-end;
-    margin-top: 4px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: capitalize;
 }
 .upm-file-category {
     display: inline-block;
