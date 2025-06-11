@@ -307,3 +307,29 @@
     padding: 16px 20px;
     border-radius: 10px;
 }
+.upm-item-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    fill: var(--upm-text-white);
+}
+.upm-item-content {
+    flex-grow: 1;
+    margin-left: 12px;
+    margin: 0;
+}
+.upm-item-content p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 2rem;
+    margin: 0;
+    color: var(--upm-text-white);
+}
+
+.upm-item-date {
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+    margin-top: 2px;
+}
