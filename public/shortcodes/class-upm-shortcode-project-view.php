@@ -279,8 +279,8 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-right-column">
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Acciones rápidas', 'upm') ?></h3>
-                                <a href="#" class="upm-btn primary"><?= esc_html__('Solicitar actualización', 'upm') ?></a><br><br>
-                                <a href="#" class="upm-btn secondary"><?= esc_html__('Ver brief', 'upm') ?></a>
+                                <a href="#" class="upm-btn full primary"><?= esc_html__('Solicitar actualización', 'upm') ?></a><br><br>
+                                <a href="#" class="upm-btn full secondary"><?= esc_html__('Ver brief', 'upm') ?></a>
                             </div>
 
                             <div class="upm-card-block">

@@ -244,6 +244,13 @@
     background-color: var(--upm-blue-hover);
     border: 1px solid var(--upm-blue);
 }
+.full {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
 /* === PROGRESS BAR ===*/
 .upm-progress-bar {
     background: #334155;

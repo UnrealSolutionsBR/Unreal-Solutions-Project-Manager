@@ -163,6 +163,7 @@
 .upm-btn.primary {
     background-color: var(--upm-blue);
     color: var(--upm-text-white);
+    fill: var(--upm-text-white);
 }
 .upm-btn.primary:hover,
 .upm-btn.primary:active {
@@ -171,6 +172,7 @@
 }
 .upm-btn.secondary {
     background-color: var(--upm-btn-bg-muted);
+    fill: var(--upm-text-white);
 }
 .upm-btn.secondary:hover,
 .upm-btn.secondary:active {
