@@ -279,8 +279,14 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-right-column">
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Acciones rápidas', 'upm') ?></h3>
-                                <a href="#" class="upm-btn full primary"><?= esc_html__('Solicitar actualización', 'upm') ?></a><br><br>
-                                <a href="#" class="upm-btn full secondary"><?= esc_html__('Ver brief', 'upm') ?></a>
+                                <a href="#" class="upm-btn full primary">
+                                    <?= file_get_contents(UPM_PATH . 'public/icons/chat-bubbles.svg') ?>
+                                    <?= esc_html__('Solicitar actualización', 'upm') ?>
+                                </a><br><br>
+                                <a href="#" class="upm-btn full secondary">
+                                    <?= file_get_contents(UPM_PATH . 'public/icons/view.svg') ?>
+                                    <?= esc_html__('Ver brief', 'upm') ?>
+                                </a>
                             </div>
 
                             <div class="upm-card-block">
