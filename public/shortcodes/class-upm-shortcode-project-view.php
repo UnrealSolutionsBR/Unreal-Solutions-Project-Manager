@@ -79,11 +79,11 @@ class UPM_Shortcode_Project_View {
                 $category   = get_post_meta($file_post->ID, '_upm_file_category', true) ?: 'Sin categoría';
                 $title      = get_the_title($file_post);
                 $url        = get_post_meta($file_post->ID, '_upm_file_url', true);
-                $type       = get_post_meta($file_post->ID, '_upm_file_type', true);
+                $extension = strtoupper(pathinfo($url, PATHINFO_EXTENSION));
                 $size       = get_post_meta($file_post->ID, '_upm_file_size', true);
                 $uploaded   = get_the_date('Y-m-d', $file_post->ID);
             
-                $description = strtoupper(pathinfo($type, PATHINFO_EXTENSION)) . " - {$size} - {$uploaded}";
+                $description = "{$extension} - {$size} - {$uploaded}";
             
                 $files[$category][] = [$title, $description, $url];
             }
