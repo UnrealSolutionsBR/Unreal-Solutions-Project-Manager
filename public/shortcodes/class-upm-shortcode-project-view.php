@@ -196,7 +196,7 @@ class UPM_Shortcode_Project_View {
 
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Entregas Programadas', 'upm') ?></h3>
-                                <ul class="upm-deliverables-list">
+                                <ul class="upm-list">
                                     <?php foreach ($milestones as $m): 
                                         $title  = $m->post_title;
                                         $date   = get_post_meta($m->ID, '_upm_milestone_date', true);
@@ -240,7 +240,7 @@ class UPM_Shortcode_Project_View {
                                 <h3><?= esc_html__('Archivos adjuntos', 'upm') ?></h3>
                                 <?php foreach ($files as $section => $items): ?>
                                     <h4><?= esc_html($section) ?></h4>
-                                    <ul>
+                                    <ul class="upm-list">
                                         <?php foreach ($items as $f): ?>
                                             <?php [$name, $meta, $url] = $f; ?>
                                             <li class="upm-file-item">
