@@ -109,34 +109,6 @@
     width: 1rem;
     height: 1rem;
 }
-.upm-deliverable-icon svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    margin-right: 12px;
-    flex-shrink: 0;
-    opacity: 0.7;
-    fill: var(--upm-text-white);
-}
-
-.upm-deliverable-content {
-    flex-grow: 1;
-    margin-left: 12px;
-    margin: 0;
-}
-.upm-deliverable-content p{
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 2rem;
-    margin: 0;
-    color: var(--upm-text-white);
-}
-
-.upm-deliverable-date {
-    font-size: 0.875rem;
-    color: var(--upm-text-muted);
-    margin-top: 2px;
-}
-
 .badge-success {
     background-color: #15803d;
     color: #fff;
@@ -157,6 +129,9 @@
     border-radius: 6px;
     border: 1px solid;
     margin-bottom: 12px;
+}
+.upm-list + .upm-file-category {
+    margin-top: 12px;
 }
 .upm-file-category h4 {
     font-size: 0.95rem;
