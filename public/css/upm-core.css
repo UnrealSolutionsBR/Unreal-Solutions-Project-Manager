@@ -218,6 +218,30 @@
     height: 1rem;
     fill: var(--upm-text-white);
 }
+.upm-btn-action {
+    background: none;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 10px;
+    margin-top: 0.5625rem;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.upm-btn-action svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--upm-text-light);
+    transition: fill 0.2s ease;
+}
+.upm-btn-action:hover svg {
+    fill: var(--upm-text-white);
+}
+.upm-btn-action:hover {
+    background-color: var(--upm-blue-hover);
+    border: 1px solid var(--upm-blue);
+}
 /* === PROGRESS BAR ===*/
 .upm-progress-bar {
     background: #334155;

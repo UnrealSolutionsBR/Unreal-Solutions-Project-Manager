@@ -128,7 +128,7 @@ class UPM_Shortcode_Project_View {
             <main class="upm-main">
                 <div class="upm-project-view-header">
                     <div class="upm-project-title-group">
-                    <a href="/dashboard/projects" class="upm-back-btn">
+                    <a href="/dashboard/projects" class="upm-btn-action">
                         <?= file_get_contents(UPM_PATH . 'public/icons/arrow.svg'); ?>
                     </a>
                         <div>
@@ -265,7 +265,7 @@ class UPM_Shortcode_Project_View {
                                                     </p>
                                                     <div class="upm-item-date"><?= esc_html($meta) ?></div>
                                                 </div>
-                                                <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny" download>
+                                                <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn-action" download>
                                                     <?= file_get_contents(UPM_PATH . 'public/icons/download.svg') ?>
                                                 </a>
                                             </li>
