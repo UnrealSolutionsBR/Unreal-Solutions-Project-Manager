@@ -243,10 +243,13 @@ class UPM_Shortcode_Project_View {
                                     <ul>
                                         <?php foreach ($items as $f): ?>
                                             <?php [$name, $meta, $url] = $f; ?>
-                                            <li>
-                                                <strong><?= esc_html($name) ?></strong><br>
-                                                <small><?= esc_html($meta) ?></small><br>
-                                                <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
+                                            <li class="upm-file-item">
+                                                <span class="upm-file-icon"><?= file_get_contents(UPM_PATH . 'public/icons/docs.svg') ?></span>
+                                                <div class="upm-file-content">
+                                                    <strong><?= esc_html($name) ?></strong><br>
+                                                    <small><?= esc_html($meta) ?></small><br>
+                                                    <a href="<?= esc_url($url) ?>" target="_blank" class="upm-btn tiny"><?= esc_html__('Descargar', 'upm') ?></a>
+                                                </div>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>

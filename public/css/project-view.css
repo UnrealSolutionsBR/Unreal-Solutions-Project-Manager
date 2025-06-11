@@ -169,3 +169,20 @@
     background-color: #334155;
     color: #fff;
 }
+
+.upm-file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.upm-file-icon svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: var(--upm-text-white);
+    opacity: 0.9;
+}
+.upm-file-content {
+    flex-grow: 1;
+}
