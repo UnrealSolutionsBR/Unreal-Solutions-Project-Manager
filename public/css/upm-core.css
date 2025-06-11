@@ -229,11 +229,13 @@
     align-items: center;
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.upm-btn-action svg {
+.upm-btn-action svg{
     width: 18px;
     height: 18px;
-    fill: var(--upm-text-light);
     transition: fill 0.2s ease;
+}
+.upm-btn-action svg path{
+    fill: var(--upm-text-light);
 }
 .upm-btn-action:hover svg {
     fill: var(--upm-text-white);
