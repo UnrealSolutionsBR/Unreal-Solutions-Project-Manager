@@ -172,17 +172,23 @@
 
 .upm-file-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
+    padding: 10px;
+    background-color: var(--upm-bg-dark);
+    border-radius: 6px;
     margin-bottom: 10px;
 }
+
 .upm-file-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
     flex-shrink: 0;
     fill: var(--upm-text-white);
-    opacity: 0.9;
+    opacity: 0.8;
 }
+
 .upm-file-content {
-    flex-grow: 1;
+    flex: 1;
 }
