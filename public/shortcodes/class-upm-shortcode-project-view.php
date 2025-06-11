@@ -239,7 +239,18 @@ class UPM_Shortcode_Project_View {
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Archivos adjuntos', 'upm') ?></h3>
                                 <?php foreach ($files as $section => $items): ?>
-                                    <h4><?= esc_html($section) ?></h4>
+                                    <?php
+                                        $category_class_map = [
+                                            'Legal'         => 'upm-file-legal',
+                                            'Facturación'   => 'upm-file-invoice',
+                                            'Diseño'        => 'upm-file-design',
+                                            'Documentación' => 'upm-file-doc'
+                                        ];
+                                        $class = $category_class_map[$section] ?? 'upm-file-default';
+                                        ?>
+                                        <div class="upm-file-category <?= esc_attr($class) ?>">
+                                            <h4><?= esc_html($section) ?></h4>
+                                        </div>
                                     <ul class="upm-list">
                                         <?php foreach ($items as $f): ?>
                                             <?php [$name, $meta, $url] = $f; ?>

@@ -109,14 +109,6 @@
     width: 1rem;
     height: 1rem;
 }
-.upm-deliverables-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
 
 .upm-deliverable-item {
     display: flex;
@@ -192,11 +184,41 @@
 .upm-file-content {
     flex: 1;
 }
-.upm-file-list {
-    list-style: none;
-    padding: 0;
+.upm-file-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid;
+    margin-bottom: 12px;
+}
+.upm-file-category h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+}
+/* Colores por categoría */
+.upm-file-legal {
+    background-color: #ef44441a;
+    border-color: #ef444433;
+    color: #f87171;
+}
+.upm-file-invoice {
+    background-color: #22c55e1a;
+    border-color: #22c55e33;
+    color: #4ade80;
+}
+.upm-file-design {
+    background-color: #3b82f61a;
+    border-color: #3b82f633;
+    color: #60a5fa;
+}
+.upm-file-doc {
+    background-color: #a855f71a;
+    border-color: #a855f733;
+    color: #c084fc;
+}
+.upm-file-default {
+    background-color: #a855f71a;
+    border-color: #94a3b8;
+    color: #94a3b8;
 }
