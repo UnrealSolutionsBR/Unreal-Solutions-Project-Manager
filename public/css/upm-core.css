@@ -299,3 +299,11 @@
     flex-direction: column;
     gap: 12px;
 }
+.upm-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--upm-btn-bg-muted);
+    padding: 16px 20px;
+    border-radius: 10px;
+}

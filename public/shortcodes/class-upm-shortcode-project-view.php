@@ -223,7 +223,7 @@ class UPM_Shortcode_Project_View {
                                             default       => ucfirst($status),
                                         };
                                     ?>
-                                    <li class="upm-deliverable-item">
+                                    <li class="upm-item">
                                         <span class="upm-deliverable-icon"><?= $icon_svg ?></span>
                                         <div class="upm-deliverable-content">
                                             <p><?= esc_html($title) ?></p>
@@ -254,7 +254,7 @@ class UPM_Shortcode_Project_View {
                                     <ul class="upm-list">
                                         <?php foreach ($items as $f): ?>
                                             <?php [$name, $meta, $url] = $f; ?>
-                                            <li class="upm-file-item">
+                                            <li class="upm-item">
                                                 <span class="upm-file-icon"><?= file_get_contents(UPM_PATH . 'public/icons/docs.svg') ?></span>
                                                 <div class="upm-file-content">
                                                     <strong><?= esc_html($name) ?></strong><br>
