@@ -410,3 +410,32 @@
         opacity: 0.95;
     }
 }
+#upm-send-request .btn-loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+#upm-send-request.loading .btn-text {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#upm-send-request.loading .btn-loader {
+    display: inline-block;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
