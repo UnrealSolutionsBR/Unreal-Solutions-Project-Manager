@@ -147,9 +147,20 @@
     font-size: 1rem;
     color: var(--upm-text-white);
 }
+.upm-budget-row p {
+    font-weight: 600;
+}
 .upm-budget-row span {
     font-weight: 600;
 }
-.upm-budget-row strong {
-    font-weight: 600;
+.upm-budget-total {
+    color: var(--upm-text-white);
+}
+
+.upm-budget-paid {
+    color: var(--upm-green);
+}
+
+.upm-budget-remaining {
+    color: var(--upm-yellow);
 }

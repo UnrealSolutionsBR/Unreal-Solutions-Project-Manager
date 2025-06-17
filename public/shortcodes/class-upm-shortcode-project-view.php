@@ -294,17 +294,17 @@ class UPM_Shortcode_Project_View {
 
                                 <div class="upm-budget-row">
                                     <p><?= esc_html__('Presupuesto Total:', 'upm') ?></p>
-                                    <span>$<?= number_format($amount, 2) ?></span>
+                                    <span class="upm-budget-total">$<?= number_format($amount, 2) ?></span>
                                 </div>
 
                                 <div class="upm-budget-row">
                                     <p><?= esc_html__('Total Cancelado:', 'upm') ?></p>
-                                    <span>$<?= number_format($paid, 2) ?></span>
+                                    <span class="upm-budget-paid">$<?= number_format($paid, 2) ?></span>
                                 </div>
 
                                 <div class="upm-budget-row">
                                     <p><?= esc_html__('Saldo Pendiente:', 'upm') ?></p>
-                                    <span>$<?= number_format($amount - $paid, 2) ?></span>
+                                    <span class="upm-budget-remaining">$<?= number_format($amount - $paid, 2) ?></span>
                                 </div>
                             </div>
 
