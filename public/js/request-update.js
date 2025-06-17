@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sendBtn.addEventListener('click', async () => {
         const type = document.getElementById('upm-update-type').value;
         const message = document.getElementById('upm-update-message').value;
-        const projectId = document.getElementById('upm-project-id')?.value;
+        const projectId = document.getElementById('upm-project-id')?.value || new URLSearchParams(window.location.search).get('id');
 
         if (!message.trim()) {
             showToast('Please write a message before sending.', 'error');
