@@ -372,3 +372,41 @@
     font-size: 0.875rem;
     color: var(--upm-text-muted);
 }
+.upm-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.upm-toast {
+    padding: 14px 18px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: #323232;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    animation: fadeInUp 0.3s ease;
+}
+
+.upm-toast.error {
+    background-color: #e53935;
+}
+.upm-toast.success {
+    background-color: #43a047;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 0.95;
+    }
+}

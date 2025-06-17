@@ -372,6 +372,7 @@ class UPM_Shortcode_Project_View {
                         </div>
                     </div>
                 </div>
+                <div id="upm-toast-container" class="upm-toast-container"></div>
             </main>
         </div>
         <?php

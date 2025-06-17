@@ -1,3 +1,12 @@
+function showToast(message, type = 'success') {
+    const container = document.getElementById('upm-toast-container');
+    const toast = document.createElement('div');
+    toast.className = `upm-toast ${type}`;
+    toast.innerText = message;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('upm-send-request');
     const cancelBtn = document.getElementById('upm-cancel-request');
@@ -6,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     sendBtn.addEventListener('click', async () => {
         const type = document.getElementById('upm-update-type').value;
         const message = document.getElementById('upm-update-message').value;
-        const projectId = new URLSearchParams(window.location.search).get('id');
+        const projectId = document.getElementById('upm-project-id')?.value;
 
         if (!message.trim()) {
-            alert('Por favor, escribe un mensaje antes de enviar.');
+            showToast('Please write a message before sending.', 'error');
             return;
         }
 
@@ -19,19 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('message', message);
         formData.append('project_id', projectId);
 
-        const response = await fetch(upm_request_ajax.ajax_url, {
-            method: 'POST',
-            credentials: 'same-origin',
-            body: formData
-        });
+        try {
+            const response = await fetch(upm_request_ajax.ajax_url, {
+                method: 'POST',
+                credentials: 'same-origin',
+                body: formData
+            });
 
-        const result = await response.json();
-        if (result.success) {
-            alert('Solicitud enviada correctamente.');
-            modal.classList.add('hidden');
-            document.getElementById('upm-update-message').value = '';
-        } else {
-            alert('Error al enviar la solicitud.');
+            const result = await response.json();
+            if (result.success) {
+                showToast('Request sent successfully.', 'success');
+                modal.classList.add('hidden');
+                document.getElementById('upm-update-message').value = '';
+            } else {
+                showToast('Error sending request. Please try again.', 'error');
+            }
+        } catch (error) {
+            showToast('Unexpected error occurred.', 'error');
+            console.error(error);
         }
     });
 
