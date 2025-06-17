@@ -352,17 +352,20 @@ class UPM_Shortcode_Project_View {
                     <div class="upm-modal-content">
                         <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
                         <h3><?= esc_html__('Solicitar Actualización', 'upm') ?></h3>
-                                                    
+
                         <label for="upm-update-type"><?= esc_html__('Tipo de Actualización', 'upm') ?></label>
                         <select id="upm-update-type">
-                            <option value="general">General</option>
-                            <option value="technical">Técnica</option>
-                            <option value="feedback">Necesito tu feedback</option>
+                            <option value="general">Solicitar cambio</option>
+                            <option value="technical">Aprobación</option>
+                            <option value="feedback">Sugerencia</option>
+                            <option value="feedback">Solicitar revisión</option>
+                            <option value="feedback">Entrega pendiente</option>
+                            <option value="feedback">Otros</option>
                         </select>
-                                                    
+
                         <label for="upm-update-message"><?= esc_html__('Mensaje', 'upm') ?></label>
-                        <textarea id="upm-update-message" rows="4" placeholder="<?= esc_attr__('Especifica qué necesitas...', 'upm') ?>"></textarea>
-                                                    
+                        <textarea id="upm-update-message" rows="4" placeholder="<?= esc_attr__('Describa brevemente la actualización que necesita...', 'upm') ?>"></textarea>
+
                         <div class="upm-modal-actions">
                             <button class="upm-btn secondary" id="upm-cancel-request"><?= esc_html__('Cancelar', 'upm') ?></button>
                             <button class="upm-btn primary" id="upm-send-request"><?= esc_html__('Enviar solicitud', 'upm') ?></button>
