@@ -43,6 +43,20 @@ class UPM_Shortcode_Project_View {
             'posts_per_page' => 3,
         ]);
 
+        //Actividades
+        $activities = get_posts([
+            'post_type'      => 'upm_activity',
+            'posts_per_page' => 5,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+            'meta_query'     => [
+                [
+                    'key'   => '_upm_activity_project_id',
+                    'value' => $project_id,
+                ]
+            ]
+        ]);
+
         //Hitos del proyecto
         $milestones = get_posts([
             'post_type'      => 'upm_milestone',
@@ -309,12 +323,32 @@ class UPM_Shortcode_Project_View {
                             </div>
 
                             <div class="upm-card-block">
-                            <h3><?= esc_html__('Actividad reciente', 'upm') ?></h3>
-                                <ul>
-                                    <?php foreach ($milestones as $m): ?>
-                                        <li><strong><?= esc_html($m->post_title) ?></strong><br>
-                                        <small><?= esc_html(get_post_meta($m->ID, '_upm_milestone_date', true)) ?></small></li>
-                                    <?php endforeach; ?>
+                                <h3><?= esc_html__('Actividad reciente', 'upm') ?></h3>
+                                <ul class="upm-list">
+                                    <?php if (!empty($activities)): ?>
+                                        <?php foreach ($activities as $a): 
+                                            $title     = $a->post_title;
+                                            $content   = $a->post_content;
+                                            $date      = get_the_date('d/m/Y H:i', $a);
+                                            $author_id = $a->post_author;
+                                            $author    = get_user_by('id', $author_id)?->display_name ?: 'Sistema';
+                                        ?>
+                                        <li class="upm-item">
+                                            <span class="upm-item-icon"><?= file_get_contents(UPM_PATH . 'public/icons/activity.svg') ?></span>
+                                            <div class="upm-item-content">
+                                                <p><strong><?= esc_html($title) ?></strong></p>
+                                                <div class="upm-item-date"><?= esc_html($date) ?> — <?= esc_html($author) ?></div>
+                                                <p><?= esc_html($content) ?></p>
+                                            </div>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <li class="upm-item">
+                                            <div class="upm-item-content">
+                                                <p><?= esc_html__('No hay actividad registrada aún.', 'upm') ?></p>
+                                            </div>
+                                        </li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
