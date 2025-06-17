@@ -214,3 +214,42 @@
     font-size: 0.75rem;
     color: var(--upm-text-light);
 }
+.upm-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.upm-modal-content {
+    background: var(--upm-bg-dark);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.upm-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.upm-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    color: var(--upm-text-light);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}

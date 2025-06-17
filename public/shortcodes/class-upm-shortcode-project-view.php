@@ -293,7 +293,7 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-right-column">
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Acciones rápidas', 'upm') ?></h3>
-                                <a href="#" class="upm-btn full primary">
+                                <a href="#" id="upm-request-update-btn" class="upm-btn full primary">
                                     <?= file_get_contents(UPM_PATH . 'public/icons/chat-bubbles.svg') ?>
                                     <?= esc_html__('Solicitar actualización', 'upm') ?>
                                 </a><br><br>
@@ -345,6 +345,27 @@ class UPM_Shortcode_Project_View {
                                     <?php endif; ?>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="upm-request-modal" class="upm-modal hidden">
+                    <div class="upm-modal-content">
+                        <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
+                        <h3><?= esc_html__('Solicitar Actualización', 'upm') ?></h3>
+                                                    
+                        <label for="upm-update-type"><?= esc_html__('Tipo de Actualización', 'upm') ?></label>
+                        <select id="upm-update-type">
+                            <option value="general">General</option>
+                            <option value="technical">Técnica</option>
+                            <option value="feedback">Necesito tu feedback</option>
+                        </select>
+                                                    
+                        <label for="upm-update-message"><?= esc_html__('Mensaje', 'upm') ?></label>
+                        <textarea id="upm-update-message" rows="4" placeholder="<?= esc_attr__('Especifica qué necesitas...', 'upm') ?>"></textarea>
+                                                    
+                        <div class="upm-modal-actions">
+                            <button class="upm-btn secondary" id="upm-cancel-request"><?= esc_html__('Cancelar', 'upm') ?></button>
+                            <button class="upm-btn primary" id="upm-send-request"><?= esc_html__('Enviar solicitud', 'upm') ?></button>
                         </div>
                     </div>
                 </div>
