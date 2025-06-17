@@ -175,7 +175,7 @@ class UPM_Shortcode_Project_View {
                                     <span class="progress-title"><?= esc_html__('Progreso', 'upm') ?></span>
                                     <span class="progress-amount"><?= intval($progress) ?>%</span>
                                 </div>
-                                <div class="upm-progress-bar">
+                                <div class="upm-progress-bar upm-progress-md">
                                     <div style="width: <?= intval($progress) ?>%"></div>
                                 </div>
                                 <div class="client-notes">

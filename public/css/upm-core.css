@@ -257,11 +257,16 @@
 /* === PROGRESS BAR ===*/
 .upm-progress-bar {
     background: #334155;
-    height: 6px;
-    border-radius: 3px;
+    border-radius: 9999px;
     overflow: hidden;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.upm-progress-sm {
+    height: 0.5rem;
+}
+.upm-progress-md {
+    height: 0.75rem;
 }
 .progress-header {
     display: flex;

@@ -166,7 +166,7 @@ class UPM_Shortcode_Projects {
                     <span class="progress-title">Progreso</span>
                     <span class="progress-amount"><?= intval($progress) ?>%</span>
                 </div>
-                <div class="upm-progress-bar">
+                <div class="upm-progress-bar upm-progress-sm">
                     <div style="width: <?= intval($progress) ?>%"></div>
                 </div>
             </div>
