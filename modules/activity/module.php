@@ -114,6 +114,7 @@ class UPM_Module_Activity {
             'upm_activity_project_id'  => '_upm_activity_project_id',
             'upm_activity_date'        => '_upm_activity_date',
             'upm_activity_type'        => '_upm_activity_type',
+            'upm_activity_description' => '_upm_activity_description',
             'upm_activity_author_id'   => '_upm_activity_author_id',
         ];
 
