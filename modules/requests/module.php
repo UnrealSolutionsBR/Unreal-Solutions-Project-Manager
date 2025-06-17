@@ -4,6 +4,10 @@ class UPM_Module_Requests {
         add_action('init', [__CLASS__, 'register_post_type']);
         add_action('add_meta_boxes', [__CLASS__, 'add_meta_boxes']);
         add_action('save_post_upm_request', [__CLASS__, 'save_meta']);
+
+        // AJAX handler para solicitudes desde el frontend
+        add_action('wp_ajax_upm_create_request', [__CLASS__, 'handle_ajax_request']);
+        add_action('wp_ajax_nopriv_upm_create_request', '__return_false');
     }
 
     public static function register_post_type() {
@@ -81,6 +85,41 @@ class UPM_Module_Requests {
             if (isset($_POST[$key])) {
                 update_post_meta($post_id, $key, sanitize_text_field($_POST[$key]));
             }
+        }
+    }
+
+    public static function handle_ajax_request() {
+        if (!is_user_logged_in()) {
+            wp_send_json_error(['message' => 'No autorizado.']);
+        }
+
+        $user_id    = get_current_user_id();
+        $type       = sanitize_text_field($_POST['type'] ?? '');
+        $message    = sanitize_textarea_field($_POST['message'] ?? '');
+        $project_id = absint($_POST['project_id'] ?? 0);
+
+        if (!$project_id || empty($message)) {
+            wp_send_json_error(['message' => 'Datos incompletos.']);
+        }
+
+        $request_id = wp_insert_post([
+            'post_type'   => 'upm_request',
+            'post_title'  => 'Solicitud de actualización',
+            'post_status' => 'publish',
+            'post_author' => $user_id,
+            'post_content'=> $message,
+            'meta_input'  => [
+                '_upm_request_project_id' => $project_id,
+                '_upm_request_type'       => $type,
+                '_upm_request_message'    => $message,
+                '_upm_request_client_id'  => $user_id,
+            ],
+        ]);
+
+        if ($request_id) {
+            wp_send_json_success(['id' => $request_id]);
+        } else {
+            wp_send_json_error(['message' => 'Error al guardar la solicitud.']);
         }
     }
 }

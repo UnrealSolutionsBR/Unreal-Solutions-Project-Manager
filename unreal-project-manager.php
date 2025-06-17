@@ -27,7 +27,7 @@ require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-projects.php';
 require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-project-view.php';
 //require_once UPM_PATH . 'public/shortcodes/class-upm-shortcode-invoices.php';
 
-// Reemplazar versión cacheada de CSS usando filemtime()
+// Encolar estilos y scripts con versionamiento
 add_action('wp_enqueue_scripts', function () {
     if (!is_user_logged_in()) return;
 
@@ -57,8 +57,15 @@ add_action('wp_enqueue_scripts', function () {
                 $data['url'] . $file_name,
                 [],
                 filemtime($file_path),
-                $type === 'js' // true = cargar en footer
+                $type === 'js' // true = footer para JS
             );
+
+            // Localize para AJAX si es el script de solicitud
+            if ($handle === 'upm-request-update') {
+                wp_localize_script('upm-request-update', 'upm_request_ajax', [
+                    'ajax_url' => admin_url('admin-ajax.php'),
+                ]);
+            }
         }
     }
 });
