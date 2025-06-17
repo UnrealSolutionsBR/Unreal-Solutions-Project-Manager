@@ -28,7 +28,7 @@ class UPM_Module_Projects {
             'public'             => false,
             'show_ui'            => true,
             'show_in_menu'       => 'upm_dashboard',
-            'supports'           => ['title', 'editor', 'custom-fields'],
+            'supports'           => ['title'],
             'capability_type'    => 'post',
         ];
 
@@ -54,7 +54,7 @@ class UPM_Module_Projects {
         $area = get_post_meta($post->ID, '_upm_area', true);
         $progress = get_post_meta($post->ID, '_upm_progress', true);
         $amount = get_post_meta($post->ID, '_upm_project_amount', true);
-        $short_description = get_post_meta($post->ID, '_upm_short_description', true);
+        $short_description = get_post_meta($post->ID, '_upm_project_short_description', true);
 
         $billing_type = get_post_meta($post->ID, '_upm_billing_type', true) ?: 'pago-unico';
         $billing_installments = get_post_meta($post->ID, '_upm_billing_installments', true) ?: 2;

@@ -50,6 +50,7 @@ class UPM_Module_Activity {
         $date       = get_post_meta($post->ID, '_upm_activity_date', true);
         $type       = get_post_meta($post->ID, '_upm_activity_type', true) ?: 'custom';
         $author_id  = get_post_meta($post->ID, '_upm_activity_author_id', true);
+        $short_description = get_post_meta($post->ID, '_upm_activity_description', true);
 
         $customers  = get_users(['role' => 'customer']);
         $admins     = get_users(['role__in' => ['administrator', 'editor']]);
@@ -59,6 +60,9 @@ class UPM_Module_Activity {
             $client_id = get_post_meta($project_id, '_upm_client_id', true);
         }
         ?>
+        <p><label><strong>Descripción corta:</strong></label><br>
+            <textarea name="upm_activity_description" rows="3" style="width:100%;"><?= esc_textarea($short_description) ?></textarea>
+        </p>
         <p><label><strong>Cliente:</strong></label><br>
             <select name="upm_activity_client_id" style="width:100%;">
                 <option value="">— Seleccionar —</option>

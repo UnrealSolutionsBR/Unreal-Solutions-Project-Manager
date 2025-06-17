@@ -328,14 +328,14 @@ class UPM_Shortcode_Project_View {
                                     <?php if (!empty($activities)): ?>
                                         <?php foreach ($activities as $a): 
                                             $title     = $a->post_title;
-                                            $content   = $a->post_content;
                                             $date      = get_the_date('Y-m-d', $a);
+                                            $short_desc = get_post_meta($a->ID, '_upm_activity_short_description', true);
                                         ?>
                                         <li class="upm-activity-item">
                                             <span class="upm-activity-bullet"></span>
                                             <div class="upm-activity-content">
                                                 <p class="upm-activity-title"><?= esc_html($title) ?></p>
-                                                <p class="upm-activity-desc"><?= esc_html($content) ?></p>
+                                                <p class="upm-activity-desc"><?= esc_html($short_desc ?: $content) ?></p>
                                                 <small class="upm-activity-date"><?= esc_html($date) ?></small>
                                             </div>
                                         </li>
