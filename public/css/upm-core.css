@@ -340,7 +340,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--upm-btn-bg-muted);
-    padding: 16px 20px;
+    padding: .75rem;
     border-radius: 10px;
 }
 .upm-item-icon svg {
@@ -367,5 +367,4 @@
 .upm-item-date {
     font-size: 0.875rem;
     color: var(--upm-text-muted);
-    margin-top: 2px;
 }

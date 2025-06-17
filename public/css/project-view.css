@@ -20,7 +20,7 @@
     color: var(--upm-text-muted);
 }
 .upm-card-block h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 2rem;
     font-weight: 700;
     color: var(--upm-text-white);
@@ -45,6 +45,7 @@
     margin: 0;
     font-size: 1rem;
     color: var(--upm-text-white);
+    font-weight: 500;
 }
 .client-notes {
     margin-top: 1rem;
@@ -68,7 +69,7 @@
     gap: 1rem;
     font-size: 0.875rem;
     color: var(--upm-text-muted);
-    margin-bottom: 6px;
+    margin: 0 0 6px 0;
 }
 .client-note-item p {
     color: var(--upm-text-light);
@@ -84,6 +85,9 @@
     fill: var(--upm-text-muted);
     width: 1rem;
     height: 1rem;
+}
+.client-note-meta path {
+    fill: var(--upm-text-muted);
 }
 .badge-success {
     background-color: #15803d;
@@ -148,7 +152,6 @@
     color: var(--upm-text-white);
 }
 .upm-budget-row p {
-    font-weight: 600;
     color: var(--upm-text-muted);
 }
 .upm-budget-row span {
