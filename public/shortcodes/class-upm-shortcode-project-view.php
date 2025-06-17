@@ -324,30 +324,24 @@ class UPM_Shortcode_Project_View {
 
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Actividad reciente', 'upm') ?></h3>
-                                <ul class="upm-list">
+                                <ul class="upm-activity-list">
                                     <?php if (!empty($activities)): ?>
                                         <?php foreach ($activities as $a): 
                                             $title     = $a->post_title;
                                             $content   = $a->post_content;
-                                            $date      = get_the_date('d/m/Y H:i', $a);
-                                            $author_id = $a->post_author;
-                                            $author    = get_user_by('id', $author_id)?->display_name ?: 'Sistema';
+                                            $date      = get_the_date('Y-m-d', $a);
                                         ?>
-                                        <li class="upm-item">
-                                            <span class="upm-item-icon"><?= file_get_contents(UPM_PATH . 'public/icons/activity.svg') ?></span>
-                                            <div class="upm-item-content">
-                                                <p><strong><?= esc_html($title) ?></strong></p>
-                                                <div class="upm-item-date"><?= esc_html($date) ?> — <?= esc_html($author) ?></div>
-                                                <p><?= esc_html($content) ?></p>
+                                        <li class="upm-activity-item">
+                                            <span class="upm-activity-bullet"></span>
+                                            <div class="upm-activity-content">
+                                                <p class="upm-activity-title"><?= esc_html($title) ?></p>
+                                                <p class="upm-activity-desc"><?= esc_html($content) ?></p>
+                                                <small class="upm-activity-date"><?= esc_html($date) ?></small>
                                             </div>
                                         </li>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <li class="upm-item">
-                                            <div class="upm-item-content">
-                                                <p><?= esc_html__('No hay actividad registrada aún.', 'upm') ?></p>
-                                            </div>
-                                        </li>
+                                        <li><?= esc_html__('No hay actividad reciente.', 'upm') ?></li>
                                     <?php endif; ?>
                                 </ul>
                             </div>

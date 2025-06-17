@@ -168,3 +168,49 @@
 .upm-budget-remaining {
     color: var(--upm-yellow);
 }
+.upm-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.upm-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.upm-activity-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: var(--upm-blue);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.upm-activity-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.upm-activity-title {
+    font-weight: 600;
+    color: var(--upm-text-white);
+    margin: 0;
+    padding: 0;
+}
+
+.upm-activity-desc {
+    font-size: 0.9rem;
+    color: var(--upm-text-light);
+    margin: 4px 0;
+}
+
+.upm-activity-date {
+    font-size: 0.75rem;
+    color: var(--upm-text-light);
+}

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Unreal Solutions Project Manager
  * Description: Panel modular para clientes de Unreal Solutions para gestionar proyectos, facturas, tickets y más.
- * Version: 1.6.9
+ * Version: 1.7.2
  * Author: Unreal Solutions
  * Plugin URI: https://unrealsolutions.com.br/
  */
@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 // Definiciones globales
-define('UPM_VERSION', '1.6.9');
+define('UPM_VERSION', '1.7.2');
 define('UPM_PATH', plugin_dir_path(__FILE__));
 define('UPM_URL', plugin_dir_url(__FILE__));
 
