@@ -174,7 +174,7 @@ class UPM_Shortcode_Project_View {
                                             <div class="client-note-item">
                                                 <div class="client-note-meta">
                                                     <span>
-                                                        <?= file_get_contents(UPM_PATH . 'public/icons/support-tickets.svg'); ?>
+                                                        <?= file_get_contents(UPM_PATH . 'public/icons/user.svg'); ?>
                                                         <?= esc_html($author_name) ?>
                                                     </span>
                                                     <span>

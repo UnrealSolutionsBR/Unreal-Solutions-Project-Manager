@@ -143,12 +143,13 @@
 .upm-budget-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 0;
     font-size: 1rem;
     color: var(--upm-text-white);
 }
 .upm-budget-row p {
     font-weight: 600;
+    color: var(--upm-text-muted);
 }
 .upm-budget-row span {
     font-weight: 600;
