@@ -291,9 +291,21 @@ class UPM_Shortcode_Project_View {
 
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Presupuesto', 'upm') ?></h3>
-                                <p><strong><?= esc_html__('Presupuesto Total:', 'upm') ?></strong> $<?= number_format($amount, 2) ?></p>
-                                <p><strong><?= esc_html__('Total Cancelado:', 'upm') ?></strong> $<?= number_format($paid, 2) ?></p>
-                                <p><strong><?= esc_html__('Saldo Pendiente:', 'upm') ?></strong> $<?= number_format($amount - $paid, 2) ?></p>
+
+                                <div class="upm-budget-row">
+                                    <p><?= esc_html__('Presupuesto Total:', 'upm') ?></p>
+                                    <span>$<?= number_format($amount, 2) ?></span>
+                                </div>
+
+                                <div class="upm-budget-row">
+                                    <p><?= esc_html__('Total Cancelado:', 'upm') ?></p>
+                                    <span>$<?= number_format($paid, 2) ?></span>
+                                </div>
+
+                                <div class="upm-budget-row">
+                                    <p><?= esc_html__('Saldo Pendiente:', 'upm') ?></p>
+                                    <span>$<?= number_format($amount - $paid, 2) ?></span>
+                                </div>
                             </div>
 
                             <div class="upm-card-block">

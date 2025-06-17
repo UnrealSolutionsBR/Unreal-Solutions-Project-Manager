@@ -140,3 +140,16 @@
     border-color: #94a3b8;
     color: #94a3b8;
 }
+.upm-budget-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--upm-text-white);
+}
+.upm-budget-row span {
+    font-weight: 600;
+}
+.upm-budget-row strong {
+    font-weight: 600;
+}
