@@ -293,7 +293,7 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-right-column">
                             <div class="upm-card-block">
                                 <h3><?= esc_html__('Acciones rápidas', 'upm') ?></h3>
-                                <a href="#" id="upm-request-update-btn" class="upm-btn full primary">
+                                <a href="#" id="upm-request-update-btn" class="upm-btn full primary" data-project-id="<?= esc_attr($project_id) ?>">
                                     <?= file_get_contents(UPM_PATH . 'public/icons/chat-bubbles.svg') ?>
                                     <?= esc_html__('Solicitar actualización', 'upm') ?>
                                 </a><br><br>
