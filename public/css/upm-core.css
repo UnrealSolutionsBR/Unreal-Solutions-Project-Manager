@@ -364,7 +364,6 @@
 .upm-item-content p{
     font-size: 1rem;
     font-weight: 500;
-    line-height: 2rem;
     margin: 0;
     color: var(--upm-text-white);
 }
