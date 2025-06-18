@@ -372,6 +372,9 @@
     font-size: 0.875rem;
     color: var(--upm-text-muted);
 }
+
+/* === TOAST === */
+
 .upm-toast-container {
     position: fixed;
     bottom: 24px;
@@ -399,7 +402,6 @@
 .upm-toast.success {
     background-color: #43a047;
 }
-
 @keyframes fadeInUp {
     from {
         transform: translateY(20px);
@@ -421,21 +423,25 @@
     margin-left: 8px;
     vertical-align: middle;
 }
-
 #upm-send-request.loading .btn-text {
     opacity: 0.5;
     pointer-events: none;
 }
-
-#upm-send-request.loading .btn-loader {
-    display: inline-block;
+/* === MODAL === */
+.upm-modal.animated {
+    animation-duration: 0.35s;
+    animation-fill-mode: both;
 }
-
-.hidden {
-    display: none;
+@keyframes fadeInUpModal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-@keyframes spin {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.fadeInUp {
+    animation-name: fadeInUpModal;
 }
