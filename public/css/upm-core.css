@@ -26,6 +26,18 @@
     min-height: 100vh;
     overflow: hidden;
 }
+.upm-wrapper h3 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
+.upm-wrapper h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
 .upm-main {
     flex-grow: 1;
     padding: 40px;

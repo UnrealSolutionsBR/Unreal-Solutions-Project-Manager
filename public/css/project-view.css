@@ -10,20 +10,8 @@
     align-items: flex-start;
     gap: 16px;
 }
-.upm-project-title-group h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--upm-text-white);
-}
 .upm-project-title-group p {
     color: var(--upm-text-muted);
-}
-.upm-card-block h3 {
-    font-size: 1.25rem;
-    line-height: 2rem;
-    font-weight: 700;
-    color: var(--upm-text-white);
 }
 .upm-project-dates {
     display: flex;
