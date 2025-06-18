@@ -353,7 +353,7 @@ class UPM_Shortcode_Project_View {
                         <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
                         <h3><?= esc_html__('Solicitar Actualización', 'upm') ?></h3>
                         <label for="upm-update-type"><?= esc_html__('Tipo de Actualización', 'upm') ?></label>
-                        <select id="upm-update-type">
+                        <select id="upm-update-type" class="upm-update-type">
                             <option value="change_request">Solicitar cambio</option>
                             <option value="approval_request">Aprobación</option>
                             <option value="suggestion">Sugerencia</option>

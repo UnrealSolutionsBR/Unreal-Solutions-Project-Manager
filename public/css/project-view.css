@@ -253,3 +253,48 @@
 .hidden {
     display: none !important;
 }
+.upm-update-type {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    background-color: var(--upm-bg-dark, #1e1e2d);
+    color: var(--upm-text-light, #fff);
+    border: 2px solid #2a2f45;
+    border-radius: 8px;
+    appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upm-update-type:focus {
+    outline: none;
+    border-color: #3b82f6; /* azul suave */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* focus ring */
+}
+
+.upm-update-type option {
+    background-color: #1e1e2d;
+    color: #fff;
+}
+.upm-update-message {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    background-color: var(--upm-bg-dark, #1e1e2d);
+    color: var(--upm-text-light, #fff);
+    border: 2px solid #2a2f45;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upm-update-message::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.upm-update-message:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
