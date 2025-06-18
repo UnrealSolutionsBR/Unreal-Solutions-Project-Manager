@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sendBtn.classList.remove('loading');
             sendBtn.disabled = false;
         }
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
     });
 
     cancelBtn.addEventListener('click', () => {
