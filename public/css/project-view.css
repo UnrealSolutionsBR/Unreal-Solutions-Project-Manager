@@ -1,0 +1,314 @@
+.upm-project-view-header {
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.upm-project-title-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+.upm-project-title-group h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
+.upm-project-title-group p {
+    color: var(--upm-text-muted);
+}
+.upm-card-block h3 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
+.upm-project-dates {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.upm-date-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.upm-date-item small {
+    color: var(--upm-text-muted);
+    font-size: 0.875rem;
+}
+
+.upm-date-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--upm-text-white);
+    font-weight: 500;
+}
+.client-notes {
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: .5rem;
+    background-color: var(--upm-btn-bg-muted);
+}
+
+.client-notes h4 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.client-note-item {
+    padding: 10px 0;
+}
+.client-note-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+    margin: 0 0 6px 0;
+}
+.client-note-item p {
+    color: var(--upm-text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.client-notes hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin: 10px 0;
+}
+.client-note-meta svg {
+    fill: var(--upm-text-muted);
+    width: 1rem;
+    height: 1rem;
+}
+.client-note-meta path {
+    fill: var(--upm-text-muted);
+}
+.badge-success {
+    background-color: #15803d;
+    color: #fff;
+}
+
+.badge-warning {
+    background-color: #facc15;
+    color: #1e293b;
+}
+
+.badge-muted {
+    background-color: #334155;
+    color: #fff;
+}
+.upm-file-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid;
+    margin-bottom: 12px;
+}
+.upm-list + .upm-file-category {
+    margin-top: 12px;
+}
+.upm-file-category h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+}
+/* Colores por categoría */
+.upm-file-legal {
+    background-color: #ef44441a;
+    border-color: #ef444433;
+    color: #f87171;
+}
+.upm-file-invoice {
+    background-color: #22c55e1a;
+    border-color: #22c55e33;
+    color: #4ade80;
+}
+.upm-file-design {
+    background-color: #3b82f61a;
+    border-color: #3b82f633;
+    color: #60a5fa;
+}
+.upm-file-doc {
+    background-color: #a855f71a;
+    border-color: #a855f733;
+    color: #c084fc;
+}
+.upm-file-default {
+    background-color: #a855f71a;
+    border-color: #94a3b8;
+    color: #94a3b8;
+}
+.upm-budget-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: var(--upm-text-white);
+}
+.upm-budget-row p {
+    color: var(--upm-text-muted);
+}
+.upm-budget-row span {
+    font-weight: 600;
+}
+.upm-budget-total {
+    color: var(--upm-text-white);
+}
+
+.upm-budget-paid {
+    color: var(--upm-green);
+}
+
+.upm-budget-remaining {
+    color: var(--upm-yellow);
+}
+.upm-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.upm-activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.upm-activity-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: var(--upm-blue);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.upm-activity-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.upm-activity-title {
+    font-weight: 600;
+    color: var(--upm-text-white);
+    margin: 0;
+    padding: 0;
+}
+
+.upm-activity-desc {
+    font-size: 0.9rem;
+    color: var(--upm-text-light);
+    margin: 4px 0;
+}
+
+.upm-activity-date {
+    font-size: 0.75rem;
+    color: var(--upm-text-light);
+}
+.upm-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.upm-modal-content {
+    background: var(--upm-bg-dark);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.upm-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.upm-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    color: var(--upm-text-light);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+.upm-update-type {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    background-color: var(--upm-bg-dark, #1e1e2d);
+    color: var(--upm-text-light, #fff);
+    border: 2px solid #2a2f45;
+    border-radius: 8px;
+    appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upm-update-type:focus {
+    outline: none;
+    border-color: #3b82f6; /* azul suave */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* focus ring */
+}
+
+.upm-update-type option {
+    background-color: #1e1e2d;
+    color: #fff;
+}
+.upm-update-message {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    background-color: var(--upm-bg-dark, #1e1e2d);
+    color: var(--upm-text-white, #fff);
+    border: 2px solid #2a2f45;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upm-update-message::placeholder {
+    color: #aaa;
+}
+
+.upm-update-message:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+.upm-modal-content label {
+    padding: 10px 0;
+}
+.upm-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.upm-modal-actions .upm-btn {
+    flex: 1;
+    padding: 12px 0;
+    justify-content: center;
+    border-color: transparent;
+}

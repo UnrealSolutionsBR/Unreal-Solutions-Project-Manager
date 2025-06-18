@@ -1,0 +1,279 @@
+/* === Header === */
+.upm-header {
+    background: linear-gradient(112deg, #4C7CFE 0%, #9233EA 54%);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.upm-header h2 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: var(--upm-text-white);
+}
+.upm-header p {
+    margin: 0;
+    font-size: 16px;
+    color: #dbeafe;
+}
+/* === Dashboard Cards === */
+.upm-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.upm-card {
+    flex: 1;
+    min-width: 250px;
+    background: var(--upm-bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--upm-border);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.upm-card:hover {
+    transform: scale(1.02);
+}
+.upm-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+.upm-icon-box {
+    background-color: #1F2937;
+    border-radius: 0.5rem;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 50px;
+}
+.upm-icon-box svg {
+    width: 26px;
+    height: 26px;
+}
+.upm-card-text h3 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--upm-text-white);
+}
+.upm-card-text p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--upm-text-light);
+}
+.upm-card-text small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+}
+.active-projects svg { fill: var(--upm-green); }
+.completed-projects svg { fill: var(--upm-blue); }
+.support-tickets svg { fill: var(--upm-yellow); }
+.milestone svg { fill: var(--upm-purple); }
+.active-projects .upm-card-text small { color: var(--upm-green); }
+.completed-projects .upm-card-text small { color: var(--upm-blue); }
+.support-tickets .upm-card-text small { color: var(--upm-yellow); }
+.milestone .upm-card-text small { color: var(--upm-purple); }
+/* === Next Projects Section === */
+.upm-next-projects {
+    background: var(--upm-bg-dark);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--upm-border);
+    margin-bottom: 30px;
+}
+.upm-next-projects h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--upm-text-white);
+}
+.upm-next-projects p {
+    margin-bottom: 25px;
+    color: var(--upm-text-muted);
+}
+.upm-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.upm-service-card {
+    display: flex;
+    background-color: #1e293b;
+    padding: 16px;
+    border-radius: 10px;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1px solid var(--upm-border);
+}
+.upm-service-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upm-service-icon-box svg {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+}
+.upm-service-icon-box.web-development { background-color: #2563eb; }
+.upm-service-icon-box.hosting         { background-color: #9333ea; }
+.upm-service-icon-box.social-media    { background-color: #db2777; }
+.upm-service-info h3 {
+    font-size: 16px;
+    margin: 0 0 4px;
+    color: #fff;
+}
+.upm-service-info p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--upm-text-light);
+}
+.upm-service-info small {
+    font-size: 13px;
+    color: var(--upm-blue);
+    display: block;
+    margin-top: 4px;
+    font-weight: 500;
+}
+.upm-consultation-btn {
+    text-align: left;
+    margin-top: 20px;
+}
+.upm-wrapper a.upm-btn:hover,
+.upm-actions-grid a.upm-btn:hover {
+    color: var(--upm-text-white);
+}
+.upm-btn.primary {
+    background-color: var(--upm-blue);
+    color: var(--upm-text-white);
+    fill: var(--upm-text-white);
+}
+.upm-btn.primary:hover,
+.upm-btn.primary:active {
+    background-color: var(--upm-blue-hover);
+    color: var(--upm-text-white);
+}
+.upm-btn.secondary {
+    background-color: var(--upm-btn-bg-muted);
+    fill: var(--upm-text-white);
+}
+.upm-btn.secondary:hover,
+.upm-btn.secondary:active {
+    background-color: var(--upm-muted-hover);
+}
+/* === Overview Section === */
+.upm-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.upm-section-header a {
+    font-size: 14px;
+    color: var(--upm-blue);
+    text-decoration: none;
+}
+.upm-section-header a:hover {
+    color:var(--upm-blue-hover);
+}
+.upm-section-header h2 {
+    color: var(--upm-text-white);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+.upm-card-block h2 {
+    color: var(--upm-text-white);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+.upm-card-block {
+    background: var(--upm-bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--upm-border);
+}
+.upm-project-card {
+    background-color: #1f2937;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.upm-project-card strong {
+    color: var(--upm-text-white);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+}
+.upm-project-card p {
+    font-size: 13px;
+    color: var(--upm-text-muted);
+    margin: 3px 0 10px;
+}
+.upm-project-card small {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    padding-top:0.2rem;
+    color: var(--upm-text-light);
+    text-align: right;
+    display: block;
+}
+/* Quick Actions */
+.upm-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.upm-service-health {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.upm-service-health li {
+    background-color: #1f2937;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--upm-text-light);
+}
+.status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.status-icon {
+    width: 20px;
+    height: 20px;
+}
+.dot.online {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    margin-right: 8px;
+}

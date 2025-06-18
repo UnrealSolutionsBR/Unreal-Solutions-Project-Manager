@@ -1,0 +1,447 @@
+/* === Variables === */
+:root {
+    --upm-green:   #4ADE80;
+    --upm-blue:    #60A5FA;
+    --upm-yellow:  #FACC15;
+    --upm-purple:  #C084FC;
+    --upm-bg-dark: #0f172a;
+    --upm-bg-sidebar: #0d0d2b;
+    --upm-border: #334155;
+    --upm-text-white: #fafafa;
+    --upm-text-muted: #94a3b8;
+    --upm-text-light: #cbd5e1;
+    --upm-brand: #3b82f6;
+    --upm-btn-bg-muted: #1F2937;
+    --upm-btn-text-muted: #374151;
+    --upm-blue-hover: #2563eb;
+    --upm-muted-hover: #374151;
+}
+/* === Layout === */
+.upm-wrapper {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--upm-bg-dark);
+    color: var(--upm-text-white);
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.upm-main {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #02071a;
+    min-width: 0;
+}
+/* === Sidebar === */
+.upm-sidebar {
+    width: 240px;
+    background-color: var(--upm-bg-sidebar);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-right: 1px solid var(--upm-border);
+}
+.upm-brand {
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--upm-brand);
+    margin-bottom: 10px;
+}
+.upm-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--upm-border);
+    padding-bottom: 15px;
+    color: var(--upm-text-white);
+}
+
+.upm-sidebar .upm-user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.upm-user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.upm-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upm-menu li {
+    margin: 8px 0;
+    cursor: pointer;
+    border-radius: 6px;
+    color: var(--upm-text-light);
+    transition: background 0.2s ease;
+}
+.upm-menu li a{
+    display: block;
+    padding: 10px 12px;
+    color: var(--upm-text-white);
+}
+
+.upm-menu li.active,
+.upm-menu li:hover {
+    background-color: var(--upm-brand);
+    color: #fff;
+}
+/* === NOTIFICACIONES ===*/
+
+.upm-notification-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.upm-notification-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.upm-bell-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #e5e7eb;
+    transition: fill 0.2s ease;
+}
+
+.upm-notification-icon:hover .upm-bell-icon svg,
+.upm-notification-icon:active .upm-bell-icon svg {
+    fill: #ffffff;
+}
+
+.upm-notification-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.upm-notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #1e293b;
+    border: 1px solid var(--upm-border);
+    border-radius: 10px;
+    padding: 16px;
+    min-width: 280px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.upm-notification-dropdown strong {
+    color: var(--upm-text-white);
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.upm-notification-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.upm-notification-dropdown li {
+    font-size: 0.8125rem;
+    color: var(--upm-text-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.upm-notification-dropdown li div {
+    display: flex;
+    flex-direction: column;
+}
+
+.upm-notification-dropdown li small {
+    color: var(--upm-text-muted);
+    font-size: 0.6875rem;
+    line-height: 1.2;
+}
+.upm-notification-dropdown li strong {
+    font-weight: 500;
+    color: var(--upm-text-white);
+    margin-bottom: 2px;
+}
+
+.upm-notification-dropdown a {
+    font-size: 0.8125rem;
+    color: var(--upm-blue);
+    text-decoration: none;
+}
+.upm-notification-dropdown a:hover {
+    color: var(--upm-blue-hover);
+}
+
+.upm-notification-dropdown.visible {
+    display: block;
+}
+/* ==== BOTONES ===*/
+.upm-btn {
+    background-color: var(--upm-brand);
+    color: var(--upm-text-white);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.upm-btn:hover {
+    background-color: #2563eb;
+}
+.upm-btn svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--upm-text-white);
+}
+.upm-btn-action {
+    background: none;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 10px;
+    margin-top: 0.5625rem;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.upm-btn-action svg{
+    width: 18px;
+    height: 18px;
+    transition: fill 0.2s ease;
+}
+.upm-btn-action svg path{
+    fill: var(--upm-text-light);
+}
+.upm-btn-action:hover svg {
+    fill: var(--upm-text-white);
+}
+.upm-btn-action:hover {
+    background-color: var(--upm-blue-hover);
+    border: 1px solid var(--upm-blue);
+}
+.full {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.full svg path {
+    fill: var(--upm-text-white);
+}
+/* === PROGRESS BAR ===*/
+.upm-progress-bar {
+    background: #334155;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.upm-progress-sm {
+    height: 0.5rem;
+}
+.upm-progress-md {
+    height: 0.75rem;
+}
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: var(--upm-text-light);
+    margin-bottom: 4px;
+}
+
+.upm-progress-bar div {
+    height: 100%;
+    background-color: var(--upm-blue);
+}
+/* === Badges === */
+.upm-badge {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.6875rem;
+    font-weight: bold;
+}
+.badge-en-curso {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: rgb(250, 204, 21);
+}
+.badge-completado {
+    background-color: rgba(74, 222, 108, 0.1);
+    color: rgb(74, 222, 108);
+}
+.badge-activo {
+    background-color: rgba(96, 165, 250, 0.1);
+    color: rgb(96, 165, 250);
+}
+.badge-esperando-revision {
+    background-color: rgba(251, 146, 60, 0.1);
+    color: rgb(251, 146, 60);
+}
+.badge-pendiente {
+    background-color: rgba(51, 65, 85, 1);
+    color: var(--upm-text-white);
+}
+
+/* === OVERVIEW === */
+.upm-overview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.upm-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.upm-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.upm-overview-section {
+    margin-top: 30px;
+}
+/* === LISTAS ===*/
+.upm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.upm-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--upm-btn-bg-muted);
+    padding: .75rem;
+    border-radius: 10px;
+}
+.upm-item-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    fill: var(--upm-text-white);
+}
+.upm-item-content {
+    flex-grow: 1;
+    margin-left: 12px;
+    margin: 0;
+}
+.upm-item-content p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--upm-text-white);
+}
+
+.upm-item-date {
+    font-size: 0.875rem;
+    color: var(--upm-text-muted);
+}
+
+/* === TOAST === */
+
+.upm-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.upm-toast {
+    padding: 14px 18px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: #323232;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    animation: fadeInUp 0.3s ease;
+}
+
+.upm-toast.error {
+    background-color: #e53935;
+}
+.upm-toast.success {
+    background-color: #43a047;
+}
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 0.95;
+    }
+}
+#upm-send-request .btn-loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+#upm-send-request.loading .btn-text {
+    opacity: 0.5;
+    pointer-events: none;
+}
+/* === MODAL === */
+.upm-modal.animated {
+    animation-duration: 0.35s;
+    animation-fill-mode: both;
+}
+@keyframes fadeInUpModal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fadeInUp {
+    animation-name: fadeInUpModal;
+}
