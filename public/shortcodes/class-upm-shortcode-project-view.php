@@ -34,7 +34,7 @@ class UPM_Shortcode_Project_View {
         $short_description = get_post_meta($project->ID, '_upm_short_description', true);
 
         //Notas
-        $notes = get_posts([
+        $requests = get_posts([
             'post_type' => 'upm_request',
             'meta_key' => '_upm_request_project_id',
             'meta_value' => $project_id,
