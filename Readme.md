@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 
 <div align="center">
-  <img src="https://unrealsolutions.com.br/wp-content/uploads/2023/07/unreal-solutions-white-logotype.svg" alt="Logo" width="400" height="100">
+  <img src="https://unrealsolutions.com.br/wp-content/uploads/2023/08/Unreal-Solutions-Logo-white-with-icon.svg" alt="Logo" width="400" height="100">
   <h3 align="center">Unreal Solutions Project Manager</h3>
   <p align="center">
     Plugin modular para WordPress que permite a tus clientes gestionar proyectos, facturas, tickets de soporte y más desde un dashboard personalizado.
