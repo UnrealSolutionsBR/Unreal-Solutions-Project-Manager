@@ -196,6 +196,9 @@ class UPM_Shortcode_Project_View {
                                                         <?= esc_html($date) ?>
                                                     </span>
                                                 </div>
+                                                <p>
+                                                    <?= esc_html($req->post_content) ?>
+                                                </p>
                                             </div>
                                             <?php if ($index < count($requests) - 1) : ?>
                                                 <hr>
