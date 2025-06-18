@@ -362,7 +362,7 @@ class UPM_Shortcode_Project_View {
                             <option value="other">Otros</option>
                         </select>
                         <label for="upm-update-message"><?= esc_html__('Mensaje', 'upm') ?></label>
-                        <textarea id="upm-update-message" rows="4" placeholder="<?= esc_attr__('Describa brevemente la actualización que necesita...', 'upm') ?>"></textarea>
+                        <textarea id="upm-update-message" class="upm-update-message" rows="4" placeholder="<?= esc_attr__('Describa brevemente la actualización que necesita...', 'upm') ?>"></textarea>
                         <div class="upm-modal-actions">
                             <button class="upm-btn secondary" id="upm-cancel-request"><?= esc_html__('Cancelar', 'upm') ?></button>
                             <button class="upm-btn primary" id="upm-send-request">
