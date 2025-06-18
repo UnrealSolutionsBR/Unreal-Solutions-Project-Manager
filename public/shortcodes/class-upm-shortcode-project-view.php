@@ -35,8 +35,8 @@ class UPM_Shortcode_Project_View {
 
         //Notas
         $notes = get_posts([
-            'post_type' => 'upm_note',
-            'meta_key' => '_upm_note_project_id',
+            'post_type' => 'upm_request',
+            'meta_key' => '_upm_request_project_id',
             'meta_value' => $project_id,
             'orderby' => 'date',
             'order' => 'DESC',
@@ -179,11 +179,22 @@ class UPM_Shortcode_Project_View {
                                     <div style="width: <?= intval($progress) ?>%"></div>
                                 </div>
                                 <div class="client-notes">
-                                    <h4><?= esc_html__('Notas del cliente:', 'upm') ?></h4>
-                                    <?php if ($notes) : ?>
-                                        <?php foreach ($notes as $index => $note) : 
-                                            $author_name = get_the_author_meta('display_name', $note->post_author);
-                                            $date = get_the_date('M d, Y', $note);
+                                    <h4><?= esc_html__('Solicitudes del cliente:', 'upm') ?></h4>
+                                    <?php if ($requests) : ?>
+                                        <?php foreach ($requests as $index => $req) :
+                                            $author_name = get_the_author_meta('display_name', $req->post_author);
+                                            $date        = get_the_date('M d, Y', $req);
+                                            $type        = get_post_meta($req->ID, '_upm_request_type', true);
+                                            // Traducir tipo para mostrarlo como badge legible
+                                            $type_label = match ($type) {
+                                                'change_request'    => 'Solicitar cambio',
+                                                'approval_request'  => 'Aprobación',
+                                                'suggestion'        => 'Sugerencia',
+                                                'review_request'    => 'Solicitar revisión',
+                                                'pending_delivery'  => 'Entrega pendiente',
+                                                'other'             => 'Otros',
+                                                default             => ucfirst($type),
+                                            };
                                         ?>
                                             <div class="client-note-item">
                                                 <div class="client-note-meta">
@@ -192,18 +203,21 @@ class UPM_Shortcode_Project_View {
                                                         <?= esc_html($author_name) ?>
                                                     </span>
                                                     <span>
-                                                        <?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?>    
+                                                        <?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?>
                                                         <?= esc_html($date) ?>
                                                     </span>
                                                 </div>
-                                                <p><?= esc_html($note->post_content) ?></p>
+                                                <p>
+                                                    <span class="project-badge badge-muted"><?= esc_html($type_label) ?></span><br>
+                                                    <?= esc_html($req->post_content) ?>
+                                                </p>
                                             </div>
-                                            <?php if ($index < count($notes) - 1) : ?>
+                                            <?php if ($index < count($requests) - 1) : ?>
                                                 <hr>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     <?php else : ?>
-                                        <div class="client-note-item"><?= esc_html__('Sin notas disponibles.', 'upm') ?></div>
+                                        <div class="client-note-item"><?= esc_html__('Sin solicitudes disponibles.', 'upm') ?></div>
                                     <?php endif; ?>
                                 </div>
                             </div>
