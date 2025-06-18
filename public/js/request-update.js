@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         openBtn.addEventListener('click', () => {
             modal.classList.remove('hidden');
             modal.classList.remove('fadeInUp');
-            void modal.offsetWidth; // Reflow to restart animation
+            void modal.offsetWidth; // Reflow para reiniciar animación
             modal.classList.add('fadeInUp');
         });
     }
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectId = document.getElementById('upm-project-id')?.value || new URLSearchParams(window.location.search).get('id');
 
         if (!message.trim()) {
-            showToast('Please write a message before sending.', 'error');
+            showToast('Por favor, escribe un mensaje antes de enviar.', 'error');
             return;
         }
 
@@ -50,28 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             if (result.success) {
-                showToast('Request sent successfully.', 'success');
+                showToast('Solicitud enviada correctamente.', 'success');
                 modal.classList.add('hidden');
                 document.getElementById('upm-update-message').value = '';
             } else {
-                showToast('Error sending request. Please try again.', 'error');
+                showToast('Error al enviar la solicitud. Intenta nuevamente.', 'error');
             }
         } catch (error) {
-            showToast('Unexpected error occurred.', 'error');
+            showToast('Ocurrió un error inesperado.', 'error');
             console.error(error);
         } finally {
             sendBtn.classList.remove('loading');
             sendBtn.disabled = false;
         }
-        // Cerrar modal al hacer clic fuera del contenido
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
     });
 
     cancelBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
+    });
+
+    // Cierre al hacer clic fuera del contenido
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
     });
 });
