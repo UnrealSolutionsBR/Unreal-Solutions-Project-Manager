@@ -184,17 +184,6 @@ class UPM_Shortcode_Project_View {
                                         <?php foreach ($requests as $index => $req) :
                                             $author_name = get_the_author_meta('display_name', $req->post_author);
                                             $date        = get_the_date('M d, Y', $req);
-                                            $type        = get_post_meta($req->ID, '_upm_request_type', true);
-                                            // Traducir tipo para mostrarlo como badge legible
-                                            $type_label = match ($type) {
-                                                'change_request'    => 'Solicitar cambio',
-                                                'approval_request'  => 'Aprobación',
-                                                'suggestion'        => 'Sugerencia',
-                                                'review_request'    => 'Solicitar revisión',
-                                                'pending_delivery'  => 'Entrega pendiente',
-                                                'other'             => 'Otros',
-                                                default             => ucfirst($type),
-                                            };
                                         ?>
                                             <div class="client-note-item">
                                                 <div class="client-note-meta">
@@ -207,10 +196,6 @@ class UPM_Shortcode_Project_View {
                                                         <?= esc_html($date) ?>
                                                     </span>
                                                 </div>
-                                                <p>
-                                                    <span class="project-badge badge-muted"><?= esc_html($type_label) ?></span><br>
-                                                    <?= esc_html($req->post_content) ?>
-                                                </p>
                                             </div>
                                             <?php if ($index < count($requests) - 1) : ?>
                                                 <hr>
