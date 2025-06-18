@@ -280,7 +280,7 @@
     padding: 12px 14px;
     font-size: 0.95rem;
     background-color: var(--upm-bg-dark, #1e1e2d);
-    color: var(--upm-text-light, #fff);
+    color: var(--upm-text-white, #fff);
     border: 2px solid #2a2f45;
     border-radius: 8px;
     resize: vertical;
@@ -290,11 +290,25 @@
 
 .upm-update-message::placeholder {
     color: #aaa;
-    font-style: italic;
 }
 
 .upm-update-message:focus {
     outline: none;
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+.upm-modal-content label {
+    padding: 10px 0;
+}
+.upm-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.upm-modal-actions .upm-btn {
+    flex: 1;
+    padding: 12px 0;
+    justify-content: center;
+    border-color: transparent;
 }

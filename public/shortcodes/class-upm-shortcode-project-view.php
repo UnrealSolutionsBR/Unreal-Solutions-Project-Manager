@@ -366,8 +366,8 @@ class UPM_Shortcode_Project_View {
                         <div class="upm-modal-actions">
                             <button class="upm-btn secondary" id="upm-cancel-request"><?= esc_html__('Cancelar', 'upm') ?></button>
                             <button class="upm-btn primary" id="upm-send-request">
-                                <span class="btn-text"><?= esc_html__('Enviar solicitud', 'upm') ?></span>
-                                <span class="btn-loader hidden"></span>
+                                <?= file_get_contents(UPM_PATH . 'public/icons/send.svg') ?>
+                                <?= esc_html__('Enviar solicitud', 'upm') ?>                        
                             </button>
                         </div>
                     </div>
