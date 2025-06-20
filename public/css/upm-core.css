@@ -457,3 +457,12 @@
 .fadeInUp {
     animation-name: fadeInUpModal;
 }
+
+/* ===MOBILE STYLES=== */
+
+/* ===OVERVIEW SECTIONS=== */
+@media screen and (max-width: 768px) {
+    .upm-overview-grid {
+        grid-template-columns: 1fr;
+    }
+}
