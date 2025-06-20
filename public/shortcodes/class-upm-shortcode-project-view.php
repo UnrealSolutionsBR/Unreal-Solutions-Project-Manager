@@ -25,7 +25,7 @@ class UPM_Shortcode_Project_View {
         }
 
         // Metadatos del proyecto
-        $project_type = get_post_meta($project_id, 'upm_project_type', true);
+        $project_type = get_post_meta($project_id, '_upm_project_type', true);
         $status = get_post_meta($project_id, '_upm_status', true);
         $progress = get_post_meta($project_id, '_upm_progress', true);
         $due = get_post_meta($project_id, '_upm_due_date', true);
