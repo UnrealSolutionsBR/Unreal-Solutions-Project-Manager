@@ -299,7 +299,7 @@ class UPM_Shortcode_Project_View {
                                     <?= file_get_contents(UPM_PATH . 'public/icons/chat-bubbles.svg') ?>
                                     <?= esc_html__('Solicitar actualización', 'upm') ?>
                                 </a><br><br>
-                                <a href="#" class="upm-btn full secondary">
+                                <a href="#" id="upm-brief-btn" class="upm-btn full secondary">
                                     <?= file_get_contents(UPM_PATH . 'public/icons/view.svg') ?>
                                     <?= esc_html__('Ver brief', 'upm') ?>
                                 </a>
@@ -373,6 +373,58 @@ class UPM_Shortcode_Project_View {
                             </button>
                         </div>
                     </div>
+                </div>
+                <div id="upm-brief-modal" class="upm-modal hidden">
+                  <div class="upm-modal-content upm-brief-content">
+                    <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
+                    <h2>📋 Project Brief</h2>
+
+                    <div class="upm-brief-section">
+                      <h3>Project Overview</h3>
+                      <p><strong>Project Name:</strong><br><?= get_the_title($project_id) ?></p>
+                      <p><strong>Service Type:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_project_type', true)) ?></p>
+                      <p><strong>Description:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_short_description', true)) ?></p>
+                    </div>
+
+                    <div class="upm-brief-grid">
+                      <div class="upm-brief-box">
+                        <h4>📅 Timeline</h4>
+                        <p><strong>Start Date:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_start_date', true)) ?></p>
+                        <p><strong>Due Date:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_due_date', true)) ?></p>
+                      </div>
+                      <div class="upm-brief-box">
+                        <h4>💲 Budget</h4>
+                        <p><strong>Total Budget:</strong><br>$<?= number_format((float)get_post_meta($project_id, '_upm_project_amount', true), 0, '.', ',') ?></p>
+                      </div>
+                    </div>
+
+                    <div class="upm-brief-section">
+                      <h3>🎯 Project Objectives</h3>
+                      <ul>
+                        <?php foreach (explode("\n", get_post_meta($project_id, '_upm_objectives', true)) as $item): ?>
+                          <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
+                        <?php endforeach; ?>
+                      </ul>
+                    </div>
+                        
+                    <div class="upm-brief-section">
+                      <h3>🧰 Scope of Work</h3>
+                      <ul>
+                        <?php foreach (explode("\n", get_post_meta($project_id, '_upm_scope', true)) as $item): ?>
+                          <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
+                        <?php endforeach; ?>
+                      </ul>
+                    </div>
+                        
+                    <div class="upm-brief-section">
+                      <h3>🛠️ Technical Requirements</h3>
+                      <ul>
+                        <?php foreach (explode("\n", get_post_meta($project_id, '_upm_tech_requirements', true)) as $item): ?>
+                          <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
+                        <?php endforeach; ?>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div id="upm-toast-container" class="upm-toast-container"></div>
             </main>
