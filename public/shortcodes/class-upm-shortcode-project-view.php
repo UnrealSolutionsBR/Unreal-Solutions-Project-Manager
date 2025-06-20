@@ -350,7 +350,7 @@ class UPM_Shortcode_Project_View {
                         </div>
                     </div>
                 </div>
-                <div id="upm-request-modal" class="upm-modal hidden animated">
+                <div id="upm-request-modal" class="upm-modal upm-modal-request hidden animated">
                     <div class="upm-modal-content">
                         <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
                         <h3><?= esc_html__('Solicitar Actualización', 'upm') ?></h3>
@@ -374,7 +374,7 @@ class UPM_Shortcode_Project_View {
                         </div>
                     </div>
                 </div>
-                <div id="upm-brief-modal" class="upm-modal hidden">
+                <div id="upm-brief-modal" class="upm-modal upm-modal-brief hidden">
                   <div class="upm-modal-content upm-brief-content">
                     <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
                     <h2>📋 Project Brief</h2>

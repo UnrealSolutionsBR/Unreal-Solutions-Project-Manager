@@ -207,17 +207,20 @@
     color: var(--upm-text-muted);
 }
 .upm-modal {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     position: fixed;
     inset: 0;
     background-color: rgba(0,0,0,0.5);
+    display: flex;
     z-index: 999;
+}
+
+.upm-modal-brief {
+    align-items: flex-start;
+    justify-content: center;
     overflow-y: auto;
 }
 
-.upm-modal-content {
+.upm-modal-brief .upm-modal-content {
     background: var(--upm-bg-dark);
     padding: 2rem;
     border-radius: 0.75rem;
@@ -225,6 +228,19 @@
     margin: 4rem auto;
     overflow-y: auto;
     max-height: 90vh;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+.upm-modal-request {
+    align-items: center;
+    justify-content: center;
+}
+
+.upm-modal-request .upm-modal-content {
+    background: var(--upm-bg-dark);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
     box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
 
