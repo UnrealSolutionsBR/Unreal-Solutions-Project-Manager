@@ -87,7 +87,7 @@
 }
 .upm-project-description {
     color: var(--upm-text-light);
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 .upm-project-meta {
     font-size: 0.875rem;

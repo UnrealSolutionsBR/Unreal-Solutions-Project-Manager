@@ -172,8 +172,8 @@
 }
 
 .upm-activity-bullet {
-    width: 10px;
-    height: 10px;
+    width: 0.5rem;
+    height: 0.5rem;
     background-color: var(--upm-blue);
     border-radius: 50%;
     margin-top: 6px;
@@ -187,20 +187,24 @@
 
 .upm-activity-title {
     font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: var(--upm-text-white);
     margin: 0;
     padding: 0;
 }
 
 .upm-activity-desc {
-    font-size: 0.9rem;
-    color: var(--upm-text-light);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--upm-text-muted);
     margin: 4px 0;
 }
 
 .upm-activity-date {
     font-size: 0.75rem;
-    color: var(--upm-text-light);
+    line-height: 1rem;
+    color: var(--upm-text-muted);
 }
 .upm-modal {
     display: flex;
