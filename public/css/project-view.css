@@ -203,21 +203,24 @@
     color: var(--upm-text-light);
 }
 .upm-modal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     position: fixed;
     inset: 0;
     background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 999;
+    overflow-y: auto;
 }
 
 .upm-modal-content {
     background: var(--upm-bg-dark);
     padding: 2rem;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
+    border-radius: 0.75rem;
+    max-width: 45rem;
+    margin: 4rem auto;
+    overflow-y: auto;
+    max-height: 90vh;
     box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
 
