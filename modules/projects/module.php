@@ -61,7 +61,13 @@ class UPM_Module_Projects {
             </select>
         </p>
         <p><label><strong>Tipo de proyecto:</strong></label><br>
-            <input type="text" name="upm_project_type" value="<?= esc_attr($project_type) ?>" style="width:100%;" />
+        <select name="upm_project_type" style="width:100%;">
+            <option value="">— Seleccionar tipo —</option>
+            <option value="Desarrollo web" <?= selected($project_type, 'Desarrollo web') ?>>Desarrollo web</option>
+            <option value="Marketing digital" <?= selected($project_type, 'Marketing digital') ?>>Marketing digital</option>
+            <option value="Automatización" <?= selected($project_type, 'Automatización') ?>>Automatización</option>
+            <option value="Edición de video" <?= selected($project_type, 'Edición de video') ?>>Edición de video</option>
+        </select>
         </p>
         <p><label><strong>Descripción breve:</strong></label><br>
             <textarea name="upm_short_description" rows="3" style="width:100%;"><?= esc_textarea($short_description) ?></textarea>

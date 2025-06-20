@@ -25,7 +25,7 @@ class UPM_Shortcode_Project_View {
         }
 
         // Metadatos del proyecto
-        $area = get_post_meta($project_id, '_upm_area', true);
+        $project_type = get_post_meta($project_id, 'upm_project_type', true);
         $status = get_post_meta($project_id, '_upm_status', true);
         $progress = get_post_meta($project_id, '_upm_progress', true);
         $due = get_post_meta($project_id, '_upm_due_date', true);
@@ -147,7 +147,7 @@ class UPM_Shortcode_Project_View {
                     </a>
                         <div>
                         <h2><?= esc_html($project->post_title) ?></h2>
-                        <p><?= esc_html($area) ?></p>
+                        <p><?= esc_html($project_type) ?></p>
                         </div>
                     </div>
                     <span class="project-badge badge-<?= esc_attr($status) ?>">
