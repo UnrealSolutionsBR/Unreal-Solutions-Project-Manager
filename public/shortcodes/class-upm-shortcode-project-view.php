@@ -377,29 +377,29 @@ class UPM_Shortcode_Project_View {
                 <div id="upm-brief-modal" class="upm-modal upm-modal-brief hidden">
                   <div class="upm-modal-content upm-brief-content">
                     <button class="upm-modal-close" aria-label="Cerrar modal">&times;</button>
-                    <h2>📋 Project Brief</h2>
+                    <h2><?= file_get_contents(UPM_PATH . 'public/icons/docs.svg'); ?><?= esc_html__('Brief del proyecto', 'upm') ?></h2>
 
                     <div class="upm-brief-section">
-                      <h3>Project Overview</h3>
-                      <p><strong>Project Name:</strong><br><?= get_the_title($project_id) ?></p>
-                      <p><strong>Service Type:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_project_type', true)) ?></p>
-                      <p><strong>Description:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_short_description', true)) ?></p>
+                      <h3><?= esc_html__('Detalles del proyecto', 'upm') ?></h3>
+                      <p><strong><?= esc_html__('Nombre del proyecto:', 'upm') ?></strong><br><?= get_the_title($project_id) ?></p>
+                      <p><strong><?= esc_html__('Tipo de servicio:', 'upm') ?></strong><br><?= esc_html(get_post_meta($project_id, '_upm_project_type', true)) ?></p>
+                      <p><strong><?= esc_html__('Descripción:', 'upm') ?></strong><br><?= esc_html(get_post_meta($project_id, '_upm_short_description', true)) ?></p>
                     </div>
 
                     <div class="upm-brief-grid">
                       <div class="upm-brief-box">
-                        <h4>📅 Timeline</h4>
-                        <p><strong>Start Date:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_start_date', true)) ?></p>
-                        <p><strong>Due Date:</strong><br><?= esc_html(get_post_meta($project_id, '_upm_due_date', true)) ?></p>
+                        <h4><?= file_get_contents(UPM_PATH . 'public/icons/calendar.svg'); ?><?= esc_html__('Cronograma', 'upm') ?></h4>
+                        <p><strong><?= esc_html__('Fecha de inicio:', 'upm') ?></strong><br><?= esc_html(get_post_meta($project_id, '_upm_start_date', true)) ?></p>
+                        <p><strong><?= esc_html__('Fecha de entrega:', 'upm') ?></strong><br><?= esc_html(get_post_meta($project_id, '_upm_due_date', true)) ?></p>
                       </div>
                       <div class="upm-brief-box">
-                        <h4>💲 Budget</h4>
-                        <p><strong>Total Budget:</strong><br>$<?= number_format((float)get_post_meta($project_id, '_upm_project_amount', true), 0, '.', ',') ?></p>
+                        <h4><?= file_get_contents(UPM_PATH . 'public/icons/dollar.svg'); ?><?= esc_html__('Presupuesto', 'upm') ?></h4>
+                        <p><strong><?= esc_html__('Presupuesto total:', 'upm') ?></strong><br>$<?= number_format((float)get_post_meta($project_id, '_upm_project_amount', true), 0, '.', ',') ?></p>
                       </div>
                     </div>
 
                     <div class="upm-brief-section">
-                      <h3>🎯 Project Objectives</h3>
+                      <h3><?= file_get_contents(UPM_PATH . 'public/icons/target.svg'); ?><?= esc_html__('Objetivos del proyecto', 'upm') ?></h3>
                       <ul>
                         <?php foreach (explode("\n", get_post_meta($project_id, '_upm_objectives', true)) as $item): ?>
                           <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
@@ -408,7 +408,7 @@ class UPM_Shortcode_Project_View {
                     </div>
                         
                     <div class="upm-brief-section">
-                      <h3>🧰 Scope of Work</h3>
+                      <h3><?= file_get_contents(UPM_PATH . 'public/icons/list.svg'); ?><?= esc_html__('Alcance del proyecto', 'upm') ?></h3>
                       <ul>
                         <?php foreach (explode("\n", get_post_meta($project_id, '_upm_scope', true)) as $item): ?>
                           <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
@@ -417,7 +417,7 @@ class UPM_Shortcode_Project_View {
                     </div>
                         
                     <div class="upm-brief-section">
-                      <h3>🛠️ Technical Requirements</h3>
+                      <h3><?= file_get_contents(UPM_PATH . 'public/icons/setting.svg'); ?><?= esc_html__('Requisitos técnicos', 'upm') ?></h3>
                       <ul>
                         <?php foreach (explode("\n", get_post_meta($project_id, '_upm_tech_requirements', true)) as $item): ?>
                           <?php if (trim($item)) echo '<li>' . esc_html(trim($item)) . '</li>'; ?>
